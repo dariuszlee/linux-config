@@ -1,0 +1,14 @@
+* 
+
+!.mutt
+!.mutt/muttrc
+
+!.offlineimaprc
+
+!.vim
+!.vim/plugins.vim
+!.vimrc
+!.zshrc
+
+!Readme.md
+!.gitignore
