@@ -26,8 +26,8 @@ Plugin 'junegunn/fzf'
 Plugin 'itchyny/lightline.vim'
 " Syntax
 Plugin 'w0rp/ale'
+" Color schemes
+Plugin 'morhetz/gruvbox'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
-
-

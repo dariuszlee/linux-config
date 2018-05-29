@@ -1,0 +1,20 @@
+[general] 
+accounts = main
+pythonfile = ~/.offlineimap/offlineimap.py
+
+[Account main] 
+localrepository = main-local 
+remoterepository = main-remote 
+
+[Repository main-local]
+type = Maildir 
+localfolders = ~/mail 
+
+[Repository main-remote]
+type = IMAP 
+ssl=yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+remotehost = outlook.office365.com
+remoteuser = darius.lee@ericsson.com
+remotepasseval = get_pass("darius.lee@ericsson.com")
+folderfilter = lambda folder: folder in [ 'INBOX', 'Sent Items', 'Calendar', 'Conversation History' ]

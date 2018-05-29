@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/dzlyy/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -110,3 +110,9 @@ export GDK_SCALE=2
 # Add go path
 export PATH=$PATH:~/go/bin
 export GOPATH=~/go
+
+# Report ssl keys
+export SSLKEYLOGFILE=~/sslkeylog.log
+
+# Editor setting (obvs)
+export EDITOR=vim

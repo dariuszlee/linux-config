@@ -20,6 +20,10 @@ colorscheme desert
 
 " lightline
 set laststatus=2
+"
+" Color scheme config
+colorscheme gruvbox
+set background=dark " Dark Mode
 
 " fzf
 nnoremap ; :Files<CR>
