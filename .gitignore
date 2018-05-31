@@ -8,7 +8,10 @@
 !.vim
 !.vim/plugins.vim
 !.vimrc
+
 !.zshrc
+
+!.tmux.conf
 
 !Readme.md
 !.gitignore

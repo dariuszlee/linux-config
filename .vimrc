@@ -16,11 +16,10 @@ nnoremap <leader><leader>t :e ~/.vimrc<CR>
 nnoremap <leader><leader>y :e ~/.vim/plugins.vim<CR>
 
 syntax on
-colorscheme desert
 
 " lightline
 set laststatus=2
-"
+
 " Color scheme config
 colorscheme gruvbox
 set background=dark " Dark Mode
