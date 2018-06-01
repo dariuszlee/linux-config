@@ -116,3 +116,6 @@ export SSLKEYLOGFILE=~/sslkeylog.log
 
 # Editor setting (obvs)
 export EDITOR=vim
+
+# Tmux settings
+alias tmux="TERM=screen-256color-bce tmux"

@@ -15,6 +15,13 @@ nnoremap <leader><leader>r :source ~/.vimrc<CR>
 nnoremap <leader><leader>t :e ~/.vimrc<CR>
 nnoremap <leader><leader>y :e ~/.vim/plugins.vim<CR>
 
+" Auto complete
+"" VimCompletesMe
+let b:vcm_tab_complete = "omni"
+set completeopt=longest,menuone
+set omnifunc=csscomplete#CompleteCSS " CSS obvs
+
+" Syntax
 syntax on
 
 " lightline
