@@ -1,0 +1,1 @@
+text/html; w3m -I %{charset} -T test/html; copiousamount
