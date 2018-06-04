@@ -94,18 +94,30 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+function Add-Ssh-Keys()
+{
+	PUBS=$(ls ~/.ssh/*.pub)
+
+	for i in $PUBS; do
+		j=$(echo $i | sed s/\.pub.*//)
+		ssh-add $j
+	done
+}
+
 export SSH_AUTH_SOCK=~/.ssh/ssh-agent.sock
 SSH_AGENT_PID=$(ps -A | grep ssh-agent | awk '{print $1 }')
 if [[ -z "$SSH_AGENT_PID" ]];then
 	rm $SSH_AUTH_SOCK
 	eval `ssh-agent -a $SSH_AUTH_SOCK`
-	ssh-add ~/.ssh/git_rsa
+	Add-Ssh-Keys
 else
 	export SSH_AGENT_PID=$SSH_AGENT_PID
 fi
 
 # Gtk hi-dpi
-export GDK_SCALE=2
+if [[ $(whoami) == "dzlyy" ]];then
+	export GDK_SCALE=2
+fi
 
 # Add go path
 export PATH=$PATH:~/go/bin
