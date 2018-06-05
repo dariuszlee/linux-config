@@ -37,3 +37,6 @@ nnoremap <leader>; :Buffers<CR>
 
 " Term shortcuts
 nnoremap <leader>t :call term_start("zsh", { "vertical":1 })<CR>
+
+" Default browser
+let g:open_url_browser_default = "vivaldi-stable"
