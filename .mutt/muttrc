@@ -1,6 +1,8 @@
+source "gpg -dq $HOME/.mutt/mutt-pass.gpg |"
+
 # Mailboxes
 set mbox_type=Maildir
-set folder=~/mail
+set folder=~/Mail
 set spoolfile=+/
 set header_cache=~/.cache/mutt
 
@@ -22,11 +24,15 @@ set mail_check_stats
 set sort=threads
 
 # Mailbox Config
-mailboxes "=INBOX"
-mailboxes "=Drafts"
-mailboxes "=Sent Items"
-mailboxes "=Conversation History"
-mailboxes "=Outbox"
+mailboxes "=/mail-work/INBOX"
+mailboxes "=/mail-work/Drafts"
+mailboxes "=/mail-work/Sent Items"
+mailboxes "=/mail-work/Conversation History"
+mailboxes "=/mail-work/Outbox"
+
+mailboxes "=/mail-home/Inbox"
+mailboxes "=/mail-home/Drafts"
+mailboxes "=/mail-home/Sent"
 
 bind index,pager \CN sidebar-next
 bind index,pager \CP sidebar-prev
