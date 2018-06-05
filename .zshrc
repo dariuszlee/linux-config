@@ -96,11 +96,15 @@ source $ZSH/oh-my-zsh.sh
 
 function Add-Ssh-Keys()
 {
-	PUBS=$(ls ~/.ssh/*.pub)
+	PUBS=( $(ls ~/.ssh/*.pub) )
 
 	for i in $PUBS; do
-		j=$(echo $i | sed s/\.pub.*//)
-		ssh-add $j
+		j=$(echo $i | sed s/.pub//)
+		if [[ -a $j ]];then
+			ssh-add $j
+		else
+			echo "Key doesn't exist $j"
+		fi
 	done
 }
 
