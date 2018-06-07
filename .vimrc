@@ -34,6 +34,11 @@ set background=dark " Dark Mode
 " fzf
 nnoremap ; :Files<CR>
 nnoremap <leader>; :Buffers<CR>
+nnoremap <leader>l :Tags<CR>
+nnoremap <leader>bl :BTags<CR>
+nnoremap <leader>/ :BLines<CR>
+nnoremap <leader>c :Commit<CR>
+nnoremap <leader>bc :BCommit<CR>
 
 " Term shortcuts
 nnoremap <leader>t :call term_start("zsh", { "vertical":1 })<CR>
