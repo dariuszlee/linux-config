@@ -78,3 +78,18 @@ source ~/.mutt/mutt-colors-neonwolf-256.muttrc
 # source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-16.muttrc 
 # source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc 
 # source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-256.muttrc
+#
+
+set crypt_use_gpgme = yes
+# Automatically sign all out-going email
+set crypt_autosign = yes
+# # Sign replies to signed emails
+# set crypt_replysign = yes
+# # Encrypt replies to encrypted emails
+# set crypt_replyencrypt = yes
+# # Encrypt and sign replies to encrypted and signed email
+# set crypt_replysignencrypted = yes
+# # Attempt to verify signatures automatically
+# set crypt_verify_sig = yes
+# # Use my key for signing and encrypting
+# set pgp_sign_as = 0xEAA4C008

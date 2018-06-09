@@ -45,3 +45,6 @@ nnoremap <leader>t :call term_start("zsh", { "vertical":1 })<CR>
 
 " Default browser
 let g:open_url_browser_default = "vivaldi-stable"
+
+" Source file
+nnoremap <leader>s :source %<CR>
