@@ -37,6 +37,8 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'w0rp/ale'
 " Color schemes
 Plugin 'morhetz/gruvbox'
+" Open url
+Plugin 'dhruvasagar/vim-open-url'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
