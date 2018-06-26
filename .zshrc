@@ -2,12 +2,12 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=~/.oh-my-zsh
+  export ZSH="/home/dzlyy/.oh-my-zsh"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="steeef"
+ZSH_THEME="robbyrussell"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -60,7 +60,6 @@ ZSH_THEME="steeef"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -93,45 +92,3 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-function Add-Ssh-Keys()
-{
-	PUBS=( $(ls ~/.ssh/*.pub) )
-
-	for i in $PUBS; do
-		j=$(echo $i | sed s/.pub//)
-		if [[ -a $j ]];then
-			ssh-add $j
-		else
-			echo "Key doesn't exist $j"
-		fi
-	done
-}
-
-export SSH_AUTH_SOCK=~/.ssh/ssh-agent.sock
-SSH_AGENT_PID=$(ps -A | grep ssh-agent | awk '{print $1 }')
-if [[ -z "$SSH_AGENT_PID" ]];then
-	rm $SSH_AUTH_SOCK
-	eval `ssh-agent -a $SSH_AUTH_SOCK`
-	Add-Ssh-Keys
-else
-	export SSH_AGENT_PID=$SSH_AGENT_PID
-fi
-
-# Gtk hi-dpi
-if [[ $(whoami) == "dzlyy" ]];then
-	export GDK_SCALE=2
-fi
-
-# Add go path
-export PATH=$PATH:~/go/bin
-export GOPATH=~/go
-
-# Report ssl keys
-export SSLKEYLOGFILE=~/sslkeylog.log
-
-# Editor setting (obvs)
-export EDITOR=vim
-
-# Tmux settings
-alias tmux="TERM=screen-256color-bce tmux"
