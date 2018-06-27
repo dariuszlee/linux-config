@@ -1,13 +1,43 @@
+function InstallOhMyZsh()
+{
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+}
+
+if [[ ! -d ~/.oh-my-zsh ]]; then
+	echo "Installing oh-my-zsh"
+	InstallOhMyZsh
+fi
+
+function InstallVundle()
+{
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+}
+
+if [[ ! -d ~/.vim/bundle/Vundle.vim ]]; then
+	echo "Installing vundle"
+	InstallVundle
+fi
+
+function InstallTpm()
+{
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+}
+
+if [[ ! -d ~/.tmux/plugins/tpm ]]; then
+	echo "Installing tpm"
+	InstallTpm
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/dzlyy/.oh-my-zsh"
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="steeef"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -60,6 +90,7 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -92,3 +123,51 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+function Add-Ssh-Keys()
+{
+	PUBS=( $(ls ~/.ssh/*.pub) )
+
+	for i in $PUBS; do
+		j=$(echo $i | sed s/.pub//)
+		if [[ -a $j ]];then
+			ssh-add $j
+		else
+			echo "Key doesn't exist $j"
+		fi
+	done
+}
+
+export SSH_AUTH_SOCK=~/.ssh/ssh-agent.sock
+SSH_AGENT_PID=$(ps -A | grep ssh-agent | awk '{print $1 }')
+if [[ -z "$SSH_AGENT_PID" ]];then
+	rm $SSH_AUTH_SOCK
+	eval `ssh-agent -a $SSH_AUTH_SOCK`
+	Add-Ssh-Keys
+else
+	export SSH_AGENT_PID=$SSH_AGENT_PID
+fi
+
+# Gtk hi-dpi
+if [[ $(whoami) == "dzlyy" ]];then
+	export GDK_SCALE=2
+fi
+
+# Add go path
+export PATH=$PATH:~/go/bin
+export GOPATH=~/go
+
+# Report ssl keys
+export SSLKEYLOGFILE=~/sslkeylog.log
+
+# Editor setting (obvs)
+export EDITOR=vim
+
+# Tmux settings
+alias tmux="TERM=screen-256color-bce tmux"
+
+# Scala settings
+export SCALA_HOME="/usr/local/share/scala"
+export PATH=$PATH:$SCALA_HOME/bin
+
+[[ ! $DISPLAY && $XDG_VTNR -eq 1 && $(id --group) -ne 0 ]] && exec startx
