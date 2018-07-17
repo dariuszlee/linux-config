@@ -40,5 +40,9 @@ Plugin 'morhetz/gruvbox'
 " Open url
 Plugin 'dhruvasagar/vim-open-url'
 
+" Personal Plugins
+Plugin 'dariuszlee/vim-dzl-replace'
+Plugin 'dariuszlee/vim-dzl-gitdiff'
+
 call vundle#end()            " required
 filetype plugin indent on    " required

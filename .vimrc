@@ -39,6 +39,7 @@ nnoremap <leader>bl :BTags<CR>
 nnoremap <leader>/ :BLines<CR>
 nnoremap <leader>c :Commit<CR>
 nnoremap <leader>bc :BCommit<CR>
+nnoremap <leader>w :Windows<CR>
 
 " Term shortcuts
 nnoremap <leader>t :call term_start("zsh", { "vertical":1 })<CR>
