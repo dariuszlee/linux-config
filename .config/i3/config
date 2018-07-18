@@ -176,3 +176,4 @@ bindsym $mod+Shift+x exec xrandr --dpi 220 --output eDP-1 --mode 3200x1800 --out
 
 bindsym $mod+z exec xrandr --output VGA-2 --left-of VGA-1 --mode 1920x1080 --output VGA-1 --mode 1920x1200
 
+bindsym $mod+Shift+z exec xrandr --output VGA-2 --off --output VGA-1 --mode 1366x768
