@@ -1,33 +1,3 @@
-function InstallOhMyZsh()
-{
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-}
-
-if [[ ! -d ~/.oh-my-zsh ]]; then
-	echo "Installing oh-my-zsh"
-	InstallOhMyZsh
-fi
-
-function InstallVundle()
-{
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-}
-
-if [[ ! -d ~/.vim/bundle/Vundle.vim ]]; then
-	echo "Installing vundle"
-	InstallVundle
-fi
-
-function InstallTpm()
-{
-	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-}
-
-if [[ ! -d ~/.tmux/plugins/tpm ]]; then
-	echo "Installing tpm"
-	InstallTpm
-fi
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -124,6 +94,37 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+function InstallOhMyZsh()
+{
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+}
+
+if [[ ! -d ~/.oh-my-zsh ]]; then
+	echo "Installing oh-my-zsh"
+	InstallOhMyZsh
+fi
+
+function InstallVundle()
+{
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+}
+
+if [[ ! -d ~/.vim/bundle/Vundle.vim ]]; then
+	echo "Installing vundle"
+	InstallVundle
+fi
+
+function InstallTpm()
+{
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+}
+
+if [[ ! -d ~/.tmux/plugins/tpm ]]; then
+	echo "Installing tpm"
+	InstallTpm
+fi
+
+
 function Add-Ssh-Keys()
 {
 	PUBS=( $(ls ~/.ssh/*.pub) )
@@ -148,11 +149,6 @@ else
 	export SSH_AGENT_PID=$SSH_AGENT_PID
 fi
 
-# Gtk hi-dpi
-if [[ $(whoami) == "dzlyy" ]];then
-	export GDK_SCALE=2
-fi
-
 # Add go path
 export PATH=$PATH:~/go/bin
 export GOPATH=~/go
@@ -167,7 +163,12 @@ export EDITOR=vim
 alias tmux="TERM=screen-256color-bce tmux"
 
 # Scala settings
-export SCALA_HOME="/usr/local/share/scala"
-export PATH=$PATH:$SCALA_HOME/bin
+if [[ -d "/usr/local/share/scala" ]];then
+	export SCALA_HOME="/usr/local/share/scala"
+	export PATH=$PATH:$SCALA_HOME/bin
+fi
 
-[[ ! $DISPLAY && $XDG_VTNR -eq 1 && $(id --group) -ne 0 ]] && exec startx
+if [[ $(whoami) == 'dzlyy' ]]; then
+	export GDK_SCALE=2
+	[[ ! $DISPLAY && $XDG_VTNR -eq 1 && $(id --group) -ne 0 ]] && exec startx
+fi
