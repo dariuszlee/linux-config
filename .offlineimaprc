@@ -17,7 +17,7 @@ sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 remotehost = outlook.office365.com
 remoteuser = darius.lee@ericsson.com
 remotepasseval = get_pass("darius.lee@ericsson.com")
-folderfilter = lambda folder: folder in [ 'INBOX', 'Sent Items', 'Calendar', 'Conversation History' ]
+folderfilter = lambda folder: folder in [ 'INBOX', 'Sent Items', 'Conversation History' ]
 
 [Account home] 
 localrepository = home-local 
