@@ -162,11 +162,25 @@ export EDITOR=vim
 # Tmux settings
 alias tmux="TERM=screen-256color-bce tmux"
 
+# Hadoop settings
+export HADOOP_HOME="/usr/local/share/hadoop"
+export PATH=$PATH:$HADOOP_HOME/bin
+
 # Scala settings
 if [[ -d "/usr/local/share/scala" ]];then
 	export SCALA_HOME="/usr/local/share/scala"
 	export PATH=$PATH:$SCALA_HOME/bin
 fi
+
+# Java settings
+export JAVA_HOME="/usr"
+export PATH=$PATH:$JAVA_HOME/bin
+
+# FZF Settings
+export FZF_DEFAULT_COMMAND='
+  (git ls-tree -r --name-only HEAD ||
+	     find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
+		       sed s/^..//) 2> /dev/null'
 
 if [[ $(whoami) == 'dzlyy' ]]; then
 	export GDK_SCALE=2

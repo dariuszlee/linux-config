@@ -32,6 +32,7 @@ colorscheme gruvbox
 set background=dark " Dark Mode
 
 " fzf
+" let $FZF_DEFAULT_COMMAND='git ls-tree -r --name-only HEAD'
 nnoremap ; :Files<CR>
 nnoremap <leader>; :Buffers<CR>
 nnoremap <leader>l :Tags<CR>

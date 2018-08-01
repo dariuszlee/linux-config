@@ -50,3 +50,4 @@ fi
 
 twm &
 exec i3
+exec xrandr --dpi 220 --output eDP-1 --mode 3200x1800 --output DP-1 --off
