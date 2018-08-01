@@ -31,6 +31,9 @@ Plugin 'mattn/emmet-vim'
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/fzf'
 
+" Ctags/Tag relavant stuff
+Plugin 'majutsushi/tagbar'
+
 " Lightline
 Plugin 'itchyny/lightline.vim'
 " Syntax
