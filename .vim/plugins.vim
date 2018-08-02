@@ -43,6 +43,12 @@ Plugin 'morhetz/gruvbox'
 " Open url
 Plugin 'dhruvasagar/vim-open-url'
 
+" Javascript
+Plugin 'pangloss/vim-javascript'
+Plugin 'leshill/vim-json'
+Plugin 'mxw/vim-jsx'
+Plugin '1995eaton/vim-better-javascript-completion'
+
 " Personal Plugins
 Plugin 'dariuszlee/vim-dzl-replace'
 Plugin 'dariuszlee/vim-dzl-gitdiff'
