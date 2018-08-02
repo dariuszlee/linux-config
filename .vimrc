@@ -45,6 +45,8 @@ nnoremap <leader>w :Windows<CR>
 " Term shortcuts
 nnoremap <leader>t :call term_start("zsh", { "vertical":1 })<CR>
 
+" Tab Bar shortcut
+nnoremap <leader>t :TagbarToggle<CR>
 " Default browser
 let g:open_url_browser_default = "vivaldi-stable"
 
