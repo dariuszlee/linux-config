@@ -1,5 +1,6 @@
 source ~/.vim/plugins.vim
 
+set encoding=utf-8
 " Spacing
 set tabstop=4
 set shiftwidth=4
@@ -8,6 +9,14 @@ set softtabstop=0 noexpandtab
 " Line numbering
 set number
 set numberwidth=1
+
+" Etc configs
+set number          " Show line numbers                   
+set wildmenu        " Show auto complete suggestions  
+set showmatch       " Show surrounding match          
+                                                      
+set incsearch       " search as characters entered    
+set hlsearch        " Highligh search matches         
 
 " Config
 let mapleader = ","

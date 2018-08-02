@@ -14,6 +14,9 @@ Plugin 'davidhalter/jedi-vim'
 
 " Complete Engine
 Plugin 'ajh17/VimCompletesMe'
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'roxma/nvim-yarp'
+Plugin 'roxma/vim-hug-neovim-rpc'
 
 " Git
 Plugin 'tpope/vim-fugitive'
@@ -55,3 +58,4 @@ Plugin 'dariuszlee/vim-dzl-gitdiff'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
+let g:deoplete#enable_at_startup = 1
