@@ -43,7 +43,8 @@ nnoremap <leader>bc :BCommit<CR>
 nnoremap <leader>w :Windows<CR>
 
 " Term shortcuts
-nnoremap <leader>t :call term_start("zsh", { "vertical":1 })<CR>
+nnoremap <leader>v :call term_start("zsh", { "vertical":1 })<CR>
+nnoremap <leader>b :call term_start("zsh")<CR>
 
 " Tab Bar shortcut
 nnoremap <leader>t :TagbarToggle<CR>
