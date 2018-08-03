@@ -50,6 +50,8 @@ nnoremap <leader>/ :BLines<CR>
 nnoremap <leader>c :Commit<CR>
 nnoremap <leader>bc :BCommit<CR>
 nnoremap <leader>w :Windows<CR>
+nnoremap <Leader>r :Rg <c-r>=expand("<cword>")<CR><CR>
+command! -nargs=1 Rg call fzf#vim#grep('rg --column --line-number --color=always --smart-case '.<q-args>, 1)
 
 " Term shortcuts
 nnoremap <leader>v :call term_start("zsh", { "vertical":1 })<CR>
