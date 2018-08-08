@@ -42,6 +42,7 @@ set background=dark " Dark Mode
 
 " fzf
 " let $FZF_DEFAULT_COMMAND='git ls-tree -r --name-only HEAD'
+call CheckIfGit()
 nnoremap ; :Files<CR>
 nnoremap <leader>; :Buffers<CR>
 nnoremap <leader>l :Tags<CR>
@@ -64,3 +65,41 @@ let g:open_url_browser_default = "vivaldi-stable"
 
 " Source file
 nnoremap <leader>s :source %<CR>
+
+function! CheckIfGit()
+	:new
+	:0r! git rev-parse --git-dir
+	if v:shell_error != 0
+		echom "Not a git repo"
+		let $FZF_DEFAULT_COMMAND='find . -path "*/\.*" -prune -o -type f -print -o -type l -print | sed s/^..// 2> /dev/null'
+	else
+		let s:cmdOut = getline(0,1)
+		let s:isThisDir = matchstr(s:cmdOut[0], '^.git$')
+		let s:isHomeDir = matchstr(s:cmdOut[0], '/home/\a\+/.git$')
+		echo s:isHomeDir
+		echo len(s:isHomeDir)
+		echo len(s:isThisDir)
+
+		if len(s:isHomeDir) != 0
+			let $FZF_DEFAULT_COMMAND='find . -path "*/\.*" -prune -o -type f -print -o -type l -print | sed s/^..// 2> /dev/null'
+			echom "Home directory repo"
+		elseif len(s:isThisDir) != 0
+			echom "We are at the root of the repo: ".getcwd()
+		else
+			echom "We are in a git repo who's root is ".s:cmdOut[0]
+		endif
+	endif
+	:q!
+endfunction
+
+function! SetFzfDefault()
+	let l:isGit = CheckIfGit()
+	if l:isGit == 0
+		let $FZF_DEFAULT_COMMAND='find . -path "*/\.*" -prune -o -type f -print -o -type l -print | sed s/^..// 2> /dev/null'
+	elseif == 1 " If is in home directory but not the root
+		let $FZF_DEFAULT_COMMAND='git ls-tree -r --name-only HEAD'
+	elseif == 2
+		let $FZF_DEFAULT_COMMAND='git ls-tree -r --name-only HEAD'
+	else
+		echom "Case not handled at the moment. Read CheckIfGit()"
+endfunction

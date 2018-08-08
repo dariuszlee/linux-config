@@ -35,6 +35,8 @@ mailboxes "=/mail-home/Inbox"
 mailboxes "=/mail-home/Drafts"
 mailboxes "=/mail-home/Sent"
 
+mailboxes "=/TODO"
+
 bind index,pager \CN sidebar-next
 bind index,pager \CP sidebar-prev
 bind index,pager \CO sidebar-open
