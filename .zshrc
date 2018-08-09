@@ -177,12 +177,11 @@ export JAVA_HOME="/usr"
 export PATH=$PATH:$JAVA_HOME/bin
 
 # FZF Settings
-export FZF_DEFAULT_COMMAND='
-  (git ls-tree -r --name-only HEAD ||
-	     find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
-		       sed s/^..//) 2> /dev/null'
+export FZF_DEFAULT_COMMAND='(git ls-tree -r --name-only HEAD || find . -path "*/\.*" -prune -o -type f -print -o -type l -print | sed s/^..//) 2> /dev/null'
 
 if [[ $(whoami) == 'dzlyy' ]]; then
 	export GDK_SCALE=2
-	[[ ! $DISPLAY && $XDG_VTNR -eq 1 && $(id --group) -ne 0 ]] && exec startx
+	[[ -n $DISPLAY && $XDG_VTNR -eq 1 && $(id --group) -ne 0 ]] && exec startx
+elif [[ $(whoami) == 'ezleeda' ]]; then
+	source ~/.zshrc-ezleeda
 fi
