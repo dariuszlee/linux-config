@@ -38,11 +38,12 @@ set laststatus=2
 
 " Color scheme config
 colorscheme gruvbox
+let g:gruvbox_termcolors = '256'
+let g:gruvbox_contrast_dark = 'hard'
 set background=dark " Dark Mode
 
 " fzf
 " let $FZF_DEFAULT_COMMAND='git ls-tree -r --name-only HEAD'
-call CheckIfGit()
 nnoremap ; :Files<CR>
 nnoremap <leader>; :Buffers<CR>
 nnoremap <leader>l :Tags<CR>
@@ -67,11 +68,10 @@ let g:open_url_browser_default = "vivaldi-stable"
 nnoremap <leader>s :source %<CR>
 
 function! CheckIfGit()
-	:new
 	:0r! git rev-parse --git-dir
 	if v:shell_error != 0
 		echom "Not a git repo"
-		let $FZF_DEFAULT_COMMAND='find . -path "*/\.*" -prune -o -type f -print -o -type l -print | sed s/^..// 2> /dev/null'
+		return 0
 	else
 		let s:cmdOut = getline(0,1)
 		let s:isThisDir = matchstr(s:cmdOut[0], '^.git$')
@@ -81,25 +81,30 @@ function! CheckIfGit()
 		echo len(s:isThisDir)
 
 		if len(s:isHomeDir) != 0
-			let $FZF_DEFAULT_COMMAND='find . -path "*/\.*" -prune -o -type f -print -o -type l -print | sed s/^..// 2> /dev/null'
 			echom "Home directory repo"
+			return 1
 		elseif len(s:isThisDir) != 0
 			echom "We are at the root of the repo: ".getcwd()
+			return 2
 		else
 			echom "We are in a git repo who's root is ".s:cmdOut[0]
+			return 2
 		endif
 	endif
-	:q!
 endfunction
 
 function! SetFzfDefault()
+	:new
 	let l:isGit = CheckIfGit()
-	if l:isGit == 0
-		let $FZF_DEFAULT_COMMAND='find . -path "*/\.*" -prune -o -type f -print -o -type l -print | sed s/^..// 2> /dev/null'
-	elseif == 1 " If is in home directory but not the root
-		let $FZF_DEFAULT_COMMAND='git ls-tree -r --name-only HEAD'
-	elseif == 2
-		let $FZF_DEFAULT_COMMAND='git ls-tree -r --name-only HEAD'
+	:q!
+	if l:isGit == 0 || l:isGit == 1
+		let $FZF_DEFAULT_COMMAND = 'find . -path "*/\.*" -prune -o -type f -print -o -type l -print | sed s/^..//'
+	elseif l:isGit == 2
+		let $FZF_DEFAULT_COMMAND = 'git ls-tree -r --name-only HEAD'
 	else
 		echom "Case not handled at the moment. Read CheckIfGit()"
+	endif
 endfunction
+
+" SET FZF 
+silent call SetFzfDefault()
