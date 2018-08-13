@@ -108,3 +108,15 @@ endfunction
 
 " SET FZF 
 silent call SetFzfDefault()
+
+function! LoadSpecificFunctions()
+	:new
+	:0r! whoami
+	let l:whoAmI = getline(0,1)[0]
+	if l:whoAmI == "ezleeda"
+		source "~/.vim/ericsson.vim"
+	endif
+	:q!
+endfunction
+
+call LoadSpecificFunctions()

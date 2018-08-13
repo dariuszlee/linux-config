@@ -13,6 +13,7 @@
 
 !.vim
 !.vim/plugins.vim
+!.vim/ericsson.vim
 !.vimrc
 
 !.zshrc
