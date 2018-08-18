@@ -38,6 +38,10 @@ syntax on
 " lightline
 set laststatus=2
 
+" Turn on diff
+nnoremap <leader>d :windo diffthis<CR>
+nnoremap <leader>e :windo diffoff<CR>
+
 " Color scheme config
 colorscheme gruvbox
 let g:gruvbox_termcolors = '256'
@@ -122,3 +126,13 @@ function! LoadSpecificFunctions()
 endfunction
 
 call LoadSpecificFunctions()
+
+command! UnMinify call UnMinify()
+function! UnMinify()
+	%s/{\ze[^\r\n]/{\r/g
+	%s/){/) {/g
+	%s/};\?\ze[^\r\n]/\0\r/g
+	%s/;\ze[^\r\n]/;\r/g
+	%s/[^\s]\zs[=&|]\+\ze[^\s]/ \0 /g
+	normal ggVG=
+endfunction

@@ -184,7 +184,7 @@ fi
 
 if [[ $(whoami) == 'dzlyy' ]]; then
 	export GDK_SCALE=2
-	[[ -n $DISPLAY && $XDG_VTNR -eq 1 && $(id --group) -ne 0 ]] && exec startx
+	[[ ! $DISPLAY && $XDG_VTNR -eq 1 && $(id --group) -ne 0 ]] && exec startx
 elif [[ $(whoami) == 'ezleeda' ]]; then
 	source ~/.zshrc-ezleeda
 fi
