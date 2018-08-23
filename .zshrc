@@ -177,7 +177,10 @@ export JAVA_HOME="/usr"
 export PATH=$PATH:$JAVA_HOME/bin
 
 # FZF Settings
-export FZF_DEFAULT_COMMAND='(git ls-tree -r --name-only HEAD || find . -path "*/\.*" -prune -o -type f -print -o -type l -print | sed s/^..//) 2> /dev/null'
+export FZF_DEFAULT_COMMAND='find . -path "*/\.*" -prune -o -type f -print -o -type l -print | sed s/^..//'
+if [[ -d ~/.vim/bundle/fzf/bin ]]; then
+	export PATH=~/.vim/bundle/fzf/bin:$PATH:
+fi
 
 if [[ $(whoami) == 'dzlyy' ]]; then
 	export GDK_SCALE=2
@@ -185,3 +188,5 @@ if [[ $(whoami) == 'dzlyy' ]]; then
 elif [[ $(whoami) == 'ezleeda' ]]; then
 	source ~/.zshrc-ezleeda
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

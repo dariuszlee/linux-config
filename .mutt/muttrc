@@ -11,7 +11,7 @@ set use_from = yes
 set smtp_pass = `pass Mail/darius.lee@ericsson.com`
 set smtp_url = "smtp://darius.lee@ericsson.com@smtp.office365.com"
 set ssl_starttls = yes
-fcc-hook ericsson\\.com$ "$folder/Sent Items"
+fcc-hook ericsson\\.com$ "$folder/mail-work/Sent Items"
 set postponed = +/Drafts
 
 # Aesthetic

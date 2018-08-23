@@ -37,6 +37,9 @@ Plugin 'junegunn/fzf'
 " Ctags/Tag relavant stuff
 Plugin 'majutsushi/tagbar'
 
+" File formatting
+Plugin 'maksimr/vim-jsbeautify'
+
 " Lightline
 Plugin 'itchyny/lightline.vim'
 " Syntax

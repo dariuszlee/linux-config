@@ -1,10 +1,12 @@
 source ~/.vim/plugins.vim
 
 set encoding=utf-8
+
 " Spacing
+filetype plugin indent on
 set tabstop=4
 set shiftwidth=4
-set softtabstop=0 noexpandtab
+set expandtab
 
 " Line numbering
 set number
