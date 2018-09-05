@@ -10,7 +10,8 @@ Plugin 'VundleVim/Vundle.vim'
 "" GO
 Plugin 'fatih/vim-go'
 "" Python
-Plugin 'davidhalter/jedi-vim'
+Plugin 'python-mode/python-mode'
+" Plugin 'davidhalter/jedi-vim'
 
 " Complete Engine
 Plugin 'ajh17/VimCompletesMe'
