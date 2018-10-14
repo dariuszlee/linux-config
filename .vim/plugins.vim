@@ -44,7 +44,7 @@ Plugin 'maksimr/vim-jsbeautify'
 " Lightline
 Plugin 'itchyny/lightline.vim'
 " Syntax
-Plugin 'w0rp/ale'
+" Plugin 'w0rp/ale'
 " Color schemes
 Plugin 'morhetz/gruvbox'
 " Open url
@@ -55,9 +55,6 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'leshill/vim-json'
 Plugin 'mxw/vim-jsx'
 Plugin '1995eaton/vim-better-javascript-completion'
-
-" Web format
-Plugin 'maksimr/vim-jsbeautify'
 
 " Personal Plugins
 Plugin 'dariuszlee/vim-dzl-replace'
