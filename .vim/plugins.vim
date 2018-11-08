@@ -19,6 +19,12 @@ Plugin 'Shougo/deoplete.nvim'
 Plugin 'roxma/nvim-yarp'
 Plugin 'roxma/vim-hug-neovim-rpc'
 
+" Snippets
+Plugin 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
+
 " Git
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'

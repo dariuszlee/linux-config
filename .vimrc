@@ -32,11 +32,23 @@ let b:vcm_tab_complete = "omni"
 set completeopt=longest,menuone
 set omnifunc=csscomplete#CompleteCSS " CSS obvs
 
+" Snippets
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<C-d>"
+
 " Syntax
 syntax on
 
+" Pymode
+let g:pymode_python = 'python3'
+filetype plugin on
+filetype indent on
+
 " lightline
 set laststatus=2
+
+" Fugitive
+nnoremap <leader><leader>g :Gstatus<CR>
 
 " Turn on diff
 nnoremap <leader>d :windo diffthis<CR>
@@ -64,6 +76,7 @@ command! -nargs=1 Rg call fzf#vim#grep('rg --column --line-number --color=always
 " Term shortcuts
 nnoremap <leader>v :call term_start("zsh", { "vertical":1 })<CR>
 nnoremap <leader>b :call term_start("zsh")<CR>
+" tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 
 " Tab Bar shortcut
 nnoremap <leader>t :TagbarToggle<CR>
