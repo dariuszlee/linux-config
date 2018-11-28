@@ -187,6 +187,18 @@ if [[ $(whoami) == 'dzlyy' ]]; then
 	[[ ! $DISPLAY && $XDG_VTNR -eq 1 && $(id --group) -ne 0 ]] && exec startx
 elif [[ $(whoami) == 'ezleeda' ]]; then
 	source ~/.zshrc-ezleeda
+elif [[ $(whoami) == 'dariuslee' ]]; then
+    # Motionlogic specific
+    export HADOOP_CONF_DIR="/home/dariuslee/hadoop_conf/"
+
+    export HADOOP_PREFIX=/usr/local/hadoop
+    export SPARK_HOME="$HOME/spark/spark"
+    export PATH=$SPARK_HOME/bin:$PATH
+    export PATH=$HOME/idea/bin:$PATH
+    export MOTIONLOGIC_HOME="/home/dariuslee/motionlogic/"
+    export PYTHONPATH="$MOTIONLOGIC_HOME/commons/src"
+    export commons_HOME="$MOTIONLOGIC_HOME/commons"
 fi
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

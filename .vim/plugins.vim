@@ -33,6 +33,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'jiangmiao/auto-pairs'
 
 " html/css
 Plugin 'mattn/emmet-vim'
@@ -61,6 +62,10 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'leshill/vim-json'
 Plugin 'mxw/vim-jsx'
 Plugin '1995eaton/vim-better-javascript-completion'
+
+" Project Vimrc
+Plugin 'LucHermitte/lh-vim-lib'
+Plugin 'LucHermitte/local_vimrc'
 
 " Personal Plugins
 Plugin 'dariuszlee/vim-dzl-replace'
