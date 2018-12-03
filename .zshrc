@@ -125,30 +125,6 @@ if [[ ! -d ~/.tmux/plugins/tpm ]]; then
 fi
 
 
-function Add-Ssh-Keys()
-{
-	PUBS=( $(ls ~/.ssh/*.pub) )
-
-	for i in $PUBS; do
-		j=$(echo $i | sed s/.pub//)
-		if [[ -a $j ]];then
-			ssh-add $j
-		else
-			echo "Key doesn't exist $j"
-		fi
-	done
-}
-
-export SSH_AUTH_SOCK=~/.ssh/ssh-agent.sock
-SSH_AGENT_PID=$(ps -A | grep ssh-agent | awk '{print $1 }')
-if [[ -z "$SSH_AGENT_PID" ]];then
-	rm $SSH_AUTH_SOCK
-	eval `ssh-agent -a $SSH_AUTH_SOCK`
-	Add-Ssh-Keys
-else
-	export SSH_AGENT_PID=$SSH_AGENT_PID
-fi
-
 # Add go path
 export PATH=$PATH:~/go/bin
 export GOPATH=~/go
@@ -198,6 +174,35 @@ elif [[ $(whoami) == 'dariuslee' ]]; then
     export MOTIONLOGIC_HOME="/home/dariuslee/motionlogic/"
     export PYTHONPATH="$MOTIONLOGIC_HOME/commons/src"
     export commons_HOME="$MOTIONLOGIC_HOME/commons"
+    
+    AGENT_PID=$(ps -A | grep ssh-agent | awk '{print $1 }')
+    if [[ ! -z $AGENT_PID && -z $SSH_AUTH_SOCK ]]; then
+        echo $AGENT_PID
+        kill $AGENT_PID
+    fi
+fi
+
+function Add-Ssh-Keys() { 
+    echo "Adding ssh keys...."
+    PUBS=( $(ls ~/.ssh/*.pub) ) 
+	for i in $PUBS; do
+		j=$(echo $i | sed s/.pub//)
+		if [[ -a $j ]];then
+			ssh-add $j
+		else
+			echo "Key doesn't exist $j"
+		fi
+	done
+}
+
+export SSH_AUTH_SOCK=~/.ssh/ssh-agent.sock
+SSH_AGENT_PID=$(ps -A | grep ssh-agent | awk '{print $1 }')
+if [[ -z "$SSH_AGENT_PID" ]];then
+	rm $SSH_AUTH_SOCK
+	eval `ssh-agent -a $SSH_AUTH_SOCK`
+	Add-Ssh-Keys
+else
+	export SSH_AGENT_PID=$SSH_AGENT_PID
 fi
 
 
