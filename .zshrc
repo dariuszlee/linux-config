@@ -174,12 +174,6 @@ elif [[ $(whoami) == 'dariuslee' ]]; then
     export MOTIONLOGIC_HOME="/home/dariuslee/motionlogic/"
     export PYTHONPATH="$MOTIONLOGIC_HOME/commons/src"
     export commons_HOME="$MOTIONLOGIC_HOME/commons"
-    
-    AGENT_PID=$(ps -A | grep ssh-agent | awk '{print $1 }')
-    if [[ ! -z $AGENT_PID && -z $SSH_AUTH_SOCK ]]; then
-        echo $AGENT_PID
-        kill $AGENT_PID
-    fi
 fi
 
 function Add-Ssh-Keys() { 
@@ -195,15 +189,25 @@ function Add-Ssh-Keys() {
 	done
 }
 
-export SSH_AUTH_SOCK=~/.ssh/ssh-agent.sock
-SSH_AGENT_PID=$(ps -A | grep ssh-agent | awk '{print $1 }')
-if [[ -z "$SSH_AGENT_PID" ]];then
-	rm $SSH_AUTH_SOCK
-	eval `ssh-agent -a $SSH_AUTH_SOCK`
-	Add-Ssh-Keys
-else
-	export SSH_AGENT_PID=$SSH_AGENT_PID
-fi
+function StartSshAgent() {
+    export SSH_AUTH_SOCK=~/.ssh/ssh-agent.sock
+    rm $SSH_AUTH_SOCK
+    eval `ssh-agent -a $SSH_AUTH_SOCK`
+    Add-Ssh-Keys
+    export SSH_AGENT_PID=$SSH_AGENT_PID
+}
+
+function CheckSshAgent()
+{
+    ssh-add -l > /dev/null 2>&1
+    if [[ $? == 2 ]]; then
+        AGENT_PID=$(ps -A | grep ssh-agent | awk '{print $1 }')
+        echo $AGENT_PID
+        killall ssh-agent
+        StartSshAgent
+    fi
+}
+CheckSshAgent
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
