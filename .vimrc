@@ -74,8 +74,18 @@ nnoremap <Leader>a :Rg <c-r>=expand("<cword>")<CR><CR>
 command! -nargs=1 Rg call fzf#vim#grep('rg --column --line-number --color=always --smart-case '.<q-args>, 1)
 
 " Term shortcuts
+function! Toggle_line_nums()
+    let l:isNumOn = trim(execute("set number?"))
+    if l:isNumOn == "number"
+        execute("set nonumber")
+    else
+        execute("set number")
+    endif
+endfunction
+
 nnoremap <leader>v :call term_start("zsh", { "vertical":1 })<CR>
 nnoremap <leader>b :call term_start("zsh")<CR>
+nnoremap <leader><leader>v :call Toggle_line_nums()<CR>
 " tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 
 " Tab Bar shortcut
