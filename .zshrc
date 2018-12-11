@@ -161,6 +161,9 @@ fi
 if [[ $(whoami) == 'dzlyy' ]]; then
 	export GDK_SCALE=2
 	[[ ! $DISPLAY && $XDG_VTNR -eq 1 && $(id --group) -ne 0 ]] && exec startx
+    
+    export SPARK_HOME="$HOME/spark-1.6.3-bin-hadoop2.6"
+    export PATH=$SPARK_HOME:$PATH
 elif [[ $(whoami) == 'ezleeda' ]]; then
 	source ~/.zshrc-ezleeda
 elif [[ $(whoami) == 'dariuslee' ]]; then
