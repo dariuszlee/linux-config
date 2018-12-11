@@ -193,7 +193,6 @@ function StartSshAgent() {
     export SSH_AUTH_SOCK=~/.ssh/ssh-agent.sock
     rm $SSH_AUTH_SOCK
     eval `ssh-agent -a $SSH_AUTH_SOCK`
-    Add-Ssh-Keys
     export SSH_AGENT_PID=$SSH_AGENT_PID
 }
 
@@ -208,6 +207,21 @@ function CheckSshAgent()
     fi
 }
 CheckSshAgent
+
+function CheckSshKeys(){
+    SshAddCount=$(ssh-add -l)
+    if [[ $SshAddCount == "The agent has no identities." ]]; then
+        echo "No identities"
+        SshAddCount=0
+    fi
+    LsCount=$(($(ls ~/.ssh/*.pub | wc | awk '{print $1}') + 0))
+    echo $LsCount " and " $SshAddCount
+    if [[ $LsCount != $SshAddCount ]]; then
+        echo "Not equal"
+        Add-Ssh-Keys
+    fi
+}
+CheckSshKeys
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

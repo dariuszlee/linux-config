@@ -20,6 +20,9 @@ set showmatch       " Show surrounding match
 set incsearch       " search as characters entered    
 set hlsearch        " Highligh search matches         
 
+" Snippets
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/dar-snippets', "UltiSnips"]
+
 " Config
 let mapleader = ","
 nnoremap <leader><leader>r :source ~/.vimrc<CR>
