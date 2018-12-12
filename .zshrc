@@ -167,6 +167,8 @@ if [[ $(whoami) == 'dzlyy' ]]; then
 elif [[ $(whoami) == 'ezleeda' ]]; then
 	source ~/.zsh/.zshrc-ezleeda
 elif [[ $(whoami) == 'dariuslee' ]]; then
+    source ~/.zsh/.zshrc-motionlogic
+
     # Motionlogic specific
     export HADOOP_CONF_DIR="/home/dariuslee/hadoop_conf/"
 

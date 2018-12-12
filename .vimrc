@@ -23,6 +23,10 @@ set hlsearch        " Highligh search matches
 " Snippets
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/dar-snippets', "UltiSnips"]
 
+" URL Encode/decode selection
+vnoremap <leader>en :!python -c 'import sys,urllib;print urllib.quote(sys.stdin.read().strip())'<cr>
+vnoremap <leader>de :!python -c 'import sys,urllib;print urllib.unquote(sys.stdin.read().strip())'<cr>
+
 " Config
 let mapleader = ","
 nnoremap <leader><leader>r :source ~/.vimrc<CR>
