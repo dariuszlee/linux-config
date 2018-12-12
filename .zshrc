@@ -165,7 +165,7 @@ if [[ $(whoami) == 'dzlyy' ]]; then
     export SPARK_HOME="$HOME/spark-1.6.3-bin-hadoop2.6"
     export PATH=$SPARK_HOME:$PATH
 elif [[ $(whoami) == 'ezleeda' ]]; then
-	source ~/.zshrc-ezleeda
+	source ~/.zsh/.zshrc-ezleeda
 elif [[ $(whoami) == 'dariuslee' ]]; then
     # Motionlogic specific
     export HADOOP_CONF_DIR="/home/dariuslee/hadoop_conf/"
@@ -214,13 +214,12 @@ CheckSshAgent
 function CheckSshKeys(){
     SshAddCount=$(ssh-add -l)
     if [[ $SshAddCount == "The agent has no identities." ]]; then
-        echo "No identities"
         SshAddCount=0
+    else
+        SshAddCount=$(ssh-add -l | wc | awk '{print $1}')
     fi
     LsCount=$(($(ls ~/.ssh/*.pub | wc | awk '{print $1}') + 0))
-    echo $LsCount " and " $SshAddCount
     if [[ $LsCount != $SshAddCount ]]; then
-        echo "Not equal"
         Add-Ssh-Keys
     fi
 }
