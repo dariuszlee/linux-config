@@ -227,5 +227,10 @@ function CheckSshKeys(){
 }
 CheckSshKeys
 
+# Check if our global gitignore file is installed
+git config --global core.excludesfile > /dev/null 2>&1
+if [[ $? == 1 ]]; then
+    git config --global core.excludesfile ~/.gitignore_global
+fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

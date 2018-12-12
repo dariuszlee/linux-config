@@ -24,6 +24,7 @@
 
 !Readme.md
 !.gitignore
+!.gitignore_global
 
 !.config
 !.config/termite
