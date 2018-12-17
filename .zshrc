@@ -198,21 +198,21 @@ function StartSshAgent() {
     export SSH_AUTH_SOCK=~/.ssh/ssh-agent.sock
     rm $SSH_AUTH_SOCK
     eval `ssh-agent -a $SSH_AUTH_SOCK`
-    export SSH_AGENT_PID=$SSH_AGENT_PID
 }
 
-function CheckSshAgent()
-{
-    ssh-add -l > /dev/null 2>&1
-    if [[ $? == 2 ]]; then
-        AGENT_PID=$(ps -A | grep ssh-agent | awk '{print $1 }')
-        echo $AGENT_PID
-        killall ssh-agent
-        StartSshAgent
-    fi
-}
-CheckSshAgent
+# function CheckSshAgent()
+# {
+#     ssh-add -l > /dev/null 2>&1
+#     if [[ $? == 2 ]]; then
+#         AGENT_PID=$(ps -A | grep ssh-agent | awk '{print $1 }')
+#         killall ssh-agent
+#         StartSshAgent
+#     fi
+# }
+# CheckSshAgent
 
+
+export SSH_AUTH_SOCK=~/.ssh/ssh-agent.sock
 function CheckSshKeys(){
     SshAddCount=$(ssh-add -l)
     if [[ $SshAddCount == "The agent has no identities." ]]; then

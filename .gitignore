@@ -16,6 +16,7 @@
 !.vim/ericsson.vim
 !.vimrc
 
+!.pam_environment
 !.zshrc
 !.zsh
 !.fzf.zsh
@@ -27,6 +28,9 @@
 !.gitignore_global
 
 !.config
+!.config/systemd/
+!.config/systemd/user/
+!.config/systemd/user/ssh-agent.service
 !.config/termite
 !.config/termite/config
 !.config/i3
