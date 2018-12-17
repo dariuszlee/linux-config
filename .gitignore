@@ -16,6 +16,8 @@
 !.vim/ericsson.vim
 !.vimrc
 !._vimrc_local.vim
+!.vim/dar-snippets
+!.vim/dar-snippets/*.snippets
 
 !.pam_environment
 !.zshrc
