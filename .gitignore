@@ -15,6 +15,7 @@
 !.vim/plugins.vim
 !.vim/ericsson.vim
 !.vimrc
+!._vimrc_local.vim
 
 !.pam_environment
 !.zshrc

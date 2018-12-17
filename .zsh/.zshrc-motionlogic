@@ -1,4 +1,9 @@
 function deploy_dev(){
+    if [[ ! -z $1 ]];then
+        DEPLOY_MODS=$1
+    else
+        DEPLOY_MODS="commons:master\nargus_trip_extractor:master"
+    fi
     PASS=$(pass darius/jenkins)
-    curl --user dlee:$PASS -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'name=host&value=dev2-client2&name=deployment_target_modules&value=commons:master\nargus_trip_extractor:master&statusCode=303&redirectTo=.&json={"parameter":+[{"name":+"host",+"value":+"dev2-client2"},+{"name":+"deployment_target_modules",+"value":+"commons:master\nargus_trip_extractor:master"}],+"statusCode":+"303",+"redirectTo":+"."}&Submit=Build' "http://172.25.219.123:8080/me/my-views/view/all/job/Pollux_deploy_to_personal/build?delay=0sec"
+    curl --user dlee:$PASS -X POST -H 'Content-Type: application/x-www-form-urlencoded' -d "name=host&value=dev2-client2&name=deployment_target_modules&value=$DEPLOY_MODS&statusCode=303&redirectTo=.&json={'parameter':+[{'name':+'host',+'value':+'dev2-client2'},+{'name':+'deployment_target_modules',+'value':+'commons:master\nargus_trip_extractor:master'}],+'statusCode':+'303',+'redirectTo':+'.'}&Submit=Build" 'http://172.25.219.123:8080/me/my-views/view/all/job/Pollux_deploy_to_personal/build?delay=0sec'
 }
