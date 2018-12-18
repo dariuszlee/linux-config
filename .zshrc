@@ -212,7 +212,11 @@ function StartSshAgent() {
 # CheckSshAgent
 
 
-export SSH_AUTH_SOCK=~/.ssh/ssh-agent.sock
+export SSH_AUTH_SOCK=~/.ssh/ssh-agent.socket
+if [[ -z $SSH_AGENT_PID ]]; then
+    export SSH_AGENT_PID=$(ps -A | grep ssh-agent | awk '{print $1}')
+fi
+
 function CheckSshKeys(){
     SshAddCount=$(ssh-add -l)
     if [[ $SshAddCount == "The agent has no identities." ]]; then
