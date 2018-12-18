@@ -1,0 +1,19 @@
+snippet pformat
+__import__('pprint').pformat(${1})
+endsnippet
+
+snippet logimport
+from logger import get_logger
+endsnippet
+
+snippet info
+get_logger().info(${1:info-log})
+endsnippet
+
+snippet error
+get_logger().error(${1:info-log})
+endsnippet
+
+snippet debug
+get_logger().debug(${1:info-log})
+endsnippet
