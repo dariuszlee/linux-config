@@ -1,0 +1,21 @@
+snippet actor
+object ${1:ActorName} {
+	case object ${2:DefaultAction}
+}
+
+class $1 extends Actor with akka.actor.ActorLogging {
+	import $1._
+
+	def receive = {
+		case $2 => {}
+	}
+}
+endsnippet
+
+snippet debug
+log.debug("${1:DebugText}")
+endsnippet
+
+snippet info
+log.info("${1:InfoText}")
+endsnippet
