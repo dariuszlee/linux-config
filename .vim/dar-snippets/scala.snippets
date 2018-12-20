@@ -1,5 +1,7 @@
 snippet actor
 object ${1:ActorName} {
+	def props : Props = Props(new $1())
+
 	case object ${2:DefaultAction}
 }
 
