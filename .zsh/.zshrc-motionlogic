@@ -8,12 +8,12 @@ function deploy_dev(){
     curl --user dlee:$PASS -X POST -H 'Content-Type: application/x-www-form-urlencoded' -d "name=host&value=dev2-client2&name=deployment_target_modules&value=$DEPLOY_MODS&statusCode=303&redirectTo=.&json={'parameter':+[{'name':+'host',+'value':+'dev2-client2'},+{'name':+'deployment_target_modules',+'value':+'commons:master\nargus_trip_extractor:master'}],+'statusCode':+'303',+'redirectTo':+'.'}&Submit=Build" 'http://172.25.219.123:8080/me/my-views/view/all/job/Pollux_deploy_to_personal/build?delay=0sec'
 }
 
-function change_spark2(){
+function spark2_change(){
     rm ~/spark/spark
     ln -sf /spark-2.4.0-bin-hadoop2.7 ~/spark/spark
 }
 
-function change_spark1(){
+function spark_change(){
     rm ~/spark/spark
     ln -sf /spark-1.6.3-bin-hadoop2.6/ ~/spark/spark
 }
