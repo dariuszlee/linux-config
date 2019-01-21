@@ -46,10 +46,14 @@ let g:UltiSnipsExpandTrigger="<C-d>"
 " Syntax
 syntax on
 
+" Tab Movement helpers
+nnoremap <leader>n :tabn 
+
 " Pymode
 let g:pymode_python = 'python3'
 filetype plugin on
 filetype indent on
+nnoremap <leader><leader>l :PymodeLintToggle<CR>
 
 " lightline
 set laststatus=2

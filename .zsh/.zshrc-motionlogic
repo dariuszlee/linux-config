@@ -14,9 +14,14 @@ function deploy_dev(){
     curl --user dlee:$PASS -X POST -H 'Content-Type: application/x-www-form-urlencoded' -d "name=host&value=$HOST&name=deployment_target_modules&value=$DEPLOY_MODS&statusCode=303&redirectTo=.&json={'parameter':+[{'name':+'host',+'value':+'$HOST'},+{'name':+'deployment_target_modules',+'value':+'$DEPLOY_MODS'}],+'statusCode':+'303',+'redirectTo':+'.'}&Submit=Build" 'http://172.25.219.123:8080/me/my-views/view/all/job/Pollux_deploy_to_personal/build?delay=0sec'
 }
 
-function spark2_change(){
+function spark2.4_change(){
     rm ~/spark/spark
     ln -sf /spark-2.4.0-bin-hadoop2.7 ~/spark/spark
+}
+
+function spark2.3_change(){
+    rm ~/spark/spark
+    ln -sf /spark-2.3.2-bin-hadoop2.7/ ~/spark/spark
 }
 
 function spark_change(){
