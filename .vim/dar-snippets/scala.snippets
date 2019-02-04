@@ -1,3 +1,22 @@
+snippet akkaapp
+object ${1:AppName} extends App {
+  implicit val context = ActorSystem()
+  implicit val materializer = ActorMaterializer()
+  implicit val executionContext = context.dispatcher
+
+  ${2}
+
+  readLine()
+  context.terminate()
+}
+endsnippet
+
+snippet app
+object ${1:AppName} extends App {
+	${2}
+}
+endsnippet
+
 snippet actor
 object ${1:ActorName} {
 	def props : Props = Props(new $1())
@@ -8,10 +27,14 @@ object ${1:ActorName} {
 class $1 extends Actor with akka.actor.ActorLogging {
 	import $1._
 
-	def receive = {
+	override def receive = {
 		case $2 => {}
 	}
 }
+endsnippet
+
+snippet actorof
+context.actorOf(${1}.props, "${2}")
 endsnippet
 
 snippet debug
@@ -20,4 +43,12 @@ endsnippet
 
 snippet info
 log.info("${1:InfoText}")
+endsnippet
+
+snippet warn
+log.warn("${1:WarnText}")
+endsnippet
+
+snippet error
+log.error("${1:ErrorText}")
 endsnippet
