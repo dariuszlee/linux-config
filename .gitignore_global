@@ -2,4 +2,5 @@
 *.swo
 *.swm
 *.swn
+*.swl
 _vimrc_local.vim
