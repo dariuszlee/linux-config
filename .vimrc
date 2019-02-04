@@ -46,10 +46,14 @@ let g:UltiSnipsExpandTrigger="<C-d>"
 " Syntax
 syntax on
 
+" Tab Movement helpers
+nnoremap <leader>n :tabn 
+
 " Pymode
 let g:pymode_python = 'python3'
 filetype plugin on
 filetype indent on
+nnoremap <leader><leader>l :PymodeLintToggle<CR>
 
 " lightline
 set laststatus=2
@@ -91,7 +95,8 @@ function! Toggle_line_nums()
 endfunction
 
 nnoremap <leader>v :call term_start("zsh", { "vertical":1 })<CR>
-nnoremap <leader>b :call term_start("zsh")<CR>
+" <leader>b is used by pymode.... 
+nnoremap <leader>x :call term_start("zsh")<CR>
 nnoremap <leader><leader>v :call Toggle_line_nums()<CR>
 " tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 

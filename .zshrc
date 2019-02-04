@@ -237,4 +237,7 @@ if [[ $? == 1 ]]; then
     git config --global core.excludesfile ~/.gitignore_global
 fi
 
+# Universal spark configurations
+export PYSPARK_DRIVER_PYTHON=ipython
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
