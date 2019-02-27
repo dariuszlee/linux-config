@@ -1,3 +1,7 @@
+# Environment Variables
+export ROUTER_HOME="/home/dariuslee/motionlogic/router/"
+export COMMONS_HOME="/home/dariuslee/motionlogic/commons/"
+
 function deploy_dev(){
     if [[ ! -z $1 ]];then
         DEPLOY_MODS=$1

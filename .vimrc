@@ -53,7 +53,7 @@ nnoremap <leader>n :tabn
 let g:pymode_python = 'python3'
 filetype plugin on
 filetype indent on
-nnoremap <leader><leader>l :PymodeLintToggle<CR>
+nnoremap <leader>pl :PymodeLintToggle<CR>
 
 " lightline
 set laststatus=2
@@ -76,6 +76,7 @@ set background=dark " Dark Mode
 nnoremap ; :Files<CR>
 nnoremap <leader>; :Buffers<CR>
 nnoremap <leader>l :Tags<CR>
+nnoremap <Leader><leader>l :Tags <c-r>=expand("<cword>")<CR><CR>
 nnoremap <leader>bl :BTags<CR>
 nnoremap <leader>/ :BLines<CR>
 nnoremap <leader>c :Commit<CR>
@@ -171,3 +172,11 @@ function! UnMinify()
 	%s/[^\s]\zs[=&|]\+\ze[^\s]/ \0 /g
 	normal ggVG=
 endfunction
+
+" Underscore problem
+set linespace=10
+
+" If vim version less than 800, turn off deoplete
+if v:version < 800
+    deoplete#disable()
+endif
