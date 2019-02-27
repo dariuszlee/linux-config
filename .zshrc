@@ -194,11 +194,11 @@ function Add-Ssh-Keys() {
 	done
 }
 
-function StartSshAgent() {
-    export SSH_AUTH_SOCK=~/.ssh/ssh-agent.sock
-    rm $SSH_AUTH_SOCK
-    eval `ssh-agent -a $SSH_AUTH_SOCK`
-}
+# function StartSshAgent() {
+#     export SSH_AUTH_SOCK=~/.ssh/ssh-agent.sock
+#     rm $SSH_AUTH_SOCK
+#     eval `ssh-agent -a $SSH_AUTH_SOCK`
+# }
 
 # function CheckSshAgent()
 # {
