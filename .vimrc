@@ -178,5 +178,9 @@ set linespace=10
 
 " If vim version less than 800, turn off deoplete
 if v:version < 800
-    deoplete#disable()
+    call deoplete#disable()
+endif
+
+if $USER == "dariuslee"
+    autocmd BufRead,BufNewFile *.conf set filetype=json
 endif

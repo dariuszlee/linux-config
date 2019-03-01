@@ -59,9 +59,11 @@ Plugin 'dhruvasagar/vim-open-url'
 
 " Javascript
 Plugin 'pangloss/vim-javascript'
-Plugin 'leshill/vim-json'
 Plugin 'mxw/vim-jsx'
 Plugin '1995eaton/vim-better-javascript-completion'
+
+" Json
+Plugin 'elzr/vim-json'
 
 " Project Vimrc
 Plugin 'LucHermitte/lh-vim-lib'
