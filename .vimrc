@@ -20,6 +20,9 @@ set showmatch       " Show surrounding match
 set incsearch       " search as characters entered    
 set hlsearch        " Highligh search matches         
 
+" Terminal scroll back size
+set termwinscroll=1000000
+
 " Snippets
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/dar-snippets', "UltiSnips"]
 
