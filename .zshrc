@@ -179,6 +179,8 @@ elif [[ $(whoami) == 'dariuslee' ]]; then
     export MOTIONLOGIC_HOME="/home/dariuslee/motionlogic/"
     export PYTHONPATH="$MOTIONLOGIC_HOME/commons/src"
     export commons_HOME="$MOTIONLOGIC_HOME/commons"
+elif [[ $(whoami) == 'admin' ]]; then
+	export TERM=xterm-256color
 fi
 
 function Add-Ssh-Keys() { 
