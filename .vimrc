@@ -30,6 +30,9 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/dar-snippets', "UltiSnips"]
 vnoremap <leader>en :!python -c 'import sys,urllib;print urllib.quote(sys.stdin.read().strip())'<cr>
 vnoremap <leader>de :!python -c 'import sys,urllib;print urllib.unquote(sys.stdin.read().strip())'<cr>
 
+" Json Encode
+nnoremap <leader>js :call JsonBeautify()<CR>
+
 " Config
 let mapleader = ","
 nnoremap <leader><leader>r :source ~/.vimrc<CR>
