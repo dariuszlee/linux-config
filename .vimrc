@@ -46,11 +46,24 @@ set omnifunc=csscomplete#CompleteCSS " CSS obvs
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<C-d>"
 
+" Handling swap files
+augroup SwapFileGroup
+    autocmd!
+    autocmd  SwapExists  *  :let v:swapchoice = 'e'
+augroup END
+
+" GitDiff hotkeys
+nnoremap <leader>gd :GitDiff<CR>
+nnoremap <leader>go :GitDiff 
+
+nnoremap <leader>gp :Gpush<CR>
+
 " Syntax
 syntax on
 
 " Tab Movement helpers
 nnoremap <leader>n :tabn 
+nnoremap <leader>tc :tabc<CR>
 
 " Pymode
 let g:pymode_python = 'python3'
@@ -86,7 +99,8 @@ nnoremap <leader>c :Commit<CR>
 nnoremap <leader>bc :BCommit<CR>
 nnoremap <leader>w :Windows<CR>
 nnoremap <Leader>a :Rg <c-r>=expand("<cword>")<CR><CR>
-command! -nargs=1 Rg call fzf#vim#grep('rg --column --line-number --color=always --smart-case '.<q-args>, 1)
+command! -nargs=1 Rg 
+    \ call fzf#vim#grep('rg --column --line-number --color=always --smart-case '.<q-args>, 1)
 
 " Term shortcuts
 function! Toggle_line_nums()
@@ -186,4 +200,7 @@ endif
 
 if $USER == "dariuslee"
     autocmd BufRead,BufNewFile *.conf set filetype=json
+
+    " Local vim settings
+    call lh#local_vimrc#munge('whitelist', $HOME.'/motionlogic')
 endif

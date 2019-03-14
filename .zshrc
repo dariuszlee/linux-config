@@ -152,6 +152,10 @@ fi
 export JAVA_HOME="/usr"
 export PATH=$PATH:$JAVA_HOME/bin
 
+# Add Android Studio
+export ANDROID_STUDIO_HOME="/usr/local/android-studio/"
+export PATH=$PATH:$ANDROID_STUDIO_HOME/bin
+
 # FZF Settings
 export FZF_DEFAULT_COMMAND='find . -path "*/\.*" -prune -o -type f -print -o -type l -print | sed s/^..//'
 if [[ -d ~/.vim/bundle/fzf/bin ]]; then
