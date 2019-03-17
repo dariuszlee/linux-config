@@ -52,11 +52,12 @@ augroup SwapFileGroup
     autocmd  SwapExists  *  :let v:swapchoice = 'e'
 augroup END
 
-" GitDiff hotkeys
+" git hotkeys
 nnoremap <leader>gd :GitDiff<CR>
 nnoremap <leader>go :GitDiff 
 
 nnoremap <leader>gp :Gpush<CR>
+nnoremap <leader>gb :Gblame<CR>
 
 " Syntax
 syntax on
