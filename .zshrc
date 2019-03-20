@@ -249,4 +249,9 @@ fi
 # Universal spark configurations
 export PYSPARK_DRIVER_PYTHON=ipython
 
+# VPN Connections
+function openconnect_motionlogic {
+    pass show motionlogic/openconnect | sudo openconnect -u darlee --passwd-on-stdin https://olathoe.cronon.net
+}
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
