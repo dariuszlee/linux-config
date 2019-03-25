@@ -203,7 +203,10 @@ if v:version < 800
 endif
 
 if $USER == "dariuslee"
-    autocmd BufRead,BufNewFile *.conf set filetype=json
+    let cwdvar = matchstr(getcwd(), "motionlogic")
+    if cwdvar != ""
+        autocmd BufRead,BufNewFile *.conf set filetype=json
+     endif
 
     " Local vim settings
     call lh#local_vimrc#munge('whitelist', $HOME.'/motionlogic')

@@ -11,6 +11,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'fatih/vim-go'
 "" Python
 Plugin 'python-mode/python-mode'
+Plugin 'tmhedberg/SimpylFold'
 " Plugin 'davidhalter/jedi-vim'
 
 " Complete Engine
