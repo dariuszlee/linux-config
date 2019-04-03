@@ -70,6 +70,9 @@ Plugin 'elzr/vim-json'
 Plugin 'LucHermitte/lh-vim-lib'
 Plugin 'LucHermitte/local_vimrc'
 
+" File system
+Plugin 'scrooloose/nerdtree'
+
 " Personal Plugins
 Plugin 'dariuszlee/vim-dzl-replace'
 Plugin 'dariuszlee/vim-dzl-gitdiff'
