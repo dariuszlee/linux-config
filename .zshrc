@@ -165,27 +165,10 @@ fi
 if [[ $(whoami) == 'dzlyy' ]]; then
 	export GDK_SCALE=2
 	[[ ! $DISPLAY && $XDG_VTNR -eq 1 && $(id --group) -ne 0 ]] && exec startx
-    
-    export SPARK_HOME="$HOME/spark-1.6.3-bin-hadoop2.6"
-    export PATH=$SPARK_HOME:$PATH
 elif [[ $(whoami) == 'ezleeda' ]]; then
 	source ~/.zsh/.zshrc-ezleeda
 elif [[ $(whoami) == 'dariuslee' ]]; then
     source ~/.zsh/.zshrc-motionlogic
-
-    # Motionlogic specific
-    export HADOOP_CONF_DIR="/home/dariuslee/hadoop_conf/"
-
-    export HADOOP_PREFIX=/usr/local/hadoop
-    export SPARK_HOME="$HOME/spark/spark"
-    export PATH=$SPARK_HOME/bin:$PATH
-    export PATH=$HOME/idea/bin:$PATH
-    export MOTIONLOGIC_HOME="/home/dariuslee/motionlogic/"
-    export PYTHONPATH="$MOTIONLOGIC_HOME/commons/src"
-    export commons_HOME="$MOTIONLOGIC_HOME/commons"
-
-    export PYSPARK_PYTHON="/usr/bin/python3.5"
-    export PYSPARK_DRIVER_PYTHON=$PYSPARK_PYTHON
 elif [[ $(whoami) == 'admin' ]]; then
 	export TERM=xterm-256color
 fi
