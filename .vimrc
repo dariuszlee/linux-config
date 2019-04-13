@@ -25,6 +25,11 @@ set termwinscroll=1000000
 
 " Snippets
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/dar-snippets', "UltiSnips"]
+nnoremap <leader>us :sp ~/.vim/bundle/vim-snippets/snippets/
+
+
+" NerdTree
+map <C-n> :NERDTreeToggle<CR>
 
 " URL Encode/decode selection
 vnoremap <leader>en :!python -c 'import sys,urllib;print urllib.quote(sys.stdin.read().strip())'<cr>
