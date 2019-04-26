@@ -27,6 +27,9 @@ set termwinscroll=1000000
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/dar-snippets', "UltiSnips"]
 nnoremap <leader>us :sp ~/.vim/bundle/vim-snippets/snippets/
 
+" Hexmode
+nnoremap <leader>hm :Hexmode<CR>
+
 
 " NerdTree
 map <C-n> :NERDTreeToggle<CR>
