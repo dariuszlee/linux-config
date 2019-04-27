@@ -13,7 +13,10 @@ Plugin 'fatih/vim-go'
 Plugin 'python-mode/python-mode'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'szymonmaszke/vimpyter'
+
+" Plugin 'tmhedberg/SimpylFold'
 " Plugin 'davidhalter/jedi-vim'
+
 " Scala
 Plugin 'derekwyatt/vim-scala'
 
@@ -77,10 +80,16 @@ Plugin 'LucHermitte/local_vimrc'
 " File system
 Plugin 'scrooloose/nerdtree'
 
+" Folding
+Plugin 'pseewald/vim-anyfold'
+" Hex????
+Plugin 'fidian/hexmode'
+
 " Personal Plugins
 Plugin 'dariuszlee/vim-dzl-replace'
 Plugin 'dariuszlee/vim-dzl-gitdiff'
 
 call vundle#end()            " required
+
 filetype plugin indent on    " required
 let g:deoplete#enable_at_startup = 1

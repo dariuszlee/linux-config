@@ -36,6 +36,9 @@ autocmd Filetype ipynb nmap <silent><Leader>b :VimpyterInsertPythonBlock<CR>
 autocmd Filetype ipynb nmap <silent><Leader>j :VimpyterStartJupyter<CR>
 autocmd Filetype ipynb nmap <silent><Leader>n :VimpyterStartNteract<CR>
 
+" Hexmode
+nnoremap <leader>hm :Hexmode<CR>
+
 " NerdTree
 map <C-n> :NERDTreeToggle<CR>
 
