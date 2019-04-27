@@ -12,7 +12,10 @@ Plugin 'fatih/vim-go'
 "" Python
 Plugin 'python-mode/python-mode'
 Plugin 'tmhedberg/SimpylFold'
+Plugin 'szymonmaszke/vimpyter'
 " Plugin 'davidhalter/jedi-vim'
+" Scala
+Plugin 'derekwyatt/vim-scala'
 
 " Complete Engine
 Plugin 'ajh17/VimCompletesMe'
@@ -45,6 +48,7 @@ Plugin 'junegunn/fzf'
 
 " Ctags/Tag relavant stuff
 Plugin 'majutsushi/tagbar'
+Plugin 'ludovicchabant/vim-gutentags'
 
 " File formatting
 Plugin 'maksimr/vim-jsbeautify'

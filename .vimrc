@@ -8,6 +8,10 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+" Project specific vim
+set exrc
+set secure
+
 " Line numbering
 set number
 set numberwidth=1
@@ -25,8 +29,12 @@ set termwinscroll=1000000
 
 " Snippets
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/dar-snippets', "UltiSnips"]
-nnoremap <leader>us :sp ~/.vim/bundle/vim-snippets/snippets/
+nnoremap <leader><leader>us :sp ~/.vim/bundle/vim-snippets/snippets/
 
+" pynb
+autocmd Filetype ipynb nmap <silent><Leader>b :VimpyterInsertPythonBlock<CR>
+autocmd Filetype ipynb nmap <silent><Leader>j :VimpyterStartJupyter<CR>
+autocmd Filetype ipynb nmap <silent><Leader>n :VimpyterStartNteract<CR>
 
 " NerdTree
 map <C-n> :NERDTreeToggle<CR>
