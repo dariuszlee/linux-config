@@ -186,11 +186,11 @@ function Add-Ssh-Keys() {
 	done
 }
 
-# function StartSshAgent() {
-#     export SSH_AUTH_SOCK=~/.ssh/ssh-agent.sock
-#     rm $SSH_AUTH_SOCK
-#     eval `ssh-agent -a $SSH_AUTH_SOCK`
-# }
+function StartSshAgent() {
+    export SSH_AUTH_SOCK=~/.ssh/ssh-agent.sock
+    rm $SSH_AUTH_SOCK
+    eval `ssh-agent -a $SSH_AUTH_SOCK`
+}
 
 # function CheckSshAgent()
 # {
@@ -240,7 +240,8 @@ function openconnect_motionlogic {
 # Add custom hosts file
 export HOSTALIASES=$HOME/.hosts
 local knownhosts
-knownhosts=( ${${${${(f)"$(<$HOME/.hosts)"}:#[0-9]*}%%\ *}%%,*} )
-zstyle ':completion:*:(ssh|scp|sftp):*' hosts $knownhosts
+# knownhosts=( ${${${${(f)"$(<$HOME/.hosts)"}:#[0-9]*}%%\ *}%%,*} )
+knownhosts=($(cat .hosts | awk '{ print $2; print $3 }' | awk 'NF > 0' | tr '\n' ' '))
+zstyle ':completion:*:(ssh|scp|sftp|git clone):*' hosts $knownhosts
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
