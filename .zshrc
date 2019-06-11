@@ -36,7 +36,7 @@ ZSH_THEME="steeef"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -236,5 +236,11 @@ export PYSPARK_DRIVER_PYTHON=ipython
 function openconnect_motionlogic {
     pass show motionlogic/openconnect | sudo openconnect -u darlee --passwd-on-stdin https://olathoe.cronon.net
 }
+
+# Add custom hosts file
+export HOSTALIASES=$HOME/.hosts
+local knownhosts
+knownhosts=( ${${${${(f)"$(<$HOME/.hosts)"}:#[0-9]*}%%\ *}%%,*} )
+zstyle ':completion:*:(ssh|scp|sftp):*' hosts $knownhosts
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

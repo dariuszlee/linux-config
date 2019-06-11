@@ -1,0 +1,32 @@
+# Static table lookup for hostnames.
+# See hosts(5) for details.
+
+172.25.219.76 cro-out-test-master3.priv.motionlogic.de cro-out-test-master3
+172.25.219.75 cro-out-test-master2.priv.motionlogic.de cro-out-test-master2
+172.25.219.74 cro-out-test-master1.priv.motionlogic.de cro-out-test-master1
+172.25.219.78 cro-out-test-client2.priv.motionlogic.de cro-out-test-client2
+172.25.219.79 cro-out-test-client3.priv.motionlogic.de cro-out-test-client3
+172.25.219.77 cro-out-test-client1.priv.motionlogic.de cro-out-test-client1
+
+172.25.219.203 cro-out-dev-master3.priv.motionlogic.de cro-out-dev-master3
+172.25.219.202 cro-out-dev-master2.priv.motionlogic.de cro-out-dev-master2
+172.25.219.201 cro-out-dev-master1.priv.motionlogic.de cro-out-dev-master1
+172.25.219.205 cro-out-dev-client2.priv.motionlogic.de cro-out-dev-client2
+172.25.219.206 cro-out-dev-client3.priv.motionlogic.de cro-out-dev-client3
+172.25.219.204 cro-out-dev-client1.priv.motionlogic.de cro-out-dev-client1
+
+172.25.100.33 vm-master2.motionlogic.lan vm-master2
+172.25.100.32 vm-master3.motionlogic.lan vm-master3
+172.25.100.40 vm-master1.motionlogic.lan vm-master1
+172.25.100.37 ambari.motionlogic.lan ambari
+172.25.100.50 slave1.motionlogic.lan slave1
+172.25.100.51 slave2.motionlogic.lan slave2
+172.25.100.52 slave3.motionlogic.lan slave3
+172.25.100.53 slave4.motionlogic.lan slave4
+172.25.100.54 slave5.motionlogic.lan slave5
+
+172.25.100.40 cro-out-lp-master1.motionlogic.lan cro-out-mt-vm-master1.priv.motionlogic.de
+172.25.100.33 cro-out-lp-master2.motionlogic.lan cro-out-mt-vm-master2.priv.motionlogic.de
+172.25.100.32 cro-out-lp-master3.motionlogic.lan cro-out-mt-vm-master3.priv.motionlogic.de
+
+172.25.186.51 motionlogic-file-share
