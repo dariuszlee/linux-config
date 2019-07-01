@@ -167,7 +167,7 @@ if [[ $(whoami) == 'dzlyy' ]]; then
 	[[ ! $DISPLAY && $XDG_VTNR -eq 1 && $(id --group) -ne 0 ]] && exec startx
 elif [[ $(whoami) == 'ezleeda' ]]; then
 	source ~/.zsh/.zshrc-ezleeda
-elif [[ $(whoami) == 'dariuslee' ]]; then
+elif [[ $(whoami) == 'dlee' ]]; then
     source ~/.zsh/.zshrc-motionlogic
 elif [[ $(whoami) == 'admin' ]]; then
 	export TERM=xterm-256color

@@ -1,21 +1,23 @@
-# Environment Variables
-export ROUTER_HOME="/home/dariuslee/motionlogic/router/"
-export COMMONS_HOME="/home/dariuslee/motionlogic/commons/"
-
-alias python=/usr/bin/python3.5
-
-# Motionlogic specific
-export HADOOP_CONF_DIR="/home/dariuslee/hadoop_conf/"
-
-export HADOOP_PREFIX=/usr/local/hadoop
-export SPARK_HOME="$HOME/spark/spark"
-export PATH=$SPARK_HOME/bin:$PATH
-export MOTIONLOGIC_HOME="/home/dariuslee/motionlogic/"
-export COMMONS_HOME="$MOTIONLOGIC_HOME/commons"
-export PYTHONPATH="$PYTHONPATH:$COMMONS_HOME"
-
+#
+export JAVA_HOME="/usr/lib/jvm/default"
 export PYSPARK_PYTHON="/usr/bin/python3.5"
 export PYSPARK_DRIVER_PYTHON=$PYSPARK_PYTHON
+
+# Environment Variables
+export ROUTER_HOME="$HOME/motionlogic/router/"
+export COMMONS_HOME="$HOME/motionlogic/commons/"
+
+# alias python=/usr/bin/python3.5
+
+# Motionlogic specific
+# export HADOOP_CONF_DIR="/home/dariuslee/hadoop_conf/"
+
+# export HADOOP_PREFIX=/usr/local/hadoop
+export SPARK_HOME="/opt/spark-2.3.1-bin-hadoop2.7/"
+export PATH=$SPARK_HOME/bin:$PATH
+# export MOTIONLOGIC_HOME="/home/dariuslee/motionlogic/"
+# export COMMONS_HOME="$MOTIONLOGIC_HOME/commons"
+# export PYTHONPATH="$PYTHONPATH:$COMMONS_HOME"
 
 # Kafka
 export KAFKA_HOME="/usr/local/kafka_2.12-2.1.1"
