@@ -20,6 +20,7 @@ bindsym $mod+Shift+q kill
 
 # start program launcher
 bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+p exec --no-startup-id rofi -show window
 
 # change focus
 bindsym $mod+j focus left
@@ -284,19 +285,26 @@ bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
 bindsym XF86TouchpadOn exec --no-startup-id synclient Touchpadoff=0
 bindsym XF86TouchpadOff exec --no-startup-id synclient Touchpadoff=1
 
-# User configs
-bindsym $mod+x exec xrandr --dpi 220 --fb 7040x3960 --output eDP-1 --mode 3200x1800 --output DP-1 --mode 1920x1080 --scale 2x2 --pos 3200x0 --panning 3840x2160+3200+0
+############## User configs
 
+# Dell XPs
+bindsym $mod+x exec xrandr --dpi 220 --fb 7040x3960 --output eDP-1 --mode 3200x1800 --output DP-1 --mode 1920x1080 --scale 2x2 --pos 3200x0 --panning 3840x2160+3200+0
 bindsym $mod+Shift+x exec xrandr --dpi 220 --output eDP-1 --mode 3200x1800 --output DP-1 --off
 
-bindsym $mod+z exec xrandr --dpi 110 --output VGA-2 --right-of VGA-1 --mode 1920x1080 --output VGA-1 --mode 1920x1080
+# Work 
+bindsym $mod+z exec xrandr --dpi 110 --output HDMI-1 --right-of eDP-1 --mode 1920x1080 --output HDMI-2 --mode 1920x1080
+# bindsym $mod+Shift+z exec xrandr --dpi 110 --output VGA-2 --off --output VGA-1 --mode 1920x1080
 
-bindsym $mod+Shift+z exec xrandr --dpi 110 --output VGA-2 --off --output VGA-1 --mode 1920x1080
 
 bindsym $mod+Shift+m exec setxkbmap us
 bindsym $mod+Shift+n exec setxkbmap de 
+
+# I3 Lock
 bindsym $mod+Shift+a exec i3lock
 
 bindsym $mod+XF86AudioLowerVolume exec "amixer -D pulse sset Master 5%-"
 bindsym $mod+XF86AudioRaiseVolume exec "amixer -D pulse sset Master 5%+"
 bindsym $mod+XF86AudioMute exec "amixer -D pulse sset Master toggle"
+
+# Utility 
+bindsym $mod+Shift+p exec deepin-screenshot
