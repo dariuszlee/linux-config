@@ -163,8 +163,6 @@ if [[ -d ~/.vim/bundle/fzf/bin ]]; then
 fi
 
 if [[ $(whoami) == 'dzlyy' ]]; then
-	export GDK_SCALE=2
-	[[ ! $DISPLAY && $XDG_VTNR -eq 1 && $(id --group) -ne 0 ]] && exec startx
 elif [[ $(whoami) == 'ezleeda' ]]; then
 	source ~/.zsh/.zshrc-ezleeda
 elif [[ $(whoami) == 'dlee' ]]; then

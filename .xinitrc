@@ -41,7 +41,9 @@ fi
 export TERMINAL=rofi termite 
 twm &
 if [[ $(whoami) == 'dzlyy' ]];then
-    export GDK_SCALE = 2
-    exec xrandr --dpi 220 --output eDP-1 --mode 3200x1800 
-    exec xrandr --output DP-1 --mode 1920x1080 --right-of e-DP-1
+    # export GDK_SCALE=2
+    # exec xrandr --dpi 220 --output eDP-1 --mode 3200x1800 
+    # exec xrandr --output DP-1 --mode 1920x1080 --right-of e-DP-1
+    exec xrandr --dpi 100 --fb 5120x2880 --output eDP-1 --mode 3200x1800 --scale 0.6x0.6 --output DP-1 --mode 1920x1080
+
 fi
