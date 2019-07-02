@@ -106,6 +106,7 @@ colorscheme gruvbox
 let g:gruvbox_termcolors = '256'
 let g:gruvbox_contrast_dark = 'hard'
 set background=dark " Dark Mode
+highlight Normal ctermbg=none
 
 " fzf
 " let $FZF_DEFAULT_COMMAND='git ls-tree -r --name-only HEAD'

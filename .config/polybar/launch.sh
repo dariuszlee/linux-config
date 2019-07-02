@@ -1,25 +1,15 @@
-# # Basic script to kill all old bars and launch new.
+#!/usr/bin/env sh
 
-# # Terminate already running bad instances
-# killall -q polybar
-
-# # Wait until the processes have been shut down
-# while grep -x polybar >/dev/null; do sleep 1; done
-
-# # Launch the example bar
-# polybar main_bar
+## Add this to your wm startup file.
 
 # Terminate already running bar instances
 killall -q polybar
 
 # Wait until the processes have been shut down
-while pgrep -x polybar >/dev/null; do sleep 1; done
+while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
-for m in $(xrandr --query | grep " connected" | cut -d" " -f1);do
-    MONITOR=$m polybar --reload lamia 2>&1 &
+# Launch bar1 and bar2
+for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+    MONITOR=$m polybar top -c ~/.config/polybar/config-top.ini &
+    MONITOR=$m polybar bottom -c ~/.config/polybar/config-bottom.ini &
 done
-# # Launch bar1 and bar2
-# polybar lamia 2>&1 &
-
-echo "launched polybar"
-

@@ -13,7 +13,8 @@ font xft:URWGothic-Book 11
 
 floating_modifier $mod
 
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec rofi-sensible-terminal
+bindsym $mod+Return exec termite
 
 # Window kill command
 bindsym $mod+Shift+q kill
@@ -218,7 +219,8 @@ exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-exec_always --no-startup-id /$HOME/.config/polybar/i3wmthemer_bar_launch.sh
+# exec_always --no-startup-id /$HOME/.config/polybar/i3wmthemer_bar_launch.sh
+exec_always --no-startup-id /$HOME/.config/polybar/launch.sh
 
 # Theme colors
 client.focused #b0c4bb #2f2f38 #b0c4bb #81a2be #81a2be
