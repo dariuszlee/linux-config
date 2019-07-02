@@ -277,7 +277,7 @@ mode "$mode_gaps_outer" {
 }
 
 # set power-manager and volume control
-exec --no-startup-id mate-power-manager
+# exec --no-startup-id mate-power-manager
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 0 -q set Master 2dB+ unmute
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 0 -q set Master 2db- unmute
@@ -303,6 +303,7 @@ bindsym $mod+Shift+n exec setxkbmap de
 
 # I3 Lock
 bindsym $mod+Shift+a exec i3lock -c 000000
+
 
 bindsym $mod+XF86AudioLowerVolume exec "amixer -D pulse sset Master 5%-"
 bindsym $mod+XF86AudioRaiseVolume exec "amixer -D pulse sset Master 5%+"
