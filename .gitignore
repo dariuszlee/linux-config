@@ -22,7 +22,6 @@
 !.pam_environment
 !.zshrc
 !.zsh
-!.fzf.zsh
 
 !.tmux.conf
 
