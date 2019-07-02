@@ -1,0 +1,34 @@
+00:00:00.000100 main     VirtualBox XPCOM Server 6.0.8 r130347 linux.amd64 (May 15 2019 09:04:27) release log
+00:00:00.000101 main     Log opened 2019-06-11T11:31:00.829354000Z
+00:00:00.000101 main     Build Type: release
+00:00:00.000103 main     OS Product: Linux
+00:00:00.000103 main     OS Release: 5.1.4-arch1-1-ARCH
+00:00:00.000104 main     OS Version: #1 SMP PREEMPT Wed May 22 08:06:56 UTC 2019
+00:00:00.000116 main     DMI Product Name: N8xEJEK                         
+00:00:00.000120 main     DMI Product Version: Not Applicable                  
+00:00:00.000139 main     Host RAM: 31895MB (31.1GB) total, 30308MB (29.5GB) available
+00:00:00.000141 main     Executable: /usr/lib/virtualbox/VBoxSVC
+00:00:00.000141 main     Process ID: 9770
+00:00:00.000141 main     Package type: LINUX_64BITS_GENERIC (OSE)
+00:00:00.001086 main     IPC socket path: /tmp/.vbox-dlee-ipc/ipcd
+00:00:00.106328 nspr-2   VirtualBox: object creation starts
+00:00:00.106474 nspr-2   Home directory: '/home/dlee/.config/VirtualBox'
+00:00:00.118588 nspr-2   NAT: resolv.conf: nameserver 192.168.71.90
+00:00:00.118599 nspr-2   HostDnsMonitor::updateInfo
+00:00:00.118606 nspr-2   HostDnsMonitor: old information
+00:00:00.118608 nspr-2     no server entries
+00:00:00.118609 nspr-2     no domain set
+00:00:00.118611 nspr-2     no search string entries
+00:00:00.118612 nspr-2   HostDnsMonitor: new information
+00:00:00.118614 nspr-2     server 1: 192.168.71.90
+00:00:00.118615 nspr-2     domain: hq.motionlogic.de
+00:00:00.118617 nspr-2     search string 1: hq.motionlogic.de
+00:00:00.120100 nspr-2   Failed to open "/dev/vboxdrvu", errno=2, rc=VERR_VM_DRIVER_NOT_INSTALLED
+00:00:00.120190 nspr-2   VD: VDInit finished with VINF_SUCCESS
+00:00:00.120247 nspr-2   ERROR [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={d55176e5-6730-4e9e-fc1f-a59b1f44f78f} aComponent={SystemPropertiesWrap} aText={Cannot determine default Guest Additions ISO location. Most likely they are not available}, preserve=false aResultDetail=0
+00:00:00.120492 nspr-2   VirtualBox: object created
+00:00:00.123718 nspr-2   ERROR [COM]: aRC=VBOX_E_FILE_ERROR (0x80bb0004) aIID={ad47ad09-787b-44ab-b343-a082a3f2dfb1} aComponent={MediumWrap} aText={Permission problem accessing the file for the medium '/mnt/sdb2/VM_DATA/linux_ubuntu_motionlogic_dyn.vdi' (VERR_ACCESS_DENIED)}, preserve=false aResultDetail=-38
+00:00:05.125937 main     VirtualBox: object deletion starts
+00:00:05.625499 Watcher  ERROR [COM]: aRC=E_ACCESSDENIED (0x80070005) aIID={d0a0163f-e254-4e5b-a1f2-011cf991c38d} aComponent={VirtualBoxWrap} aText={The object is not ready}, preserve=false aResultDetail=0
+00:00:10.127357 main     {00007f7a98017390} HostPowerServiceLinux::~HostPowerServiceLinux: RTThreadWait() for 5000 ms failed with VERR_TIMEOUT
+00:00:10.128042 main     VirtualBox: object deleted

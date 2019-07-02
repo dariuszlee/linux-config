@@ -1,44 +1,13 @@
-* 
+.config/google-chrome
+.config/libreoffice
+.config/nitrogen
+.config/VirtualBox
 
-!.ctags
+Desktop
+Downloads
+i3_stuff
 
-!.xinitrc
+\.*
+*
 
-!.mutt
-!.mutt/muttrc
-
-!.mailcap
-
-!.offlineimaprc
-
-!.vim
-!.vim/plugins.vim
-!.vim/ericsson.vim
-!.vimrc
-!._vimrc_local.vim
-!.vim/dar-snippets
-!.vim/dar-snippets/*.snippets
-
-!.pam_environment
-!.zshrc
-!.zsh
-!.fzf.zsh
-
-!.tmux.conf
-
-!Readme.md
-!.gitignore
-!.gitignore_global
-
-!.config
-!.config/systemd/
-!.config/systemd/user/
-!.config/systemd/user/ssh-agent.service
-!.config/termite
-!.config/termite/config
-!.config/i3
-!.config/i3/config
-
-# Xresource SUPER IMPORTANT FOR HIDPI
-!.Xresources
-!.Xresourcesdzlyy
+!.config/*
