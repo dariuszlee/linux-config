@@ -1,10 +1,10 @@
 Desktop
 Downloads
 i3_stuff
-
 \.*
 *
 
+!.config
 !.config/*
 
 .config/google-chrome
