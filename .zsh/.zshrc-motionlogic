@@ -6,6 +6,8 @@ export PYSPARK_DRIVER_PYTHON=$PYSPARK_PYTHON
 # Environment Variables
 export ROUTER_HOME="$HOME/motionlogic/router/"
 export COMMONS_HOME="$HOME/motionlogic/commons/"
+export KPI_CALCULATOR_HOME="$HOME/motionlogic/kpi_calculator"
+export SECTION_EXTRACTOR_HOME="$HOME/motionlogic/section_extractor"
 
 # alias python=/usr/bin/python3.5
 
