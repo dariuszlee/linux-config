@@ -3,14 +3,13 @@ source ~/.vim/plugins.vim
 set encoding=utf-8
 
 " Spacing
-filetype plugin indent on
 set tabstop=4
 set shiftwidth=4
 set expandtab
 
 " Project specific vim
-set exrc
-set secure
+" set exrc
+" set secure
 
 " Line numbering
 set number

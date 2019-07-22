@@ -42,3 +42,6 @@
 # Xresource SUPER IMPORTANT FOR HIDPI
 !.Xresources
 !.Xresourcesdzlyy
+
+.config/QtProject.conf
+.config/hotspotrc
