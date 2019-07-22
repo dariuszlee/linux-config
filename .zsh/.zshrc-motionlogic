@@ -14,9 +14,6 @@ export SECTION_EXTRACTOR_HOME="$HOME/motionlogic/section_extractor"
 # Motionlogic specific
 # export HADOOP_CONF_DIR="/home/dariuslee/hadoop_conf/"
 #
-# Hadoop settings
-export HADOOP_HOME="/usr/local/share/hadoop"
-export PATH=$PATH:$HADOOP_HOME/bin
 
 # export HADOOP_PREFIX=/usr/local/hadoop
 export SPARK_HOME="/opt/spark-2.3.1-bin-hadoop2.7/"
