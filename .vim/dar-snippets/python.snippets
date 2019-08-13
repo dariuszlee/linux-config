@@ -2,6 +2,26 @@ snippet pformat
 __import__('pprint').pformat(${1})
 endsnippet
 
+snippet jsonl
+${1} = __import__('json').load(open("${2}"))
+endsnippet
+
+snippet jsond
+__import__('json').dump(${2}, open("${3}", "w"))
+endsnippet
+
+snippet dilld
+__import__('dill').dump_session("${1}")
+endsnippet
+
+snippet dilll
+__import__('dill').load_session("${1}")
+endsnippet
+
+snippet pformat
+__import__('pprint').pformat(${1})
+endsnippet
+
 snippet logimport
 from logger import get_logger
 endsnippet
