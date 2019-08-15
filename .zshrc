@@ -138,9 +138,6 @@ export EDITOR=vim
 # Tmux settings
 alias tmux="TERM=screen-256color-bce tmux"
 
-# Hadoop settings
-export HADOOP_HOME="/usr/local/share/hadoop"
-export PATH=$PATH:$HADOOP_HOME/bin
 
 # Scala settings
 if [[ -d "/usr/local/share/scala" ]];then
@@ -236,10 +233,14 @@ function openconnect_motionlogic {
 }
 
 # Add custom hosts file
-export HOSTALIASES=$HOME/.hosts
-local knownhosts
-# knownhosts=( ${${${${(f)"$(<$HOME/.hosts)"}:#[0-9]*}%%\ *}%%,*} )
-knownhosts=($(cat .hosts | awk '{ print $2; print $3 }' | awk 'NF > 0' | tr '\n' ' '))
-zstyle ':completion:*:(ssh|scp|sftp|git clone):*' hosts $knownhosts
+# export HOSTALIASES=$HOME/.hosts
+# local knownhosts
+# # knownhosts=( ${${${${(f)"$(<$HOME/.hosts)"}:#[0-9]*}%%\ *}%%,*} )
+# knownhosts=($(cat .hosts | awk '{ print $2; print $3 }' | awk 'NF > 0' | tr '\n' ' '))
+# zstyle ':completion:*:(ssh|scp|sftp|git clone):*' hosts $knownhosts
+
+if [[ -d /honest-profiler/bin ]]; then
+    export PATH=$PATH:/honest-profiler/bin
+fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

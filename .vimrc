@@ -1,16 +1,17 @@
 source ~/.vim/plugins.vim
 
+imap jj <Esc>
+
 set encoding=utf-8
 
 " Spacing
-filetype plugin indent on
 set tabstop=4
 set shiftwidth=4
 set expandtab
 
 " Project specific vim
-set exrc
-set secure
+" set exrc
+" set secure
 
 " Line numbering
 set number
@@ -27,9 +28,13 @@ set hlsearch        " Highligh search matches
 " Terminal scroll back size
 set termwinscroll=1000000
 
+" GutenTags commands
+let g:gutentags_define_advanced_commands=1
+
 " Snippets
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/dar-snippets', "UltiSnips"]
 nnoremap <leader><leader>us :sp ~/.vim/bundle/vim-snippets/snippets/
+nnoremap <leader><leader>uu :sp ~/.vim/dar-snippets/
 
 " pynb
 autocmd Filetype ipynb nmap <silent><Leader>b :VimpyterInsertPythonBlock<CR>
@@ -82,6 +87,7 @@ nnoremap <leader>gb :Gblame<CR>
 syntax on
 
 " Tab Movement helpers
+nnoremap <leader><leader>c :q!<CR>
 nnoremap <leader>n :tabn 
 nnoremap <leader>tc :tabc<CR>
 
