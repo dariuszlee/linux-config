@@ -290,8 +290,8 @@ bindsym XF86TouchpadOff exec --no-startup-id synclient Touchpadoff=1
 ############## User configs
 
 # Dell XPs
-bindsym $mod+x exec xrandr --dpi 200 --fb 5120x2880 --output eDP-1 --mode 3200x1800 --scale 0.6x0.6 --output DP-1 --mode 1920x1080 --scale 0.9999x0.9999
-bindsym $mod+Shift+x exec xrandr --dpi 200 --fb 3200x1800 --output eDP-1 --mode 3200x1800 --scale 0.6x0.6 --off 
+bindsym $mod+x exec xrandr --dpi 200 --fb 5120x2880 --output eDP-1 --mode 3200x1800 --scale 0.5x0.5 --output DP-1 --left-of eDP-1 --mode 1920x1080 --scale 0.9999x0.9999
+bindsym $mod+Shift+x exec xrandr --output eDP-1 --dpi 200 --fb 3200x1800 --mode 3200x1800 --scale 0.6x0.6 --output DP-1 --off 
 # Work 
 bindsym $mod+z exec xrandr --dpi 110 --output HDMI-1 --right-of eDP-1 --mode 1920x1080 --output HDMI-2 --mode 1920x1080
 # bindsym $mod+Shift+z exec xrandr --dpi 110 --output VGA-2 --off --output VGA-1 --mode 1920x1080
