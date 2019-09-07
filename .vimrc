@@ -96,6 +96,8 @@ let g:pymode_python = 'python3'
 filetype plugin on
 filetype indent on
 nnoremap <leader>pl :PymodeLintToggle<CR>
+" Linters
+let g:pymode_lint_options_pep8 = {'ignore': ["E3", "E2", "E5"]}
 
 " lightline
 set laststatus=2
