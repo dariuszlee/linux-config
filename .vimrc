@@ -1,4 +1,110 @@
-source ~/.vim/plugins.vim
+set nocompatible              " be iMproved, required
+filetype off                  " required
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+
+" Language Specific
+"" GO
+Plugin 'fatih/vim-go'
+
+" REPL
+Plugin 'sillybun/vim-repl'
+ 
+"" Python
+Plugin 'python-mode/python-mode'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'szymonmaszke/vimpyter'
+
+" Plugin 'tmhedberg/SimpylFold'
+" Plugin 'davidhalter/jedi-vim'
+
+" Scala
+Plugin 'derekwyatt/vim-scala'
+
+" Complete Engine
+Plugin 'ajh17/VimCompletesMe'
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'roxma/nvim-yarp'
+Plugin 'roxma/vim-hug-neovim-rpc'
+
+" Snippets
+Plugin 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
+
+" Git
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+
+" Editing
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'jiangmiao/auto-pairs'
+
+" html/css
+Plugin 'mattn/emmet-vim'
+
+" Fuzzy
+Plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/fzf'
+
+" Ctags/Tag relavant stuff
+Plugin 'majutsushi/tagbar'
+Plugin 'ludovicchabant/vim-gutentags'
+
+" File formatting
+Plugin 'maksimr/vim-jsbeautify'
+
+" Lightline
+Plugin 'itchyny/lightline.vim'
+" Syntax
+" Plugin 'w0rp/ale'
+" Color schemes
+Plugin 'morhetz/gruvbox'
+" Open url
+Plugin 'dhruvasagar/vim-open-url'
+
+" Javascript
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin '1995eaton/vim-better-javascript-completion'
+
+" Json
+Plugin 'elzr/vim-json'
+
+" Project Vimrc
+Plugin 'LucHermitte/lh-vim-lib'
+Plugin 'LucHermitte/local_vimrc'
+
+" File system
+Plugin 'scrooloose/nerdtree'
+
+" Folding
+Plugin 'pseewald/vim-anyfold'
+" Hex????
+Plugin 'fidian/hexmode'
+
+" Personal Plugins
+Plugin 'dariuszlee/vim-dzl-replace'
+Plugin 'dariuszlee/vim-dzl-gitdiff'
+
+call vundle#end()            " required
+
+filetype plugin indent on    " required
+let g:deoplete#enable_at_startup = 1
+"source ~/.vim/plugins.vim
+
+" Color scheme config
+colorscheme gruvbox
+let g:gruvbox_termcolors = '256'
+let g:gruvbox_contrast_dark = 'hard'
+set background=dark " Dark Mode
+highlight Normal ctermbg=none
 
 imap jj <Esc>
 
@@ -27,6 +133,24 @@ set hlsearch        " Highligh search matches
 
 " Terminal scroll back size
 set termwinscroll=1000000
+
+"REPL Settings
+let g:repl_program = {
+			\	'python': 'ipython',
+			\	'default': 'zsh',
+            \   'scala': 'amm'
+			\	}
+let g:repl_input_symbols = {
+            \   'python': ['>>>', '>>>>', 'ipdb>', 'pdb', '...'],
+            \   'scala': ['@']
+            \   }
+let g:sendtorepl_invoke_key = "<leader><leader>m"
+let g:repl_ipython_version = '6'
+nnoremap <leader><leader>q :REPLToggle<Cr>
+nnoremap <leader>q :REPLHide<Cr>
+autocmd Filetype python nnoremap <F12> <Esc>:REPLDebugStopAtCurrentLine<Cr>
+autocmd Filetype python nnoremap <F10> <Esc>:REPLPDBN<Cr>
+autocmd Filetype python nnoremap <F11> <Esc>:REPLPDBS<Cr>
 
 " GutenTags commands
 let g:gutentags_define_advanced_commands=1
@@ -107,13 +231,6 @@ nnoremap <leader><leader>g :Gstatus<CR>
 nnoremap <leader>d :windo diffthis<CR>
 nnoremap <leader>e :windo diffoff<CR>
 
-" Color scheme config
-colorscheme gruvbox
-let g:gruvbox_termcolors = '256'
-let g:gruvbox_contrast_dark = 'hard'
-set background=dark " Dark Mode
-highlight Normal ctermbg=none
-
 " fzf
 " let $FZF_DEFAULT_COMMAND='git ls-tree -r --name-only HEAD'
 nnoremap ; :Files<CR>
@@ -147,8 +264,9 @@ nnoremap <leader><leader>v :call Toggle_line_nums()<CR>
 
 " Tab Bar shortcut
 nnoremap <leader>t :TagbarToggle<CR>
+
 " Default browser
-let g:open_url_browser_default = "vivaldi-stable"
+let g:open_url_browser_default = "firefox"
 
 " Source file
 nnoremap <leader>s :source %<CR>
