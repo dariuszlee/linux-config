@@ -9,6 +9,10 @@ Plugin 'VundleVim/Vundle.vim'
 " Language Specific
 "" GO
 Plugin 'fatih/vim-go'
+
+" REPL
+Plugin 'sillybun/vim-repl'
+ 
 "" Python
 Plugin 'python-mode/python-mode'
 Plugin 'tmhedberg/SimpylFold'
@@ -92,4 +96,3 @@ Plugin 'dariuszlee/vim-dzl-gitdiff'
 call vundle#end()            " required
 
 filetype plugin indent on    " required
-let g:deoplete#enable_at_startup = 1

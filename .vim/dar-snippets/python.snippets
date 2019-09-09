@@ -1,5 +1,24 @@
+snippet pkll
+${1} = __import__('pickle').load(open("${2}", "rb"))
+endsnippet
+
+snippet pkld
+__import__('pickle').dump(${1}, open("${2}", "wb"))
+endsnippet
+
+
 snippet pformat
 __import__('pprint').pformat(${1})
+endsnippet
+
+snippet csvr
+with open("${1}") as ${2}:
+	${3} = __import__('csv').reader($2)
+endsnippet
+
+snippet csvw
+with open("${1}") as ${2}:
+	${3} = __import__('csv').writer($2)
 endsnippet
 
 snippet jsonl
@@ -8,6 +27,10 @@ endsnippet
 
 snippet jsond
 __import__('json').dump(${2}, open("${3}", "w"))
+endsnippet
+
+snippet epdb
+__import__('epdb').set_trace()
 endsnippet
 
 snippet dilld
