@@ -239,6 +239,9 @@ function openconnect_motionlogic {
 # knownhosts=($(cat .hosts | awk '{ print $2; print $3 }' | awk 'NF > 0' | tr '\n' ' '))
 # zstyle ':completion:*:(ssh|scp|sftp|git clone):*' hosts $knownhosts
 
+# Ruby Shit. Testing vmail
+export PATH=$PATH:$HOME/.gem/ruby/2.6.0/bin
+
 if [[ -d /honest-profiler/bin ]]; then
     export PATH=$PATH:/honest-profiler/bin
 fi

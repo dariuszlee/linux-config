@@ -301,7 +301,7 @@ bindsym $mod+Shift+m exec setxkbmap us
 bindsym $mod+Shift+n exec setxkbmap de 
 
 # I3 Lock
-bindsym $mod+Shift+a exec i3lock -c 000000
+bindsym $mod+Shift+a exec betterlockscreen -l dim
 
 bindsym $mod+XF86AudioLowerVolume exec "amixer -D pulse sset Master 5%-"
 bindsym $mod+XF86AudioRaiseVolume exec "amixer -D pulse sset Master 5%+"
