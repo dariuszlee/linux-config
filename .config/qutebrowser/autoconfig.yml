@@ -5,7 +5,10 @@ config_version: 2
 settings:
   bindings.commands:
     global:
+      command:
+        <Ctrl+s>: edit-command
       normal:
+        <Ctrl+s>: edit-command
         ge: edit-url
   bindings.key_mappings:
     global:

@@ -241,6 +241,9 @@ function openconnect_motionlogic {
 
 # Ruby Shit. Testing vmail
 export PATH=$PATH:$HOME/.gem/ruby/2.6.0/bin
+# Vmail
+export VMAIL_BROWSER="qutebrowser"
+export VMAIL_HTML_PART_READER="w3m -dump -T text/html -I utf-8 -O utf-8"
 
 if [[ -d /honest-profiler/bin ]]; then
     export PATH=$PATH:/honest-profiler/bin
