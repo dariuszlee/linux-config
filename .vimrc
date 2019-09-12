@@ -133,6 +133,7 @@ set hlsearch        " Highligh search matches
 
 " Terminal scroll back size
 set termwinscroll=1000000
+tnoremap <C-n> <C-w>N
 
 "REPL Settings
 let g:repl_program = {
@@ -151,6 +152,7 @@ nnoremap <leader>q :REPLHide<Cr>
 autocmd Filetype python nnoremap <F12> <Esc>:REPLDebugStopAtCurrentLine<Cr>
 autocmd Filetype python nnoremap <F10> <Esc>:REPLPDBN<Cr>
 autocmd Filetype python nnoremap <F11> <Esc>:REPLPDBS<Cr>
+autocmd Filetype python nnoremap <F9> <Esc>:REPLPDBC<Cr>
 
 " GutenTags commands
 let g:gutentags_define_advanced_commands=1
