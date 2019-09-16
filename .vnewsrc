@@ -1,0 +1,19 @@
+host: localhost 
+database: vnews 
+username: dlee
+password: 
+
+General News 
+http://feedproxy.google.com/economist/full_print_edition
+http://feeds.feedburner.com/TheAtlanticWire
+
+Humor
+http://feed.dilbert.com/dilbert/blog
+
+Tech 
+http://rss.slashdot.org/Slashdot/slashdot
+http://feeds2.feedburner.com/readwriteweb
+http://feedproxy.google.com/programmableweb
+http://news.ycombinator.com/rss
+http://daringfireball.net/index.xml
+http://dailyvim.blogspot.com/feeds/posts/default
