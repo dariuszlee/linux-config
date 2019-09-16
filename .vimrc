@@ -148,7 +148,8 @@ let g:repl_input_symbols = {
 let g:sendtorepl_invoke_key = "<leader><leader>m"
 let g:repl_ipython_version = '6'
 nnoremap <leader><leader>q :REPLToggle<Cr>
-nnoremap <leader>q :REPLHide<Cr>
+nnoremap <leader>h :REPLHide<Cr>
+nnoremap <leader>u :REPLUnhide<Cr>
 autocmd Filetype python nnoremap <F12> <Esc>:REPLDebugStopAtCurrentLine<Cr>
 autocmd Filetype python nnoremap <F10> <Esc>:REPLPDBN<Cr>
 autocmd Filetype python nnoremap <F11> <Esc>:REPLPDBS<Cr>
