@@ -206,7 +206,9 @@ fi
 
 function CheckSshKeys(){
     SshAddCount=$(ssh-add -l)
-    if [[ $SshAddCount == "The agent has no identities." ]]; then
+    if [[ $? -eq 2 ]]; then
+        eval `ssh-agent -a $SSH_AUTH_SOCK`
+    elif [[ $SshAddCount == "The agent has no identities." ]]; then
         SshAddCount=0
     else
         SshAddCount=$(ssh-add -l | wc | awk '{print $1}')
