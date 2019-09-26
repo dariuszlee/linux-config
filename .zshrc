@@ -36,7 +36,7 @@ ZSH_THEME="steeef"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -138,6 +138,9 @@ export EDITOR=vim
 # Tmux settings
 alias tmux="TERM=screen-256color-bce tmux"
 
+# Hadoop settings
+export HADOOP_HOME="/usr/local/share/hadoop"
+export PATH=$PATH:$HADOOP_HOME/bin
 
 # Scala settings
 if [[ -d "/usr/local/share/scala" ]];then
@@ -160,9 +163,11 @@ if [[ -d ~/.vim/bundle/fzf/bin ]]; then
 fi
 
 if [[ $(whoami) == 'dzlyy' ]]; then
+	export GDK_SCALE=2
+	[[ ! $DISPLAY && $XDG_VTNR -eq 1 && $(id --group) -ne 0 ]] && exec startx
 elif [[ $(whoami) == 'ezleeda' ]]; then
 	source ~/.zsh/.zshrc-ezleeda
-elif [[ $(whoami) == 'dlee' ]]; then
+elif [[ $(whoami) == 'dariuslee' ]]; then
     source ~/.zsh/.zshrc-motionlogic
 elif [[ $(whoami) == 'admin' ]]; then
 	export TERM=xterm-256color
@@ -181,11 +186,11 @@ function Add-Ssh-Keys() {
 	done
 }
 
-function StartSshAgent() {
-    export SSH_AUTH_SOCK=~/.ssh/ssh-agent.sock
-    rm $SSH_AUTH_SOCK
-    eval `ssh-agent -a $SSH_AUTH_SOCK`
-}
+# function StartSshAgent() {
+#     export SSH_AUTH_SOCK=~/.ssh/ssh-agent.sock
+#     rm $SSH_AUTH_SOCK
+#     eval `ssh-agent -a $SSH_AUTH_SOCK`
+# }
 
 # function CheckSshAgent()
 # {

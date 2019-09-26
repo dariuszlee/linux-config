@@ -135,6 +135,9 @@ set hlsearch        " Highligh search matches
 set termwinscroll=1000000
 tnoremap <C-n> <C-w>N
 
+" Vnews
+let g:Vnews#browser_command = "qutebrowser"
+
 "REPL Settings
 let g:repl_program = {
 			\	'python': 'ipython',
