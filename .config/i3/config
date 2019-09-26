@@ -309,3 +309,6 @@ bindsym $mod+XF86AudioMute exec "amixer -D pulse sset Master toggle"
 
 # Utility 
 bindsym $mod+Shift+p exec deepin-screenshot
+
+# Map keys
+exec --no-startup-id xmodmap ~/.keymap_config

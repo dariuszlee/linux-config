@@ -29,8 +29,8 @@
 !.gitignore
 !.gitignore_global
 
-!.config
-!.config/*
+/* !.config */
+/* !.config/* */
 /* !.config/systemd/ */
 /* !.config/systemd/user/ */
 /* !.config/systemd/user/ssh-agent.service */

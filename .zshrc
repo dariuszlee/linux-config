@@ -251,8 +251,8 @@ if [[ -d /honest-profiler/bin ]]; then
     export PATH=$PATH:/honest-profiler/bin
 fi
 
-if [[ -d ~/anaconda3 ]]; then
-    export PATH=~/anaconda3/bin:$PATH:
-fi
+# if [[ -d ~/anaconda3 ]]; then
+#     export PATH=~/anaconda3/bin:$PATH:
+# fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

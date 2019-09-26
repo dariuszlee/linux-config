@@ -20,6 +20,8 @@ settings:
       <Enter>: <Return>
       <Shift-Enter>: <Return>
       <Shift-Return>: <Return>
+  content.geolocation:
+    https://www.google.com: true
   editor.command:
     global:
     - termite

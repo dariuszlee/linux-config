@@ -158,6 +158,9 @@ autocmd Filetype python nnoremap <F9> <Esc>:REPLPDBC<Cr>
 " GutenTags commands
 let g:gutentags_define_advanced_commands=1
 
+" Replace word under cursor
+nnoremap <C-r> :%s/<c-q>=expand("<cword>")<cr>/
+
 " Snippets
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/dar-snippets', "UltiSnips"]
 nnoremap <leader><leader>us :sp ~/.vim/bundle/vim-snippets/snippets/
