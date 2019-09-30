@@ -255,4 +255,6 @@ fi
 #     export PATH=~/anaconda3/bin:$PATH:
 # fi
 
+# Add Games directory to path
+export PATH=$PATH:~/Games-Wine/
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
