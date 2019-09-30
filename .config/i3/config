@@ -313,3 +313,6 @@ bindsym $mod+Shift+p exec deepin-screenshot
 
 # Map keys
 exec --no-startup-id xmodmap ~/.keymap_config
+
+# Add Background
+exec --no-startup-id betterlockscreen -w dim
