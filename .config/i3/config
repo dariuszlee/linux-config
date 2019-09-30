@@ -294,6 +294,7 @@ bindsym $mod+x exec xrandr --dpi 200 --fb 5120x2880 --output eDP-1 --mode 3200x1
 bindsym $mod+Shift+x exec xrandr --output eDP-1 --dpi 200 --fb 3200x1800 --mode 3200x1800 --scale 0.6x0.6 --output DP-1 --off 
 # Work 
 bindsym $mod+z exec xrandr --dpi 110 --output HDMI-1 --right-of eDP-1 --mode 1920x1080 --output HDMI-2 --mode 1920x1080
+bindsym $mod+Shift+z exec xrandr --dpi 110 --output eDP-1 --mode 1920x1080 --output HDMI-2 --mode 1920x1080 --above eDP-1
 # bindsym $mod+Shift+z exec xrandr --dpi 110 --output VGA-2 --off --output VGA-1 --mode 1920x1080
 
 
@@ -312,3 +313,6 @@ bindsym $mod+Shift+p exec deepin-screenshot
 
 # Map keys
 exec --no-startup-id xmodmap ~/.keymap_config
+
+# Add Background
+exec --no-startup-id betterlockscreen -w dim

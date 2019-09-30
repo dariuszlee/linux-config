@@ -1,7 +1,7 @@
 username: darius.lee@motionlogic.de
 server: outlook.office365.com
 port: 993
-smtp_server: smtp.outlook365.com
+smtp_server: smtp.office365.com
 smtp_port: 587
 smtp_domain: 
 authentication: login
