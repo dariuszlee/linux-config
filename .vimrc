@@ -24,16 +24,12 @@ Plugin 'szymonmaszke/vimpyter'
 " Scala
 Plugin 'derekwyatt/vim-scala'
 
-" Complete Engine
-" Plugin 'ajh17/VimCompletesMe'
-" Plugin 'Shougo/deoplete.nvim'
-" Plugin 'roxma/nvim-yarp'
-" Plugin 'roxma/vim-hug-neovim-rpc'
-
+" Code Completion
 Plugin 'neoclide/coc.nvim', {'pinned':1}
-
 Plugin 'w0rp/ale'
 
+" Window finder
+Plugin 't9md/vim-choosewin'
 
 " Snippets
 Plugin 'SirVer/ultisnips'
@@ -118,6 +114,9 @@ set secure
 " Line numbering
 set number
 set numberwidth=1
+
+" Window Chooser
+map <c-y> <Plug>(choosewin)
 
 " Etc configs
 set number          " Show line numbers                   
@@ -214,12 +213,6 @@ let mapleader = ","
 nnoremap <leader><leader>r :source ~/.vimrc<CR>
 nnoremap <leader><leader>t :e ~/.vimrc<CR>
 nnoremap <leader><leader>y :e ~/.vim/plugins.vim<CR>
-
-" Auto complete
-"" VimCompletesMe
-let b:vcm_tab_complete = "omni"
-set completeopt=longest,menuone
-set omnifunc=csscomplete#CompleteCSS " CSS obvs
 
 " Snippets
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
