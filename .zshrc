@@ -130,7 +130,7 @@ export PATH=$PATH:~/go/bin
 export GOPATH=~/go
 
 # Report ssl keys
-export SSLKEYLOGFILE=~/sslkeylog.log
+# export SSLKEYLOGFILE=~/sslkeylog.log
 
 # Editor setting (obvs)
 export EDITOR=vim

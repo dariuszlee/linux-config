@@ -25,10 +25,15 @@ Plugin 'szymonmaszke/vimpyter'
 Plugin 'derekwyatt/vim-scala'
 
 " Complete Engine
-Plugin 'ajh17/VimCompletesMe'
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'roxma/nvim-yarp'
-Plugin 'roxma/vim-hug-neovim-rpc'
+" Plugin 'ajh17/VimCompletesMe'
+" Plugin 'Shougo/deoplete.nvim'
+" Plugin 'roxma/nvim-yarp'
+" Plugin 'roxma/vim-hug-neovim-rpc'
+
+Plugin 'neoclide/coc.nvim', {'pinned':1}
+
+Plugin 'w0rp/ale'
+
 
 " Snippets
 Plugin 'SirVer/ultisnips'
@@ -63,19 +68,10 @@ Plugin 'maksimr/vim-jsbeautify'
 " Lightline
 Plugin 'itchyny/lightline.vim'
 " Syntax
-" Plugin 'w0rp/ale'
 " Color schemes
 Plugin 'morhetz/gruvbox'
 " Open url
 Plugin 'dhruvasagar/vim-open-url'
-
-" Javascript
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin '1995eaton/vim-better-javascript-completion'
-
-" Json
-Plugin 'elzr/vim-json'
 
 " Project Vimrc
 Plugin 'LucHermitte/lh-vim-lib'
@@ -116,8 +112,8 @@ set shiftwidth=4
 set expandtab
 
 " Project specific vim
-" set exrc
-" set secure
+set exrc
+set secure
 
 " Line numbering
 set number
@@ -134,6 +130,32 @@ set hlsearch        " Highligh search matches
 " Terminal scroll back size
 set termwinscroll=1000000
 tnoremap <C-n> <C-w>N
+
+" Coc style plugins
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" ALE Fixers
+nmap <F8> <Plug>(ale_fix)
+let g:ale_fixers = {
+            \ 'javascript': [
+            \   'prettier'
+            \ ],
+            \ 'typescript': [
+            \   'prettier'
+            \ ],
+            \ }
+
 
 " Vnews
 let g:Vnews#browser_command = "qutebrowser"
