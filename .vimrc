@@ -14,17 +14,14 @@ Plugin 'fatih/vim-go'
 Plugin 'sillybun/vim-repl'
  
 "" Python
-Plugin 'python-mode/python-mode'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'szymonmaszke/vimpyter'
-
-" Plugin 'tmhedberg/SimpylFold'
-" Plugin 'davidhalter/jedi-vim'
 
 " Scala
 Plugin 'derekwyatt/vim-scala'
 
 " Code Completion
+" Plugin 'neoclide/coc.nvim'
 Plugin 'neoclide/coc.nvim', {'pinned':1}
 Plugin 'w0rp/ale'
 
@@ -238,14 +235,6 @@ syntax on
 nnoremap <leader><leader>c :q!<CR>
 nnoremap <leader>n :tabn 
 nnoremap <leader>tc :tabc<CR>
-
-" Pymode
-let g:pymode_python = 'python3'
-filetype plugin on
-filetype indent on
-nnoremap <leader>pl :PymodeLintToggle<CR>
-" Linters
-let g:pymode_lint_options_pep8 = {'ignore': ["E3", "E2", "E5"]}
 
 " lightline
 set laststatus=2
