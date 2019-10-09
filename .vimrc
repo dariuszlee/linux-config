@@ -113,7 +113,8 @@ set number
 set numberwidth=1
 
 " Window Chooser
-map <c-y> <Plug>(choosewin)
+nnoremap <c-y> <Plug>(choosewin)
+tmap <c-y> <C-n><Plug>(choosewin)
 
 " Etc configs
 set number          " Show line numbers                   
