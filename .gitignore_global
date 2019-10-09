@@ -7,3 +7,4 @@
 *.swj
 _vimrc_local.vim
 tags
+.vim/
