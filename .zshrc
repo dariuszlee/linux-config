@@ -138,10 +138,6 @@ export EDITOR=vim
 # Tmux settings
 alias tmux="TERM=screen-256color-bce tmux"
 
-# Hadoop settings
-export HADOOP_HOME="/usr/local/share/hadoop"
-export PATH=$PATH:$HADOOP_HOME/bin
-
 # Scala settings
 if [[ -d "/usr/local/share/scala" ]];then
 	export SCALA_HOME="/usr/local/share/scala"
