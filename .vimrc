@@ -44,9 +44,6 @@ Plugin 'tpope/vim-commentary'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'jiangmiao/auto-pairs'
 
-" html/css
-Plugin 'mattn/emmet-vim'
-
 " Fuzzy
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/fzf'
