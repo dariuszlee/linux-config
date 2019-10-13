@@ -25,7 +25,7 @@ text-width 80
 
 goto-next-feed no
 
-browser "open -g -a 'Google Chrome' %u"
+browser "qutebrowser"
 
 bind-key j down feedlist
 bind-key k up feedlist
