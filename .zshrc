@@ -2,6 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
+fpath=(~/.zsh-completions $fpath)
 export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -251,8 +252,6 @@ export VMAIL_HTML_PART_READER="w3m -dump -T text/html -I utf-8 -O utf-8"
 if [[ -d /honest-profiler/bin ]]; then
     export PATH=$PATH:/honest-profiler/bin
 fi
-
-export fpath=$fpath:~/.zsh-completions
 
 # if [[ -d ~/anaconda3 ]]; then
 #     export PATH=~/anaconda3/bin:$PATH:
