@@ -29,15 +29,8 @@
 !.gitignore
 !.gitignore_global
 
-/* !.config */
-/* !.config/* */
-/* !.config/systemd/ */
-/* !.config/systemd/user/ */
-/* !.config/systemd/user/ssh-agent.service */
-/* !.config/termite */
-/* !.config/termite/config */
-/* !.config/i3 */
-/* !.config/i3/config */
+
+!.local/share/calendars/**/*
 
 # Xresource SUPER IMPORTANT FOR HIDPI
 !.Xresources
