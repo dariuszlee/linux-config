@@ -253,6 +253,15 @@ if [[ -d /honest-profiler/bin ]]; then
     export PATH=$PATH:/honest-profiler/bin
 fi
 
+function push_calendar(){
+    here=$pwd
+    cd ~/.local/share/calendars
+    git add .
+    hash_key=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+    git commit -m "$hash_key"
+    git push
+}
+
 # if [[ -d ~/anaconda3 ]]; then
 #     export PATH=~/anaconda3/bin:$PATH:
 # fi
