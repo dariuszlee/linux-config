@@ -30,7 +30,10 @@
 !.gitignore_global
 
 
-!.local/share/calendars/**/*
+!.local/
+!.local/share/
+!.local/share/calendars/
+!.local/share/calendars/personal
 
 # Xresource SUPER IMPORTANT FOR HIDPI
 !.Xresources
