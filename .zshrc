@@ -254,12 +254,17 @@ if [[ -d /honest-profiler/bin ]]; then
 fi
 
 function push_calendar(){
-    here=$pwd
+    here=$(pwd)
     cd ~/.local/share/calendars
-    git add .
-    hash_key=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
-    git commit -m "$hash_key"
-    git push
+    if [[ `git status --porcelain` ]]; then 
+        git add .
+        hash_key=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+        git commit -m "$hash_key"
+        git push
+    else 
+        echo "No changes to push"
+    fi
+    cd $here
 }
 
 # if [[ -d ~/anaconda3 ]]; then
