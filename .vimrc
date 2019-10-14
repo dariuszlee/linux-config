@@ -50,11 +50,11 @@ Plugin 'junegunn/fzf'
 
 " Ctags/Tag relavant stuff
 Plugin 'majutsushi/tagbar'
-Plugin 'ludovicchabant/vim-gutentags'
 
 " File formatting
 Plugin 'maksimr/vim-jsbeautify'
 
+Plugin 'ludovicchabant/vim-gutentags'
 " Lightline
 Plugin 'itchyny/lightline.vim'
 " Syntax
@@ -257,7 +257,7 @@ nnoremap <leader>bc :BCommit<CR>
 nnoremap <leader>w :Windows<CR>
 nnoremap <Leader>a :Rg <c-r>=expand("<cword>")<CR><CR>
 command! -nargs=1 Rg 
-    \ call fzf#vim#grep('rg --column --line-number --color=always --smart-case '.<q-args>, 1)
+    \ call fzf#vim#grep('rg --column --line-number --color=always --smart-case '. string(<q-args>), 1)
 
 " Term shortcuts
 function! Toggle_line_nums()
