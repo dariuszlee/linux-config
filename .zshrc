@@ -252,6 +252,8 @@ if [[ -d /honest-profiler/bin ]]; then
     export PATH=$PATH:/honest-profiler/bin
 fi
 
+export fpath=$fpath:~/.zsh-completions
+
 # if [[ -d ~/anaconda3 ]]; then
 #     export PATH=~/anaconda3/bin:$PATH:
 # fi
