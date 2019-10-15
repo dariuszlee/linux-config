@@ -42,6 +42,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'justinmk/vim-sneak'
 Plugin 'jiangmiao/auto-pairs'
 
 " Fuzzy
@@ -110,8 +111,11 @@ set number
 set numberwidth=1
 
 " Window Chooser
-nnoremap <c-y> <Plug>(choosewin)
+nmap <c-y> <Plug>(choosewin)
 tmap <c-y> <C-n><Plug>(choosewin)
+
+" Terminal mode easy paste
+tmap <c-b> <c-w>""
 
 " Etc configs
 set number          " Show line numbers                   
@@ -125,7 +129,9 @@ set hlsearch        " Highligh search matches
 set termwinscroll=1000000
 tnoremap <C-n> <C-w>N
 
-" Coc style plugins
+" Coc.nvim style plugins
+autocmd FileType python let b:coc_root_patterns = ['.vim', '.env']
+
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~ '\s'
