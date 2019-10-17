@@ -55,7 +55,6 @@ Plugin 'junegunn/fzf'
 
 " Ctags/Tag relavant stuff
 Plugin 'majutsushi/tagbar'
-Plugin 'ludovicchabant/vim-gutentags'
 
 " File formatting
 Plugin 'maksimr/vim-jsbeautify'
