@@ -267,6 +267,13 @@ function push_calendar(){
     cd $here
 }
 
+function fix_zsh_history(){
+    mv ~/.zsh_history ~/.zsh_history_bad -f
+    strings .zsh_history_bad > .zsh_history
+    fc -R ~/.zsh_history
+    rm ~/.zsh_history_bad
+}
+
 # if [[ -d ~/anaconda3 ]]; then
 #     export PATH=~/anaconda3/bin:$PATH:
 # fi
