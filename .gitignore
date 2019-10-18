@@ -4,7 +4,9 @@
 
 !.xinitrc
 
-!todo_output/calendars/personal/
+!todo_output
+!todo_output/calendars
+!todo_output/calendars/personal/*
 
 !.mutt
 !.mutt/muttrc
@@ -34,6 +36,3 @@
 # Xresource SUPER IMPORTANT FOR HIDPI
 !.Xresources
 !.Xresourcesdzlyy
-
-.config/QtProject.conf
-.config/hotspotrc
