@@ -5,7 +5,9 @@
 !.xinitrc
 
 !todo_output
-!todo_output/calendars
+!todo_output/*
+!todo_output/calendars/*
+!todo_output/calendars/personal/
 !todo_output/calendars/personal/*
 
 !.mutt
