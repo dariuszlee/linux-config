@@ -2,7 +2,6 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-fpath=(~/.zsh-completions $fpath)
 export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -63,6 +62,7 @@ plugins=(
   git
   vi-mode
 )
+fpath=(~/.zsh-completions/ $fpath)
 
 source $ZSH/oh-my-zsh.sh
 
