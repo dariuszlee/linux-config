@@ -274,6 +274,9 @@ function fix_zsh_history(){
     rm ~/.zsh_history_bad
 }
 
+# Add Matlab path
+export PATH=/usr/local/matlab/bin:$PATH
+
 # if [[ -d ~/anaconda3 ]]; then
 #     export PATH=~/anaconda3/bin:$PATH:
 # fi
