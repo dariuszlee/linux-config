@@ -2,7 +2,6 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-fpath=(~/.zsh-completions $fpath)
 export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -63,6 +62,7 @@ plugins=(
   git
   vi-mode
 )
+fpath=(~/.zsh-completions/ $fpath)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -273,6 +273,9 @@ function fix_zsh_history(){
     fc -R ~/.zsh_history
     rm ~/.zsh_history_bad
 }
+
+# Add Matlab path
+export PATH=/usr/local/matlab/bin:$PATH
 
 # if [[ -d ~/anaconda3 ]]; then
 #     export PATH=~/anaconda3/bin:$PATH:

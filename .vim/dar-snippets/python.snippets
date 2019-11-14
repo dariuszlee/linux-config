@@ -6,6 +6,10 @@ snippet pkld
 __import__('pickle').dump(${1}, open("${2}", "wb"))
 endsnippet
 
+snippet rand
+__import__('random').randint(${1}, ${2})
+endsnippet
+
 
 snippet pformat
 __import__('pprint').pformat(${1})
@@ -30,7 +34,7 @@ __import__('json').dump(${2}, open("${3}", "w"))
 endsnippet
 
 snippet epdb
-__import__('epdb').serve()
+__import__('epdb').serve(${1})
 endsnippet
 
 snippet dilld

@@ -12,6 +12,10 @@ Plugin 'fatih/vim-go'
 
 " REPL
 Plugin 'sillybun/vim-repl'
+
+" Javascript / Typescript / Jsx / tsx
+Plugin 'HerringtonDarkholme/yats.vim'
+Plugin 'maxmellon/vim-jsx-pretty'
  
 "" Python
 Plugin 'tmhedberg/SimpylFold'
@@ -19,6 +23,11 @@ Plugin 'szymonmaszke/vimpyter'
 
 " Scala
 Plugin 'derekwyatt/vim-scala'
+
+" RMarkdown
+Plugin 'vim-pandoc/vim-pandoc-syntax'
+Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'vim-pandoc/vim-rmarkdown'
 
 " Code Completion
 " Plugin 'neoclide/coc.nvim'
