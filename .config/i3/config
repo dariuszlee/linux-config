@@ -300,6 +300,7 @@ bindsym $mod+Shift+z exec xrandr --dpi 110 --output eDP-1 --mode 1920x1080 --out
 
 bindsym $mod+Shift+m exec setxkbmap us
 bindsym $mod+Shift+n exec setxkbmap de 
+bindcode $mod+Shift+59 exec setxkbmap -layout us -variant dvp
 
 # I3 Lock
 bindsym $mod+Shift+a exec betterlockscreen -l dim

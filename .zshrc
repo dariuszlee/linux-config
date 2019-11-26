@@ -276,6 +276,7 @@ function fix_zsh_history(){
 
 # Add Matlab path
 export PATH=/usr/local/matlab/bin:$PATH
+export PATH=/opt/matlab/R2019b/bin:$PATH
 
 # if [[ -d ~/anaconda3 ]]; then
 #     export PATH=~/anaconda3/bin:$PATH:
