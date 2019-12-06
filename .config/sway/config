@@ -1,3 +1,8 @@
+# Swaybg
+# exec swaybg -i $HOME/.config/i3/locks_img/vancouver-wallpapers-1.jpg
+output "*" bg $HOME/.config/i3/locks_img/vancouver-wallpapers-1.jpg fill
+
+
 set $mod Mod1
 
 default_border pixel 1
@@ -21,7 +26,6 @@ bindsym $mod+Shift+q kill
 
 # start program launcher
 bindsym $mod+d exec --no-startup-id rofi -show run
-bindsym $mod+p exec --no-startup-id rofi -show window
 
 # change focus
 bindsym $mod+j focus left
@@ -168,7 +172,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+
 
 # Set shut down, restart and locking features
 bindsym $mod+0 mode "$mode_system"
@@ -219,7 +224,6 @@ exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-# exec_always --no-startup-id /$HOME/.config/polybar/i3wmthemer_bar_launch.sh
 exec_always --no-startup-id /$HOME/.config/polybar/launch.sh
 
 # Theme colors
@@ -315,5 +319,3 @@ bindsym $mod+Shift+p exec deepin-screenshot
 # Map keys
 exec --no-startup-id xmodmap ~/.keymap_config
 
-# Add Background
-exec --no-startup-id betterlockscreen -w dim

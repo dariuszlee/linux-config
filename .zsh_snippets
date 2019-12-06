@@ -1,0 +1,1 @@
+typeset -g -A zshSnippetArr=( [pac]='sudo pacman -S ' [sv]='sudo -E vim ' )

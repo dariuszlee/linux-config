@@ -64,7 +64,6 @@ Plugin 'majutsushi/tagbar'
 " File formatting
 Plugin 'maksimr/vim-jsbeautify'
 
-Plugin 'ludovicchabant/vim-gutentags'
 " Lightline
 Plugin 'itchyny/lightline.vim'
 " Syntax
@@ -164,6 +163,13 @@ let g:ale_fixers = {
             \   'prettier'
             \ ],
             \ }
+
+
+if executable('wl-copy')
+    xnoremap "+y y:call system("wl-copy", @")<cr>
+    nnoremap "+p :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<cr>p
+    nnoremap "*p :let @"=substitute(system("wl-paste --no-newline --primary"), '<C-v><C-m>', '', 'g')<cr>p
+endif
 
 
 " Vnews
