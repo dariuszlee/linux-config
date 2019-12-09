@@ -285,3 +285,4 @@ export PATH=/opt/matlab/R2019b/bin:$PATH
 # Add Games directory to path
 export PATH=$PATH:~/Games-Wine/
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
