@@ -66,6 +66,19 @@ fpath=(~/.zsh-completions/ $fpath)
 
 source $ZSH/oh-my-zsh.sh
 
+source $HOME/.zgen/zgen.zsh
+zgen load 1ambda/zsh-snippets
+alias zsp="zsh_snippets"
+bindkey '^O^O' zsh-snippets-widget-expand  # CTRL-S CTRL-S (expand)
+bindkey '^O^A' zsh-snippets-widget-list    # CTRL-S CTRL-A (list)
+
+# source $HOME/.zplug/init.zsh
+# zplug install "1ambda/zsh-snippets"
+# alias zsp="zsh_snippets"
+# bindkey '^O^O' zsh-snippets-widget-expand  # CTRL-S CTRL-S (expand)
+# bindkey '^O^A' zsh-snippets-widget-list    # CTRL-S CTRL-A (list)
+# zplug load
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -285,3 +298,4 @@ export PATH=/opt/matlab/R2019b/bin:$PATH
 # Add Games directory to path
 export PATH=$PATH:~/Games-Wine/
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+

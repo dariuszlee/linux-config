@@ -6,6 +6,9 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
+" Async
+Plugin 'skywind3000/asyncrun.vim'
+
 " Language Specific
 "" GO
 Plugin 'fatih/vim-go'
@@ -64,7 +67,6 @@ Plugin 'majutsushi/tagbar'
 " File formatting
 Plugin 'maksimr/vim-jsbeautify'
 
-Plugin 'ludovicchabant/vim-gutentags'
 " Lightline
 Plugin 'itchyny/lightline.vim'
 " Syntax
@@ -115,6 +117,11 @@ set expandtab
 set exrc
 set secure
 
+" Parcel parcel configs
+augroup filetype jss_css_html
+    nnoremap <c-i><c-i> :AsyncRun NODE_ENV=development parcel build index.html --no-minify --public-url '.'<CR>
+augroup END
+
 " Line numbering
 set number
 set numberwidth=1
@@ -137,6 +144,11 @@ set hlsearch        " Highligh search matches
 " Terminal scroll back size
 set termwinscroll=1000000
 tnoremap <C-n> <C-w>N
+
+augroup filetype_html
+    autocmd!
+    autocmd FileType html setlocal foldmethod=indent
+augroup END
 
 " Coc.nvim style plugins
 autocmd FileType python let b:coc_root_patterns = ['.vim', '.env']
@@ -164,6 +176,20 @@ let g:ale_fixers = {
             \   'prettier'
             \ ],
             \ }
+
+
+" Copy copy utils
+if executable('wl-copy')
+    xnoremap "+y y:call system("wl-copy", @")<cr>
+    nnoremap "+p :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<cr>p
+    nnoremap "*p :let @"=substitute(system("wl-paste --no-newline --primary"), '<C-v><C-m>', '', 'g')<cr>p
+
+    " Copy file path
+    nnoremap fyy y:call system("wl-copy", expand("%:p"))<CR>
+else
+    " complete for non wayland
+    " nnoremap fyy y:call system("wl-copy", expand("%"))
+endif
 
 
 " Vnews
