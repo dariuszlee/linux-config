@@ -61,9 +61,6 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/fzf'
 
-" Ctags/Tag relavant stuff
-Plugin 'majutsushi/tagbar'
-
 " File formatting
 Plugin 'maksimr/vim-jsbeautify'
 
