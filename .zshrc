@@ -173,8 +173,8 @@ if [[ -d ~/.vim/bundle/fzf/bin ]]; then
 fi
 
 if [[ $(whoami) == 'dzlyy' ]]; then
-	export GDK_SCALE=2
-	[[ ! $DISPLAY && $XDG_VTNR -eq 1 && $(id --group) -ne 0 ]] && exec startx
+	# export GDK_SCALE=2
+	# [[ ! $DISPLAY && $XDG_VTNR -eq 1 && $(id --group) -ne 0 ]] && exec startx
 elif [[ $(whoami) == 'ezleeda' ]]; then
 	source ~/.zsh/.zshrc-ezleeda
 elif [[ $(whoami) == 'dlee' ]]; then
@@ -298,3 +298,4 @@ export PATH=/opt/matlab/R2019b/bin:$PATH
 # Add Games directory to path
 export PATH=$PATH:~/Games-Wine/
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
