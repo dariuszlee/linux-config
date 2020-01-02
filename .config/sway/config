@@ -1,6 +1,6 @@
 # Swaybg
 # exec swaybg -i $HOME/.config/i3/locks_img/vancouver-wallpapers-1.jpg
-output "*" bg $HOME/.config/sway/wallpaper1.jpg fill
+output "*" bg $HOME/.config/sway/minimalism_circles_reflections_light_dark_intuition_93161_1600x1200.jpg fill
 
 
 set $mod Mod1
