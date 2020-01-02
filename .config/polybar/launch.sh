@@ -3,8 +3,7 @@
 ## Add this to your wm startup file.
 
 # Terminate already running bar instances
-SESSION_TYPE=$(loginctl show-session $(loginctl| grep '^\s' | awk '{print $1}') -p Type | awk -F= '{print $2}')
-if [[ $(command -v waybar) && $SESSION_TYPE == 'wayland' ]]; then
+if [[ $(command -v waybar) && $XDG_SESSION_TYPE == 'wayland' ]]; then
     killall -q waybar
     export XDG_CURRENT_DESKTOP=Unity
     waybar
