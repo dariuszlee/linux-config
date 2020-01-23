@@ -69,6 +69,9 @@ Plugin 'itchyny/lightline.vim'
 " Syntax
 " Color schemes
 Plugin 'morhetz/gruvbox'
+Plugin 'w0ng/vim-hybrid'
+
+
 " Open url
 Plugin 'dhruvasagar/vim-open-url'
 
@@ -95,7 +98,7 @@ let g:deoplete#enable_at_startup = 1
 "source ~/.vim/plugins.vim
 
 " Color scheme config
-colorscheme gruvbox
+colorscheme gruvbox 
 let g:gruvbox_termcolors = '256'
 let g:gruvbox_contrast_dark = 'hard'
 set background=dark " Dark Mode
@@ -116,7 +119,15 @@ set secure
 
 " Parcel parcel configs
 augroup filetype jss_css_html
-    nnoremap <c-i><c-i> :AsyncRun NODE_ENV=development parcel build index.html --no-minify --public-url '.'<CR>
+    nnoremap <c-i><c-i> :AsyncRun NODE_ENV=development parcel build src/index.html --no-minify --public-url '.'<CR>
+augroup END
+
+augroup filetype java 
+    highlight link javaScopeDecl Statement
+    highlight link javaType Type
+    highlight link javaDocTags PreProc
+    let g:java_highlight_functions = 1
+    let g:java_highlight_all = 1
 augroup END
 
 " Line numbering
@@ -142,7 +153,12 @@ set hlsearch        " Highligh search matches
 set termwinscroll=1000000
 tnoremap <C-n> <C-w>N
 
-augroup filetype_html
+augroup filetype typescript 
+    autocmd!
+    autocmd Filetype typescript UltiSnipsAddFiletypes typescript.javascript
+augroup END
+
+augroup filetype html
     autocmd!
     autocmd FileType html setlocal foldmethod=indent
 augroup END
@@ -176,16 +192,22 @@ let g:ale_fixers = {
 
 
 " Copy copy utils
-if executable('wl-copy')
+if $XDG_SESSION_TYPE != 'x11' && executable('wl-copy')
+    echom "Wayland Sesssion"
     xnoremap "+y y:call system("wl-copy", @")<cr>
     nnoremap "+p :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<cr>p
     nnoremap "*p :let @"=substitute(system("wl-paste --no-newline --primary"), '<C-v><C-m>', '', 'g')<cr>p
 
     " Copy file path
     nnoremap fyy y:call system("wl-copy", expand("%:p"))<CR>
-else
-    " complete for non wayland
-    " nnoremap fyy y:call system("wl-copy", expand("%"))
+else 
+    echom "X11 Sesssion"
+    xnoremap "+y y:call system("xclip -sel clip", @")<cr>
+    nnoremap "+p :let @"=substitute(system("xclip -o -sel clip"), '<C-v><C-m>', '', 'g')<cr>p
+    nnoremap "*p :let @"=substitute(system("xlip -o -sel clip"), '<C-v><C-m>', '', 'g')<cr>p
+
+    " Copy file path
+    nnoremap fyy y:call system("xclip -sel clip", expand("%:p"))<CR>
 endif
 
 
@@ -207,10 +229,12 @@ let g:repl_ipython_version = '6'
 nnoremap <leader><leader>q :REPLToggle<Cr>
 nnoremap <leader>h :REPLHide<Cr>
 nnoremap <leader>u :REPLUnhide<Cr>
-autocmd Filetype python nnoremap <F12> <Esc>:REPLDebugStopAtCurrentLine<Cr>
-autocmd Filetype python nnoremap <F10> <Esc>:REPLPDBN<Cr>
-autocmd Filetype python nnoremap <F11> <Esc>:REPLPDBS<Cr>
-autocmd Filetype python nnoremap <F9> <Esc>:REPLPDBC<Cr>
+augroup filetype python
+    autocmd Filetype python nnoremap <F12> <Esc>:REPLDebugStopAtCurrentLine<Cr>
+    autocmd Filetype python nnoremap <F10> <Esc>:REPLPDBN<Cr>
+    autocmd Filetype python nnoremap <F11> <Esc>:REPLPDBS<Cr>
+    autocmd Filetype python nnoremap <F9> <Esc>:REPLPDBC<Cr>
+augroup END
 
 " Replace word under cursor
 nnoremap <C-a> :%s/<c-r>=expand("<cword>")<cr>/

@@ -3,7 +3,7 @@
 ## Add this to your wm startup file.
 
 # Terminate already running bar instances
-if [[ $(command -v waybar) ]]; then
+if [[ $(command -v waybar) && $XDG_SESSION_TYPE == 'wayland' ]]; then
     killall -q waybar
     export XDG_CURRENT_DESKTOP=Unity
     waybar
