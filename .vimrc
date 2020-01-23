@@ -212,9 +212,6 @@ autocmd Filetype python nnoremap <F10> <Esc>:REPLPDBN<Cr>
 autocmd Filetype python nnoremap <F11> <Esc>:REPLPDBS<Cr>
 autocmd Filetype python nnoremap <F9> <Esc>:REPLPDBC<Cr>
 
-" GutenTags commands
-let g:gutentags_define_advanced_commands=1
-
 " Replace word under cursor
 nnoremap <C-a> :%s/<c-r>=expand("<cword>")<cr>/
 
