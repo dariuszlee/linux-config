@@ -119,7 +119,7 @@ set secure
 
 " Parcel parcel configs
 augroup filetype jss_css_html
-    nnoremap <c-i><c-i> :AsyncRun NODE_ENV=development parcel build index.html --no-minify --public-url '.'<CR>
+    nnoremap <c-i><c-i> :AsyncRun NODE_ENV=development parcel build src/index.html --no-minify --public-url '.'<CR>
 augroup END
 
 augroup filetype java 
@@ -153,7 +153,12 @@ set hlsearch        " Highligh search matches
 set termwinscroll=1000000
 tnoremap <C-n> <C-w>N
 
-augroup filetype_html
+augroup filetype typescript 
+    autocmd!
+    autocmd Filetype typescript UltiSnipsAddFiletypes typescript.javascript
+augroup END
+
+augroup filetype html
     autocmd!
     autocmd FileType html setlocal foldmethod=indent
 augroup END
@@ -224,10 +229,12 @@ let g:repl_ipython_version = '6'
 nnoremap <leader><leader>q :REPLToggle<Cr>
 nnoremap <leader>h :REPLHide<Cr>
 nnoremap <leader>u :REPLUnhide<Cr>
-autocmd Filetype python nnoremap <F12> <Esc>:REPLDebugStopAtCurrentLine<Cr>
-autocmd Filetype python nnoremap <F10> <Esc>:REPLPDBN<Cr>
-autocmd Filetype python nnoremap <F11> <Esc>:REPLPDBS<Cr>
-autocmd Filetype python nnoremap <F9> <Esc>:REPLPDBC<Cr>
+augroup filetype python
+    autocmd Filetype python nnoremap <F12> <Esc>:REPLDebugStopAtCurrentLine<Cr>
+    autocmd Filetype python nnoremap <F10> <Esc>:REPLPDBN<Cr>
+    autocmd Filetype python nnoremap <F11> <Esc>:REPLPDBS<Cr>
+    autocmd Filetype python nnoremap <F9> <Esc>:REPLPDBC<Cr>
+augroup END
 
 " GutenTags commands
 let g:gutentags_define_advanced_commands=1
