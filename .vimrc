@@ -237,9 +237,6 @@ augroup filetype python
     autocmd Filetype python nnoremap <F9> <Esc>:REPLPDBC<Cr>
 augroup END
 
-" GutenTags commands
-let g:gutentags_define_advanced_commands=1
-
 " Replace word under cursor
 nnoremap <C-a> :%s/<c-r>=expand("<cword>")<cr>/
 
