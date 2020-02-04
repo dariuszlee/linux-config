@@ -165,7 +165,7 @@ augroup END
 
 " Coc.nvim style plugins
 autocmd FileType python let b:coc_root_patterns = ['.vim', '.env']
-nnoremap <leader><leader>a :CocAction<cr>
+noremap <leader><leader>a :CocAction<cr>
 
 function! s:check_back_space() abort
   let col = col('.') - 1
