@@ -5,7 +5,7 @@ if [[ $(whoami) == 'dzlyy' ]];then
 else
 	userresources=$HOME/.Xresources
 fi
-usermodmap=$HOME/.Xmodmap
+usermodmap=$HOME/.keymap_config
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
