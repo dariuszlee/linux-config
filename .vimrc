@@ -13,6 +13,10 @@ Plugin 'skywind3000/asyncrun.vim'
 "" GO
 Plugin 'fatih/vim-go'
 
+"
+" Latex
+Plugin 'vim-latex/vim-latex'
+
 " REPL
 Plugin 'sillybun/vim-repl'
 
@@ -119,7 +123,7 @@ set secure
 
 " Parcel parcel configs
 augroup filetype jss_css_html
-    nnoremap <c-i><c-i> :AsyncRun NODE_ENV=development parcel build src/index.html --no-minify --public-url '.'<CR>
+    nnoremap <c-i><c-i> :AsyncRun NODE_ENV=development parcel build src/*.html --no-minify --public-url '.'<CR>
 augroup END
 
 augroup filetype java 
