@@ -26,7 +26,6 @@ Plugin 'maxmellon/vim-jsx-pretty'
  
 "" Python
 Plugin 'tmhedberg/SimpylFold'
-Plugin 'szymonmaszke/vimpyter'
 
 " Scala
 Plugin 'derekwyatt/vim-scala'
