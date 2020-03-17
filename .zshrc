@@ -296,3 +296,5 @@ export PATH=/opt/matlab/R2019b/bin:$PATH
 export PATH=$PATH:~/Games-Wine/
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+source /usr/share/nvm/init-nvm.sh
+[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
