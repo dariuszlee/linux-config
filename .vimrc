@@ -94,6 +94,9 @@ Plugin 'fidian/hexmode'
 Plugin 'dariuszlee/vim-dzl-replace'
 Plugin 'dariuszlee/vim-dzl-gitdiff'
 
+" Neovim
+Plugin 'floobits/floobits-neovim'
+
 call vundle#end()            " required
 
 filetype plugin indent on    " required
@@ -272,7 +275,7 @@ nnoremap <leader>js :call JsonBeautify()<CR>
 let mapleader = ","
 nnoremap <leader><leader>r :source ~/.vimrc<CR>
 nnoremap <leader><leader>t :e ~/.vimrc<CR>
-nnoremap <leader><leader>y :e ~/.vim/plugins.vim<CR>
+nnoremap <leader><leader>y :e ~/.config/nvim/init.vim<CR>
 
 " Snippets
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -334,7 +337,9 @@ function! Toggle_line_nums()
     endif
 endfunction
 
-nnoremap <leader>v :call term_start("zsh", { "vertical":1 })<CR>
+" nnoremap <leader>v :call term_start("zsh", { "vertical":1 })<CR>
+nnoremap <leader>v :vertical terminal<CR>
+
 " <leader>b is used by pymode.... 
 nnoremap <leader>x :call term_start("zsh")<CR>
 nnoremap <leader><leader>v :call Toggle_line_nums()<CR>
