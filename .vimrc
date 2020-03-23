@@ -338,10 +338,11 @@ function! Toggle_line_nums()
 endfunction
 
 " nnoremap <leader>v :call term_start("zsh", { "vertical":1 })<CR>
-nnoremap <leader>v :vertical terminal<CR>
+nnoremap <leader>v :vnew term://zsh<CR>
+nnoremap <leader>x :new term://zsh<CR>
 
 " <leader>b is used by pymode.... 
-nnoremap <leader>x :call term_start("zsh")<CR>
+" nnoremap <leader>x :call term_start("zsh")<CR>
 nnoremap <leader><leader>v :call Toggle_line_nums()<CR>
 " tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 

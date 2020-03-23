@@ -292,9 +292,17 @@ export PATH=/opt/matlab/R2019b/bin:$PATH
 #     export PATH=~/anaconda3/bin:$PATH:
 # fi
 
+
+
 # Add Games directory to path
 export PATH=$PATH:~/Games-Wine/
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+eval "$(direnv hook zsh)"
 
 source /usr/share/nvm/init-nvm.sh
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
