@@ -158,7 +158,6 @@ set incsearch       " search as characters entered
 set hlsearch        " Highligh search matches         
 
 " Terminal scroll back size
-set termwinscroll=1000000
 tnoremap <C-n> <C-w>N
 
 augroup filetype typescript 

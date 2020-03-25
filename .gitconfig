@@ -1,0 +1,6 @@
+[core]
+	excludesfile = /home/dzly/.gitignore_global
+    editor = nvim
+[user]
+	email = dariuszlee@outlook.com
+	name = Darius Lee
