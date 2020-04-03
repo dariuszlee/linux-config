@@ -38,7 +38,7 @@ Plugin 'vim-pandoc/vim-rmarkdown'
 " Code Completion
 " Plugin 'neoclide/coc.nvim'
 Plugin 'neoclide/coc.nvim', {'pinned':1}
-Plugin 'w0rp/ale'
+" Plugin 'w0rp/ale'
 
 " Window finder
 Plugin 't9md/vim-choosewin'

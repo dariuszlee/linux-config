@@ -1,3 +1,5 @@
 {
-    "python.jediEnabled":false
+    "python.jediEnabled":false,
+    "java.jdt.ls.vmargs": "-javaagent:/usr/local/share/lombok.jar -Xbootclasspath/a:/usr/local/share/lombok.jar",
+    "java.home": "/usr/lib/jvm/default"
 }
