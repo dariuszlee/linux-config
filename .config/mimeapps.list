@@ -10,3 +10,4 @@ application/octet-stream=firefox.desktop;
 application/pdf=mupdf.desktop;
 text/csv=gvim.desktop;
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop;
+application/xml=nvim.desktop;

@@ -30,4 +30,4 @@ settings:
     global:
     - termite
     - -e
-    - vim {}
+    - nvim {}

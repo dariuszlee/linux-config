@@ -1,1 +1,5 @@
-typeset -g -A zshSnippetArr=( [pac]='sudo pacman -S ' [sv]='sudo -E vim ' )
+typeset -g -A zshSnippetArr=( 
+[pac]='sudo pacman -S ' 
+[sv]='sudo -E nvim ' 
+[as]='awsudo -u kedge_staging '
+)
