@@ -98,19 +98,12 @@ Plugin 'dariuszlee/vim-dzl-gitdiff'
 Plugin 'floobits/floobits-neovim'
 
 call vundle#end()            " required
-
 filetype plugin indent on    " required
+
 let g:deoplete#enable_at_startup = 1
 set nofixendofline
 set noeol
 "source ~/.vim/plugins.vim
-
-" Color scheme config
-colorscheme gruvbox 
-let g:gruvbox_termcolors = '256'
-let g:gruvbox_contrast_dark = 'hard'
-set background=dark " Dark Mode
-highlight Normal ctermbg=none
 
 imap jj <Esc>
 
@@ -120,10 +113,6 @@ set encoding=utf-8
 set tabstop=4
 set shiftwidth=4
 set expandtab
-
-" Project specific vim
-set exrc
-set secure
 
 " Parcel parcel configs
 augroup filetype jss_css_html
@@ -349,7 +338,7 @@ nnoremap <leader><leader>v :call Toggle_line_nums()<CR>
 nnoremap <leader>t :TagbarToggle<CR>
 
 " Default browser
-let g:open_url_browser_default = "firefox"
+let g:open_url_browser_default = "qutebrowser"
 
 " Source file
 nnoremap <leader>s :source %<CR>
@@ -396,18 +385,6 @@ endfunction
 " SET FZF 
 silent call SetFzfDefault()
 
-function! LoadSpecificFunctions()
-	:new
-	:0r! whoami
-	let l:whoAmI = getline(0,1)[0]
-	if l:whoAmI == "ezleeda"
-		source ~/.vim/ericsson.vim
-	endif
-	:q!
-endfunction
-
-call LoadSpecificFunctions()
-
 command! UnMinify call UnMinify()
 function! UnMinify()
 	%s/{\ze[^\r\n]/{\r/g
@@ -435,3 +412,10 @@ if $USER == "dariuslee"
     " Local vim settings
     call lh#local_vimrc#munge('whitelist', $HOME.'/motionlogic')
 endif
+
+" Color scheme config
+colorscheme gruvbox 
+let g:gruvbox_termcolors = '256'
+let g:gruvbox_contrast_dark = 'hard'
+set background=dark " Dark Mode
+highlight Normal ctermbg=0
