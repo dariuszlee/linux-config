@@ -272,3 +272,4 @@ docs google https://docs.google.com/document/u/0/
 sheets google https://docs.google.com/spreadsheets/u/0/
 airflow aws http://0.0.0.0:8081/admin/
 airflow variable aws http://0.0.0.0:8081/admin/variable/
+sentry smoothoperator https://sentry.io/organizations/koerber-digital/issues/?project=288766

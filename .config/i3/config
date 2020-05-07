@@ -298,6 +298,8 @@ bindsym $mod+z exec xrandr --dpi 110 --output HDMI-1 --right-of eDP-1 --mode 192
 bindsym $mod+Shift+z exec xrandr --dpi 110 --output eDP-1 --mode 1920x1080 --output HDMI-2 --mode 1920x1080 --above eDP-1
 # bindsym $mod+Shift+z exec xrandr --dpi 110 --output VGA-2 --off --output VGA-1 --mode 1920x1080
 
+exec --no-startup-id bash ~/.screenlayout/home.sh
+
 
 bindsym $mod+Shift+m exec setxkbmap us
 bindsym $mod+Shift+n exec setxkbmap de 

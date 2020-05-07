@@ -3931,7 +3931,7 @@ def command_register(data, current_buffer, args):
     """
     CLIENT_ID = "2468770254.51917335286"
     CLIENT_SECRET = "dcb7fe380a000cba0cca3169a5fe8d70"  # Not really a secret.
-    REDIRECT_URI = "https%3A%2F%2Fwee-slack.github.io%2Fwee-slack%2Foauth%23"
+    REDIRECT_URI = "https%3A%2F%2Fwee-slack.github.io%2Fwee-slack%2Foauth"
     if not args:
         message = textwrap.dedent("""
             ### Connecting to a Slack team with OAuth ###
