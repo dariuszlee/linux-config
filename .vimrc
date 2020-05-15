@@ -114,6 +114,19 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+" F2, F4, 
+imap <F2> <Esc>
+imap <F3> <Esc>
+imap <F4> <Esc>
+imap <F5> <Esc>
+imap <F6> <Esc>
+imap <F7> <Esc>
+imap <F8> <Esc>
+imap <F9> <Esc>
+imap <F10> <Esc>
+imap <F11> <Esc>
+imap <F12> <Esc>
+
 " Parcel parcel configs
 augroup filetype jss_css_html
     nnoremap <c-i><c-i> :AsyncRun NODE_ENV=development parcel build src/*.html --no-minify --public-url '.'<CR>
@@ -301,7 +314,7 @@ nnoremap <leader>d :windo diffthis<CR>
 nnoremap <leader>e :windo diffoff<CR>
 
 " fzf
-" let $FZF_DEFAULT_COMMAND='git ls-tree -r --name-only HEAD'
+let $FZF_DEFAULT_COMMAND='git ls-tree -r --name-only HEAD'
 nnoremap ; :Files<CR>
 nnoremap <leader>; :Buffers<CR>
 nnoremap <leader>l :Tags<CR>

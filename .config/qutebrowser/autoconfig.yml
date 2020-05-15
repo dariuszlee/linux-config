@@ -11,6 +11,8 @@ settings:
       command:
         <Ctrl+s>: edit-command
       normal:
+        ',o': :set content.proxy system
+        ',p': :set content.proxy socks://localhost:8080
         <Ctrl+s>: edit-command
         ge: edit-url
   bindings.key_mappings:

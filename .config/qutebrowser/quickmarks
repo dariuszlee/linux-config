@@ -273,3 +273,11 @@ sheets google https://docs.google.com/spreadsheets/u/0/
 airflow aws http://0.0.0.0:8081/admin/
 airflow variable aws http://0.0.0.0:8081/admin/variable/
 sentry smoothoperator https://sentry.io/organizations/koerber-digital/issues/?project=288766
+aws ecs smooth operator https://eu-central-1.console.aws.amazon.com/ecs/home?region=eu-central-1#/clusters
+aws step function smooth operator https://eu-central-1.console.aws.amazon.com/states/home?region=eu-central-1#/statemachines
+aws s3 smooth https://s3.console.aws.amazon.com/s3/home?region=eu-central-1#
+aws cloudwatch smooth https://eu-central-1.console.aws.amazon.com/cloudwatch/home?region=eu-central-1
+aws ecr smoothoperator https://eu-central-1.console.aws.amazon.com/ecr/repositories?region=eu-central-1#
+aws ec2 smooth operator https://eu-central-1.console.aws.amazon.com/ec2/v2/home?region=eu-central-1#Home:
+orchestrator staging smooth operator http://orchestrator.sm00p.com/admin/
+airflow prod smooth operator http://orchestrator.internal.smop.link/admin/
