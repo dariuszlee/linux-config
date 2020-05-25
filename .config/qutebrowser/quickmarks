@@ -281,3 +281,7 @@ aws ecr smoothoperator https://eu-central-1.console.aws.amazon.com/ecr/repositor
 aws ec2 smooth operator https://eu-central-1.console.aws.amazon.com/ec2/v2/home?region=eu-central-1#Home:
 orchestrator staging smooth operator http://orchestrator.sm00p.com/admin/
 airflow prod smooth operator http://orchestrator.internal.smop.link/admin/
+airflow staging smooth operator http://orchestrator.sm00p.com/admin/
+zoho invoices https://invoice.zoho.eu/app#/home/dashboard
+smooth operator plc data https://connyun.sharepoint.com/sites/smooth.operator/Freigegebene%20Dokumente/Forms/AllItems.aspx?FolderCTID=0x0120004C9DD3813C094441962C9155D0341DEE&viewid=377a9287-0067-48e5-9cb4-e0b9097a39e1&id=%2Fsites%2Fsmooth.operator%2FFreigegebene%20Dokumente%2F6%20-%20Engineering%20and%20Data%2FPLC%20data
+aco https://www.google.com/search?hl=en&sxsrf=ALeKk02Jt1u8A2g0bzODA-inalG7CuVInQ%3A1589973116106&ei=fBDFXtX4BczjkgWi45jgAg&q=bootcamp&oq=bootcamp&gs_lcp=CgZwc3ktYWIQAzIFCAAQkQIyBAgAEEMyBAgAEEMyBAgAEEMyAggAMgUIABCLAzIFCAAQiwMyBQgAEIsDMgUIABCLAzIFCAAQiwM6BAgjECc6BwgAEEMQiwNQsT9Y50tghU5oAHAAeACAAViIAYAFkgEBOJgBAKABAaoBB2d3cy13aXq4AQM&sclient=psy-ab&ved=0ahUKEwjVpqa2p8LpAhXMsaQKHaIxBiwQ4dUDCAw&uact=5&dlnr=1&sei=hhDFXvnKO7DhkgXX74LACQ
