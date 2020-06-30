@@ -313,7 +313,7 @@ bindsym $mod+XF86AudioRaiseVolume exec "amixer -D pulse sset Master 5%+"
 bindsym $mod+XF86AudioMute exec "amixer -D pulse sset Master toggle"
 
 # Utility 
-bindsym $mod+Shift+p exec deepin-screenshot
+bindsym $mod+Shift+p exec deepin-screen-recorder
 
 # Map keys
 exec --no-startup-id xmodmap ~/.keymap_config

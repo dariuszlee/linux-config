@@ -67,6 +67,12 @@ Plugin 'junegunn/fzf'
 " File formatting
 Plugin 'maksimr/vim-jsbeautify'
 
+Plugin 'google/vim-maktaba'
+Plugin 'google/vim-codefmt'
+" Also add Glaive, which is used to configure codefmt's maktaba flags. See
+" `:help :Glaive` for usage.
+Plugin 'google/vim-glaive'
+
 " Lightline
 Plugin 'itchyny/lightline.vim'
 " Syntax
@@ -105,13 +111,20 @@ set nofixendofline
 set noeol
 "source ~/.vim/plugins.vim
 
+" Formatting settings
+Glaive codefmt google_java_executable=
+Glaive codefmt google_java_executable="java -jar /path/to/google-java-format-VERSION-all-deps.jar"
+
+let g:java_format_exe = "Glaive codefmt google_java_executable=\"java -jar ".$HOME."/.vim/google-java-format-1.8-all-deps.jar\""
+execute g:java_format_exe
+
 imap jj <Esc>
 
 set encoding=utf-8
 
 " Spacing
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 
 " F2, F4, 

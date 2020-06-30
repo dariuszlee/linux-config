@@ -251,9 +251,9 @@ puls potsdam https://puls.uni-potsdam.de/qisserver/rds?state=user&type=0&topitem
 reddit football https://www.reddit.com/r/footballhighlights/
 darius dzly website http://dariuscanada.dynu.net/
 morning become eclectic latest show https://www.kcrw.com/music/shows/morning-becomes-eclectic/latest-show
-amazon aws https://eu-central-1.console.aws.amazon.com/lambda/home?region=eu-central-1#/functions
+amazon aws https://eu-central-1.console.aws.amazon.com/console/home?region=eu-central-1#
 jira smooth operator https://smoothoperator.atlassian.net/secure/BrowseProjects.jspa
-aws smooth operator https://us-east-1.signin.aws.amazon.com/oauth?SignatureVersion=4&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJMOATPLHVSJ563XQ&X-Amz-Date=2020-03-27T13%3A36%3A21.541Z&X-Amz-Signature=167e37b941223a467aeeae9d827e1d3ef8e8f8dea64d57cb85886ef2bfa47050&X-Amz-SignedHeaders=host&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Fhomepage&redirect_uri=https%3A%2F%2Fconsole.aws.amazon.com%2Fconsole%2Fhome%3Fstate%3DhashArgs%2523%26isauthcode%3Dtrue&response_type=code&state=hashArgs%23
+aws smooth operator https://eu-central-1.console.aws.amazon.com/console/home?region=eu-central-1#
 jira smooth operator connectivity https://confluence.bcgdv.io/pages/viewpage.action?spaceKey=DKedg&title=Intro+-+Paper+converting
 smooth operator parameter https://confluence.bcgdv.io/pages/viewpage.action?spaceKey=DKedg&title=Giershagen
 github smooth operator https://github.com/k-edge
@@ -285,3 +285,14 @@ airflow staging smooth operator http://orchestrator.sm00p.com/admin/
 zoho invoices https://invoice.zoho.eu/app#/home/dashboard
 smooth operator plc data https://connyun.sharepoint.com/sites/smooth.operator/Freigegebene%20Dokumente/Forms/AllItems.aspx?FolderCTID=0x0120004C9DD3813C094441962C9155D0341DEE&viewid=377a9287-0067-48e5-9cb4-e0b9097a39e1&id=%2Fsites%2Fsmooth.operator%2FFreigegebene%20Dokumente%2F6%20-%20Engineering%20and%20Data%2FPLC%20data
 aco https://www.google.com/search?hl=en&sxsrf=ALeKk02Jt1u8A2g0bzODA-inalG7CuVInQ%3A1589973116106&ei=fBDFXtX4BczjkgWi45jgAg&q=bootcamp&oq=bootcamp&gs_lcp=CgZwc3ktYWIQAzIFCAAQkQIyBAgAEEMyBAgAEEMyBAgAEEMyAggAMgUIABCLAzIFCAAQiwMyBQgAEIsDMgUIABCLAzIFCAAQiwM6BAgjECc6BwgAEEMQiwNQsT9Y50tghU5oAHAAeACAAViIAYAFkgEBOJgBAKABAaoBB2d3cy13aXq4AQM&sclient=psy-ab&ved=0ahUKEwjVpqa2p8LpAhXMsaQKHaIxBiwQ4dUDCAw&uact=5&dlnr=1&sei=hhDFXvnKO7DhkgXX74LACQ
+aws ecs https://eu-central-1.console.aws.amazon.com/ecs/home?region=eu-central-1#/clusters
+aws route 53 smooth operator https://console.aws.amazon.com/route53/home?region=eu-central-1#
+aws load balancer ec2 https://eu-central-1.console.aws.amazon.com/ec2/home?region=eu-central-1#LoadBalancers:sort=loadBalancerName
+mxnet java api https://mxnet.apache.org/api/java/docs/api/#org.apache.mxnet.infer.javaapi.package
+airflow preprod http://airflow.internal.preprod-sm00p.link/admin/
+aws dynamodb https://eu-central-1.console.aws.amazon.com/dynamodb/home?region=eu-central-1
+timestamp to time https://www.epochconverter.com/
+aws lambda https://eu-central-1.console.aws.amazon.com/lambda/home?region=eu-central-1#/functions
+airflow prod http://airflow.internal.smop.link/admin/
+aws parameter store https://eu-central-1.console.aws.amazon.com/systems-manager/parameters/database/password/master/description?region=eu-central-1&tab=Table
+airflow staging http://airflow.internal.sm00p.com/admin/
