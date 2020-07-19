@@ -222,6 +222,23 @@ exec_always --no-startup-id fix_xcursor
 # exec_always --no-startup-id /$HOME/.config/polybar/i3wmthemer_bar_launch.sh
 # exec_always --no-startup-id /$HOME/.config/polybar/launch.sh
 
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+  # use i3status
+  status_command i3status
+	# position bottom
+  colors {
+    background #2f343f
+    separator #4b5262
+        # colour of border, background, and text
+    focused_workspace       #2f343f #bf616a #d8dee8
+    active_workspace        #2f343f #2f343f #d8dee8
+    inactive_workspace      #2f343f #2f343f #d8dee8
+    urgent_workspace       #2f343f #ebcb8b #2f343f
+  }
+}
+
 # Theme colors
 client.focused #b0c4bb #2f2f38 #b0c4bb #81a2be #81a2be
 client.focused_inactive #b0c4bb #2f2f38 #b0c4bb #688486 #688486
@@ -321,22 +338,3 @@ exec --no-startup-id xmodmap ~/.keymap_config
 # Add Background
 exec --no-startup-id betterlockscreen -w dim
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-	# use i3blocks
-        # status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
-        # use i3status
-        status_command i3status
-	position bottom
-        colors {
-	background #2f343f
-	statusline #2f343f
-	separator #4b5262
-        # colour of border, background, and text
-        focused_workspace       #2f343f #bf616a #d8dee8
-        active_workspace        #2f343f #2f343f #d8dee8
-        inactive_workspace      #2f343f #2f343f #d8dee8
-        urgent_workspace       #2f343f #ebcb8b #2f343f
-    }
-}
