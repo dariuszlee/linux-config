@@ -296,3 +296,4 @@ aws lambda https://eu-central-1.console.aws.amazon.com/lambda/home?region=eu-cen
 airflow prod http://airflow.internal.smop.link/admin/
 aws parameter store https://eu-central-1.console.aws.amazon.com/systems-manager/parameters/database/password/master/description?region=eu-central-1&tab=Table
 airflow staging http://airflow.internal.sm00p.com/admin/
+aws kinesis https://eu-central-1.console.aws.amazon.com/kinesis/home?region=eu-central-1#/dashboard
