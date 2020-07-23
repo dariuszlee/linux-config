@@ -272,7 +272,7 @@ docs google https://docs.google.com/document/u/0/
 sheets google https://docs.google.com/spreadsheets/u/0/
 airflow aws http://0.0.0.0:8081/admin/
 airflow variable aws http://0.0.0.0:8081/admin/variable/
-sentry smoothoperator https://sentry.io/organizations/koerber-digital/issues/?project=288766
+sentry smoothoperator https://sentry.io/organizations/smooth-operator/issues/?project=1800544
 aws ecs smooth operator https://eu-central-1.console.aws.amazon.com/ecs/home?region=eu-central-1#/clusters
 aws step function smooth operator https://eu-central-1.console.aws.amazon.com/states/home?region=eu-central-1#/statemachines
 aws s3 smooth https://s3.console.aws.amazon.com/s3/home?region=eu-central-1#
@@ -296,4 +296,5 @@ aws lambda https://eu-central-1.console.aws.amazon.com/lambda/home?region=eu-cen
 airflow prod http://airflow.internal.smop.link/admin/
 aws parameter store https://eu-central-1.console.aws.amazon.com/systems-manager/parameters/database/password/master/description?region=eu-central-1&tab=Table
 airflow staging http://airflow.internal.sm00p.com/admin/
+grafana smop prod http://grafana.smop.link/d/2Y9bRtiMk/smooth-operator-live-dashboard?orgId=1
 aws kinesis https://eu-central-1.console.aws.amazon.com/kinesis/home?region=eu-central-1#/dashboard
