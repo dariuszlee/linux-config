@@ -292,9 +292,12 @@ export PATH=/opt/matlab/R2019b/bin:$PATH
 #     export PATH=~/anaconda3/bin:$PATH:
 # fi
 
+# laptop
 if [[ $(hostname) == "dzlyy" ]]; then
   ln -sf ~/.config/i3status/dzlyyconfig ~/.config/i3status/config
-elif [[ $(hostname) == "" ]]; then
+# desktop
+elif [[ $(hostname) == "dzly" ]]; then
+  ln -sf ~/.config/i3status/dzlyconfig ~/.config/i3status/config
 fi
 
 # Add Games directory to path
