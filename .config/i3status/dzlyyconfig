@@ -20,17 +20,14 @@ order += "volume master"
 order += "load"
 order += "cpu_usage"
 order += "cpu_temperature 0"
-order += "cpu_temperature 1"
-order += "cpu_temperature 2"
-order += "cpu_temperature 3"
 order += "disk /"
 order += "disk /media/media"
 order += "ethernet eth0"
+order += "wireless wlp58s0"
 order += "tztime local"
 #order += "ipv6"
 #order += "run_watch DHCP"
 #order += "run_watch VPN"
-#order += "wireless wlan0"
 
 volume master {
 #	format = " ♪: %volume  " 
@@ -53,49 +50,21 @@ cpu_usage {
 
 cpu_temperature 0 {
 	format = "± %degrees°"
-	path = "/sys/devices/platform/coretemp.0/temp2_input"
-	max_threshold = 95
-}
-
-cpu_temperature 1 {
-	format = "%degrees°"
-	path = "/sys/devices/platform/coretemp.0/temp3_input"
-	max_threshold = 95
-}
-
-cpu_temperature 2 {
-	format = "%degrees°"
-	path = "/sys/devices/platform/coretemp.0/temp4_input"
-	max_threshold = 95
-}
-
-cpu_temperature 3 {
-	format = "%degrees° "
-	path = "/sys/devices/platform/coretemp.0/temp5_input"
+	path = "/sys/devices/platform/coretemp.0/hwmon/hwmon5/temp2_input"
 	max_threshold = 95
 }
 
 disk "/" {
-	format = " ¨ %avail:/ " 
+	format = "%avail / %total " 
 }
 
 disk "/media/media" {
 	format = " ¨ %avail:m "
 }
 
-wireless wlan0 {
-	format_up = " W: (%quality at %essid) %ip "
+wireless wlp58s0 {
+	format_up = "W: (%quality at %essid, %bitrate / %frequency) %ip "
 	format_down = " ☡ WiFi "
-}
-
-ethernet eth0 {
-	# if you use %speed, i3status requires root privileges
-#	format_up =  " Ω: %ip  "
-#	format_down = " ∅ eth0  "
-
-	# termsyn font
-	format_up =  " ­ %ip "
-	format_down = " Ð eth0 "
 }
 
 run_watch DHCP {
@@ -109,5 +78,5 @@ run_watch VPN {
 tztime local {
 #	format = " %h-%d %H:%M ☰ "
 	# termsyn font
-	format = " %h-%d É %H:%M"
+	format = " %h-%d %H:%M"
 }

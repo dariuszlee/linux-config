@@ -228,9 +228,10 @@ bar {
   # use i3status
   status_command i3status
 	# position bottom
+  separator_symbol ":|:"
   colors {
     background #2f343f
-    separator #4b5262
+    separator #000000
         # colour of border, background, and text
     focused_workspace       #2f343f #bf616a #d8dee8
     active_workspace        #2f343f #2f343f #d8dee8
