@@ -127,6 +127,8 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
+
+
 " F2, F4, 
 imap <F2> <Esc>
 imap <F3> <Esc>
@@ -340,6 +342,20 @@ nnoremap <leader>w :Windows<CR>
 nnoremap <Leader>a :Rg <c-r>=expand("<cword>")<CR><CR>
 command! -nargs=1 Rg 
     \ call fzf#vim#grep('rg --column --line-number --color=always --smart-case '. string(<q-args>), 1)
+
+augroup autoformat_settings
+  autocmd FileType bzl AutoFormatBuffer buildifier
+  autocmd FileType c,cpp,proto,javascript,arduino AutoFormatBuffer clang-format
+  autocmd FileType dart AutoFormatBuffer dartfmt
+  autocmd FileType go AutoFormatBuffer gofmt
+  autocmd FileType gn AutoFormatBuffer gn
+  autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
+  autocmd FileType java AutoFormatBuffer google-java-format
+  autocmd FileType python AutoFormatBuffer autopep8
+  " Alternative: autocmd FileType python AutoFormatBuffer autopep8
+  autocmd FileType rust AutoFormatBuffer rustfmt
+  autocmd FileType vue AutoFormatBuffer prettier
+augroup END
 
 " Term shortcuts
 function! Toggle_line_nums()
