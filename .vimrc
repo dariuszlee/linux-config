@@ -18,7 +18,8 @@ Plugin 'fatih/vim-go'
 Plugin 'vim-latex/vim-latex'
 
 " REPL
-Plugin 'sillybun/vim-repl'
+" Plugin 'sillybun/vim-repl'
+Plugin 'HiPhish/repl.nvim'
 
 " Javascript / Typescript / Jsx / tsx
 Plugin 'HerringtonDarkholme/yats.vim'
@@ -112,8 +113,8 @@ set noeol
 "source ~/.vim/plugins.vim
 
 " Formatting settings
-Glaive codefmt google_java_executable=
-Glaive codefmt google_java_executable="java -jar /path/to/google-java-format-VERSION-all-deps.jar"
+" Glaive codefmt google_java_executable=
+" Glaive codefmt google_java_executable="java -jar /path/to/google-java-format-VERSION-all-deps.jar"
 
 let g:java_format_exe = "Glaive codefmt google_java_executable=\"java -jar ".$HOME."/.vim/google-java-format-1.8-all-deps.jar\""
 execute g:java_format_exe
@@ -240,10 +241,11 @@ endif
 let g:Vnews#browser_command = "qutebrowser"
 
 "REPL Settings
-let g:repl_program = {
-			\	'python': 'ipython',
-			\	'default': 'zsh',
-            \   'scala': 'amm'
+let g:repl['python'] = {
+			\	'bin': 'ipython',
+			\	'args': [],
+			\	'syntax': '',
+			\	'title': 'Python',
 			\	}
 let g:repl_input_symbols = {
             \   'python': ['>>>', '>>>>', 'ipdb>', 'pdb', '...'],
@@ -251,15 +253,14 @@ let g:repl_input_symbols = {
             \   }
 let g:sendtorepl_invoke_key = "<leader><leader>m"
 let g:repl_ipython_version = '6'
-nnoremap <leader><leader>q :REPLToggle<Cr>
-nnoremap <leader>h :REPLHide<Cr>
-nnoremap <leader>u :REPLUnhide<Cr>
-augroup filetype python
-    autocmd Filetype python nnoremap <F12> <Esc>:REPLDebugStopAtCurrentLine<Cr>
-    autocmd Filetype python nnoremap <F10> <Esc>:REPLPDBN<Cr>
-    autocmd Filetype python nnoremap <F11> <Esc>:REPLPDBS<Cr>
-    autocmd Filetype python nnoremap <F9> <Esc>:REPLPDBC<Cr>
-augroup END
+" Send the text of a motion to the REPL
+nmap <leader><leader>q :Repl<cr>
+nmap <leader><leader>rs  <Plug>(ReplSend)
+" Send the current line to the REPL
+nmap <leader>rss <Plug>(ReplSendLine)
+nmap <leader>rs_ <Plug>(ReplSendLine)
+" Send the selected text to the REPL
+vmap <leader><leader>rs  <Plug>(ReplSend)
 
 " Replace word under cursor
 nnoremap <C-a> :%s/<c-r>=expand("<cword>")<cr>/

@@ -280,7 +280,7 @@ aws cloudwatch smooth https://eu-central-1.console.aws.amazon.com/cloudwatch/hom
 aws ecr smoothoperator https://eu-central-1.console.aws.amazon.com/ecr/repositories?region=eu-central-1#
 aws ec2 smooth operator https://eu-central-1.console.aws.amazon.com/ec2/v2/home?region=eu-central-1#Home:
 orchestrator staging smooth operator http://orchestrator.sm00p.com/admin/
-airflow prod smooth operator http://orchestrator.internal.smop.link/admin/
+airflow prod smooth operator http://airflow.internal.smop.link/admin/
 airflow staging smooth operator http://orchestrator.sm00p.com/admin/
 zoho invoices https://invoice.zoho.eu/app#/home/dashboard
 smooth operator plc data https://connyun.sharepoint.com/sites/smooth.operator/Freigegebene%20Dokumente/Forms/AllItems.aspx?FolderCTID=0x0120004C9DD3813C094441962C9155D0341DEE&viewid=377a9287-0067-48e5-9cb4-e0b9097a39e1&id=%2Fsites%2Fsmooth.operator%2FFreigegebene%20Dokumente%2F6%20-%20Engineering%20and%20Data%2FPLC%20data
@@ -298,3 +298,4 @@ aws parameter store https://eu-central-1.console.aws.amazon.com/systems-manager/
 airflow staging http://airflow.internal.sm00p.com/admin/
 grafana smop prod http://grafana.smop.link/d/2Y9bRtiMk/smooth-operator-live-dashboard?orgId=1
 dss line-api https://github.com/KoerberDigitalDevTeam/line-api
+grafana staging https://grafana.sm00p.com/login

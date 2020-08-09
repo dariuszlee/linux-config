@@ -312,3 +312,20 @@ eval "$(direnv hook zsh)"
 
 source /usr/share/nvm/init-nvm.sh
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/dzly/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/dzly/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/dzly/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/dzly/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+alias R=radian
