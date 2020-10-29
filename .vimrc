@@ -1,5 +1,6 @@
-set nocompatible              " be iMproved, required
+" set nocompatible              " be iMproved, required
 filetype off                  " required
+
 set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
@@ -16,10 +17,6 @@ Plugin 'fatih/vim-go'
 "
 " Latex
 Plugin 'vim-latex/vim-latex'
-
-" REPL
-" Plugin 'sillybun/vim-repl'
-Plugin 'HiPhish/repl.nvim'
 
 " Javascript / Typescript / Jsx / tsx
 Plugin 'HerringtonDarkholme/yats.vim'
@@ -81,6 +78,9 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'w0ng/vim-hybrid'
 
+" REPL
+" Plugin 'sillybun/vim-repl'
+Plugin 'HiPhish/repl.nvim'
 
 " Open url
 Plugin 'dhruvasagar/vim-open-url'
@@ -116,17 +116,13 @@ set noeol
 " Glaive codefmt google_java_executable=
 " Glaive codefmt google_java_executable="java -jar /path/to/google-java-format-VERSION-all-deps.jar"
 
+call glaive#Install()
 let g:java_format_exe = "Glaive codefmt google_java_executable=\"java -jar ".$HOME."/.vim/google-java-format-1.8-all-deps.jar\""
 execute g:java_format_exe
 
 imap jj <Esc>
 
 set encoding=utf-8
-
-" Spacing
-set tabstop=2
-set shiftwidth=2
-set expandtab
 
 
 
@@ -148,12 +144,20 @@ augroup filetype jss_css_html
     nnoremap <c-i><c-i> :AsyncRun NODE_ENV=development parcel build src/*.html --no-minify --public-url '.'<CR>
 augroup END
 
+set tabstop=4
+set shiftwidth=4
+set expandtab
 augroup filetype java 
     highlight link javaScopeDecl Statement
     highlight link javaType Type
     highlight link javaDocTags PreProc
     let g:java_highlight_functions = 1
     let g:java_highlight_all = 1
+    " Spacing
+    set tabstop=2
+    set shiftwidth=2
+    set expandtab
+    nnoremap <leader><leader>d :call ProcessFirstLineJava()<cr>
 augroup END
 
 " Line numbering
@@ -191,6 +195,7 @@ augroup END
 " Coc.nvim style plugins
 autocmd FileType python let b:coc_root_patterns = ['.vim', '.env']
 noremap <leader><leader>a :CocAction<cr>
+set statusline^=%{coc#status()}
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -240,27 +245,6 @@ endif
 " Vnews
 let g:Vnews#browser_command = "qutebrowser"
 
-"REPL Settings
-let g:repl['python'] = {
-			\	'bin': 'ipython',
-			\	'args': [],
-			\	'syntax': '',
-			\	'title': 'Python',
-			\	}
-let g:repl_input_symbols = {
-            \   'python': ['>>>', '>>>>', 'ipdb>', 'pdb', '...'],
-            \   'scala': ['@']
-            \   }
-let g:sendtorepl_invoke_key = "<leader><leader>m"
-let g:repl_ipython_version = '6'
-" Send the text of a motion to the REPL
-nmap <leader><leader>q :Repl<cr>
-nmap <leader><leader>rs  <Plug>(ReplSend)
-" Send the current line to the REPL
-nmap <leader>rss <Plug>(ReplSendLine)
-nmap <leader>rs_ <Plug>(ReplSendLine)
-" Send the selected text to the REPL
-vmap <leader><leader>rs  <Plug>(ReplSend)
 
 " Replace word under cursor
 nnoremap <C-a> :%s/<c-r>=expand("<cword>")<cr>/
@@ -340,13 +324,20 @@ nnoremap <leader>/ :BLines<CR>
 nnoremap <leader>c :Commit<CR>
 nnoremap <leader>bc :BCommit<CR>
 nnoremap <leader>w :Windows<CR>
+
 nnoremap <Leader>a :Rg <c-r>=expand("<cword>")<CR><CR>
+" set rtp+=~/.fzf
+" set rtp+=/usr/local/opt/fzf
+" let g:rg_derive_root='true'
+" set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ --follow
 command! -nargs=1 Rg 
-    \ call fzf#vim#grep('rg --column --line-number --color=always --smart-case '. string(<q-args>), 1)
+    \ call fzf#vim#grep('rg --vimgrep --column --line-number --color=always --smart-case --follow '. string(<q-args>), 1)
+" command! -nargs=1 Rg 
+"     \ call fzf#vim#grep('rg --column --line-number '. string(<q-args>), 1)
 
 augroup autoformat_settings
   autocmd FileType bzl AutoFormatBuffer buildifier
-  autocmd FileType c,cpp,proto,javascript,arduino AutoFormatBuffer clang-format
+  " autocmd FileType c,cpp,proto,javascript,arduino AutoFormatBuffer clang-format
   autocmd FileType dart AutoFormatBuffer dartfmt
   autocmd FileType go AutoFormatBuffer gofmt
   autocmd FileType gn AutoFormatBuffer gn
@@ -462,3 +453,7 @@ let g:gruvbox_termcolors = '256'
 let g:gruvbox_contrast_dark = 'hard'
 set background=dark " Dark Mode
 highlight Normal ctermbg=0
+
+function! ProcessFirstLineJava()
+  let @b = 'b ' . split(split(getline(1), ' ')[1], ';')[0] . '.' . expand('%:t:r') . ':' . line(".")
+endfunction

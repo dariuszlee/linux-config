@@ -267,7 +267,6 @@ jira my issues https://smoothoperator.atlassian.net/projects/DVGKEDGE/issues/?fi
 confluence smooth operator https://smoothoperator.atlassian.net/wiki/home
 githbu koerber digital https://github.com/KoerberDigitalDevTeam
 netron neural network viewer https://lutzroeder.github.io/netron/
-a456tilda https://login.live.com/ppsecure/post.srf?wa=wsignin1.0&rpsnv=13&ct=1587387775&rver=7.0.6737.0&wp=MBI_SSL&wreply=https%3A%2F%2Foutlook.live.com%2Fmail%2Finbox%3FauthRedirect%3Dtrue%26RpsCsrfState%3De134f02d-433f-c887-350a-e99ce65f2813&id=292841&aadredir=1&CBCXT=out&lw=1&fl=dob%2Cflname%2Cwld&cobrandid=90015&contextid=8B17EBDC89323912&bk=1587387779&uaid=d5b9926e437340329ce898667f1d7dba&nw=4G&pid=0
 docs google https://docs.google.com/document/u/0/
 sheets google https://docs.google.com/spreadsheets/u/0/
 airflow aws http://0.0.0.0:8081/admin/
@@ -279,9 +278,7 @@ aws s3 smooth https://s3.console.aws.amazon.com/s3/home?region=eu-central-1#
 aws cloudwatch smooth https://eu-central-1.console.aws.amazon.com/cloudwatch/home?region=eu-central-1
 aws ecr smoothoperator https://eu-central-1.console.aws.amazon.com/ecr/repositories?region=eu-central-1#
 aws ec2 smooth operator https://eu-central-1.console.aws.amazon.com/ec2/v2/home?region=eu-central-1#Home:
-orchestrator staging smooth operator http://orchestrator.sm00p.com/admin/
 airflow prod smooth operator http://airflow.internal.smop.link/admin/
-airflow staging smooth operator http://orchestrator.sm00p.com/admin/
 zoho invoices https://invoice.zoho.eu/app#/home/dashboard
 smooth operator plc data https://connyun.sharepoint.com/sites/smooth.operator/Freigegebene%20Dokumente/Forms/AllItems.aspx?FolderCTID=0x0120004C9DD3813C094441962C9155D0341DEE&viewid=377a9287-0067-48e5-9cb4-e0b9097a39e1&id=%2Fsites%2Fsmooth.operator%2FFreigegebene%20Dokumente%2F6%20-%20Engineering%20and%20Data%2FPLC%20data
 aco https://www.google.com/search?hl=en&sxsrf=ALeKk02Jt1u8A2g0bzODA-inalG7CuVInQ%3A1589973116106&ei=fBDFXtX4BczjkgWi45jgAg&q=bootcamp&oq=bootcamp&gs_lcp=CgZwc3ktYWIQAzIFCAAQkQIyBAgAEEMyBAgAEEMyBAgAEEMyAggAMgUIABCLAzIFCAAQiwMyBQgAEIsDMgUIABCLAzIFCAAQiwM6BAgjECc6BwgAEEMQiwNQsT9Y50tghU5oAHAAeACAAViIAYAFkgEBOJgBAKABAaoBB2d3cy13aXq4AQM&sclient=psy-ab&ved=0ahUKEwjVpqa2p8LpAhXMsaQKHaIxBiwQ4dUDCAw&uact=5&dlnr=1&sei=hhDFXvnKO7DhkgXX74LACQ
@@ -299,3 +296,9 @@ airflow staging http://airflow.internal.sm00p.com/admin/
 grafana smop prod http://grafana.smop.link/d/2Y9bRtiMk/smooth-operator-live-dashboard?orgId=1
 dss line-api https://github.com/KoerberDigitalDevTeam/line-api
 grafana staging https://grafana.sm00p.com/login
+aws kinesis https://eu-central-1.console.aws.amazon.com/kinesisanalytics/home?region=eu-central-1#/wizard/hub?applicationName=machine-settings-filter
+backoffice stag https://backoffice.sm00p.com/login?redirect=https%3A%2F%2Fbackoffice.sm00p.com%2F
+personio koerber https://koerber-digital.personio.de/login/index
+smoothoperator product data https://connyun.sharepoint.com/:x:/s/smooth.operator/EWvgQOk0uVZMpS83yZS5Cg0BrPFeVJsHX0RztbOXImvcDw?e=2b0ssd
+aws rds https://eu-central-1.console.aws.amazon.com/rds/home?region=eu-central-1#
+backoffice production https://backoffice.smop.link/login?redirect=https%3A%2F%2Fbackoffice.smop.link%2F
