@@ -329,3 +329,20 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 alias R=radian
+
+# WSL?
+if [[ "$(< /proc/sys/kernel/osrelease)" == *microsoft*  ]]; then
+  echo "Wsl Setup"
+  export $(dbus-launch)
+  # export WSL_VERSION=$(wsl.exe -l -v | grep -a '[*]' | sed 's/[^0-9]*//g')   
+  export WSL_HOST=$(tail -1 /etc/resolv.conf | cut -d' ' -f2)
+  export DISPLAY=$WSL_HOST:0
+  # pip path if using --user
+  export PATH=$PATH:$HOME/.local/bin
+  # SSH
+  if [[ -z $(ps -A | grep i3) ]]; then  
+    echo Starting i3
+    i3 &
+  fi
+fi
+
