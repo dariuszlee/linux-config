@@ -217,8 +217,9 @@ if [[ -z $SSH_AGENT_PID ]]; then
 fi
 
 function CheckSshKeys(){
-    SshAddCount=$(ssh-add -l)
+    SshAddCount=$(ssh-add -l 2> /dev/null)
     if [[ $? -eq 2 ]]; then
+        rm -f $SSH_AUTH_SOCK
         eval `ssh-agent -a $SSH_AUTH_SOCK`
     elif [[ $SshAddCount == "The agent has no identities." ]]; then
         SshAddCount=0
@@ -292,26 +293,19 @@ export PATH=/opt/matlab/R2019b/bin:$PATH
 #     export PATH=~/anaconda3/bin:$PATH:
 # fi
 
-# laptop
-if [[ $(hostname) == "dzlyy" ]]; then
-  ln -sf ~/.config/i3status/dzlyyconfig ~/.config/i3status/config
-# desktop
-elif [[ $(hostname) == "dzly" ]]; then
-  ln -sf ~/.config/i3status/dzlyconfig ~/.config/i3status/config
-fi
 
 # Add Games directory to path
 export PATH=$PATH:~/Games-Wine/
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# source /usr/share/nvm/init-nvm.sh
+# [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
 
 eval "$(direnv hook zsh)"
 
-source /usr/share/nvm/init-nvm.sh
-[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -340,9 +334,17 @@ if [[ "$(< /proc/sys/kernel/osrelease)" == *microsoft*  ]]; then
   # pip path if using --user
   export PATH=$PATH:$HOME/.local/bin
   # SSH
-  if [[ -z $(ps -A | grep i3) ]]; then  
-    echo Starting i3
-    i3 &
+  # if [[ -z $(ps -A | grep i3) ]]; then  
+  #   echo Starting i3
+  #   i3 &
+  # fi
+else
+  # laptop
+  if [[ $(hostname) == "dzlyy" ]]; then
+    ln -sf ~/.config/i3status/dzlyyconfig ~/.config/i3status/config
+  # desktop
+  elif [[ $(hostname) == "dzly" ]]; then
+    ln -sf ~/.config/i3status/dzlyconfig ~/.config/i3status/config
   fi
 fi
 
