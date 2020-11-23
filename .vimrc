@@ -231,11 +231,16 @@ if $XDG_SESSION_TYPE != 'x11' && executable('wl-copy')
 
     " Copy file path
     nnoremap fyy y:call system("wl-copy", expand("%:p"))<CR>
+elseif executable('clip.exe')
+    xnoremap "+y y:call system("clip.exe", @")<cr>
+    nnoremap "+p :let @"=substitute(system("clip.exe"), '<C-v><C-m>', '', 'g')<cr>p
+    nnoremap "*p :let @"=substitute(system("clip.exe"), '<C-v><C-m>', '', 'g')<cr>p
+    nnoremap fyy y:call system("clip.exe", expand("%:p"))<CR>
 else 
     echom "X11 Sesssion"
     xnoremap "+y y:call system("xclip -sel clip", @")<cr>
     nnoremap "+p :let @"=substitute(system("xclip -o -sel clip"), '<C-v><C-m>', '', 'g')<cr>p
-    nnoremap "*p :let @"=substitute(system("xlip -o -sel clip"), '<C-v><C-m>', '', 'g')<cr>p
+    nnoremap "*p :let @"=substitute(system("xclip -o -sel clip"), '<C-v><C-m>', '', 'g')<cr>p
 
     " Copy file path
     nnoremap fyy y:call system("xclip -sel clip", expand("%:p"))<CR>
