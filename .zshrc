@@ -58,23 +58,13 @@ ZSH_THEME="steeef"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode docker docker-compose)
+plugins=(
+  git
+  vi-mode
+)
 fpath=(~/.zsh-completions/ $fpath)
 
 source $ZSH/oh-my-zsh.sh
-
-source $HOME/.zgen/zgen.zsh
-zgen load 1ambda/zsh-snippets
-alias zsp="zsh_snippets"
-bindkey '^O^O' zsh-snippets-widget-expand  # CTRL-S CTRL-S (expand)
-bindkey '^O^A' zsh-snippets-widget-list    # CTRL-S CTRL-A (list)
-
-# source $HOME/.zplug/init.zsh
-# zplug install "1ambda/zsh-snippets"
-# alias zsp="zsh_snippets"
-# bindkey '^O^O' zsh-snippets-widget-expand  # CTRL-S CTRL-S (expand)
-# bindkey '^O^A' zsh-snippets-widget-list    # CTRL-S CTRL-A (list)
-# zplug load
 
 # User configuration
 
@@ -164,14 +154,14 @@ export ANDROID_STUDIO_HOME="/usr/local/android-studio/"
 export PATH=$PATH:$ANDROID_STUDIO_HOME/bin
 
 # FZF Settings
-# export FZF_DEFAULT_COMMAND='find . -path "*/\.*" -prune -o -type f -print -o -type l -print | sed s/^..//'
-# if [[ -d ~/.vim/bundle/fzf/bin ]]; then
-# 	export PATH=~/.vim/bundle/fzf/bin:$PATH:
-# fi
+export FZF_DEFAULT_COMMAND='find . -path "*/\.*" -prune -o -type f -print -o -type l -print | sed s/^..//'
+if [[ -d ~/.vim/bundle/fzf/bin ]]; then
+	export PATH=~/.vim/bundle/fzf/bin:$PATH:
+fi
 
 if [[ $(whoami) == 'dzlyy' ]]; then
-	# export GDK_SCALE=2
-	# [[ ! $DISPLAY && $XDG_VTNR -eq 1 && $(id --group) -ne 0 ]] && exec startx
+	export GDK_SCALE=2
+	[[ ! $DISPLAY && $XDG_VTNR -eq 1 && $(id --group) -ne 0 ]] && exec startx
 elif [[ $(whoami) == 'ezleeda' ]]; then
 	source ~/.zsh/.zshrc-ezleeda
 elif [[ $(whoami) == 'dlee' ]]; then
@@ -217,9 +207,8 @@ if [[ -z $SSH_AGENT_PID ]]; then
 fi
 
 function CheckSshKeys(){
-    SshAddCount=$(ssh-add -l 2> /dev/null)
+    SshAddCount=$(ssh-add -l)
     if [[ $? -eq 2 ]]; then
-        rm -f $SSH_AUTH_SOCK
         eval `ssh-agent -a $SSH_AUTH_SOCK`
     elif [[ $SshAddCount == "The agent has no identities." ]]; then
         SshAddCount=0
@@ -293,58 +282,6 @@ export PATH=/opt/matlab/R2019b/bin:$PATH
 #     export PATH=~/anaconda3/bin:$PATH:
 # fi
 
-
 # Add Games directory to path
 export PATH=$PATH:~/Games-Wine/
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# source /usr/share/nvm/init-nvm.sh
-# [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
-
-eval "$(direnv hook zsh)"
-
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/dzly/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/dzly/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/dzly/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/dzly/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-alias R=radian
-
-# WSL?
-if [[ "$(< /proc/sys/kernel/osrelease)" == *microsoft*  ]]; then
-  echo "Wsl Setup"
-  export $(dbus-launch)
-  # export WSL_VERSION=$(wsl.exe -l -v | grep -a '[*]' | sed 's/[^0-9]*//g')   
-  export WSL_HOST=$(tail -1 /etc/resolv.conf | cut -d' ' -f2)
-  export DISPLAY=$WSL_HOST:0
-  # pip path if using --user
-  export PATH=$PATH:$HOME/.local/bin
-  # SSH
-  # if [[ -z $(ps -A | grep i3) ]]; then  
-  #   echo Starting i3
-  #   i3 &
-  # fi
-else
-  # laptop
-  if [[ $(hostname) == "dzlyy" ]]; then
-    ln -sf ~/.config/i3status/dzlyyconfig ~/.config/i3status/config
-  # desktop
-  elif [[ $(hostname) == "dzly" ]]; then
-    ln -sf ~/.config/i3status/dzlyconfig ~/.config/i3status/config
-  fi
-fi
-
