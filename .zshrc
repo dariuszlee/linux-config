@@ -207,8 +207,9 @@ if [[ -z $SSH_AGENT_PID ]]; then
 fi
 
 function CheckSshKeys(){
-    SshAddCount=$(ssh-add -l)
+    SshAddCount=$(ssh-add -l) 2> /dev/null
     if [[ $? -eq 2 ]]; then
+        rm $SSH_AUTH_SOCK
         eval `ssh-agent -a $SSH_AUTH_SOCK`
     elif [[ $SshAddCount == "The agent has no identities." ]]; then
         SshAddCount=0
