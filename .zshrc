@@ -282,6 +282,9 @@ export PATH=/opt/matlab/R2019b/bin:$PATH
 # if [[ -d ~/anaconda3 ]]; then
 #     export PATH=~/anaconda3/bin:$PATH:
 # fi
+#
+# Add direnv support
+eval "$(direnv hook zsh)"
 
 # Add Games directory to path
 export PATH=$PATH:~/Games-Wine/
