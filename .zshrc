@@ -270,9 +270,8 @@ function push_calendar(){
 
 function fix_zsh_history(){
     mv ~/.zsh_history ~/.zsh_history_bad -f
-    strings .zsh_history_bad > .zsh_history
+    strings ~/.zsh_history_bad > ~/.zsh_history
     fc -R ~/.zsh_history
-    rm ~/.zsh_history_bad
 }
 
 # Add Matlab path

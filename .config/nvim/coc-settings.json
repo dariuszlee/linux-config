@@ -1,0 +1,7 @@
+{
+    "python.jediEnabled": true,
+    "python.trace.server": "on",
+    "java.jdt.ls.vmargs": "-javaagent:/home/dzly/.m2/repository/org/projectlombok/lombok/1.18.8/lombok-1.18.8.jar",
+    "java.import.gradle.wrapper.enabled": false
+
+}
