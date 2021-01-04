@@ -274,9 +274,30 @@ function fix_zsh_history(){
     fc -R ~/.zsh_history
 }
 
+function install_yay() {
+  if ! command -v yay &> /dev/null ; then
+    echo "Installing yay"
+    sudo pacman -S --needed git base-devel
+    git clone https://aur.archlinux.org/yay.git ~/yay
+    cd ~/yay
+    makepkg -si
+    cd ..
+    rm yay -rf
+  fi
+}
+install_yay
+
+function create_install() {
+  zip install.zip ~/.*
+  zip install.zip ~/.oh-my-zsh ~/.zsh ~/.config ~/.git ~/.vim ~/.ssh/
+}
+
 # Add Matlab path
 export PATH=/usr/local/matlab/bin:$PATH
 export PATH=/opt/matlab/R2019b/bin:$PATH
+
+# Add GtkWave
+export PATH=/mnt/c/Users/dariu/Downloads/gtkwave-3.3.100-bin-win32/gtkwave/bin:$PATH
 
 # if [[ -d ~/anaconda3 ]]; then
 #     export PATH=~/anaconda3/bin:$PATH:

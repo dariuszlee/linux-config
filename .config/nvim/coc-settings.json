@@ -1,7 +1,42 @@
 {
     "python.jediEnabled": true,
     "python.trace.server": "on",
-    "java.jdt.ls.vmargs": "-javaagent:/home/dzly/.m2/repository/org/projectlombok/lombok/1.18.8/lombok-1.18.8.jar",
-    "java.import.gradle.wrapper.enabled": false
+    "java.jdt.ls.vmargs": "-javaagent:/usr/local/share/lombok.jar -Xbootclasspath/a:/usr/local/share/lombok.jar",
+    "java.import.gradle.wrapper.enabled": false,
+    "languageserver": {
+      "ccls": {
+        "command": "ccls",
+        "filetypes": [
+          "c",
+          "cpp",
+          "objc",
+          "objcpp"
 
+        ],
+        "rootPatterns": [
+          ".ccls",
+          "compile_commands.json",
+          ".vim/",
+          ".git/",
+          ".hg/"
+
+        ],
+        "initializationOptions": {
+          "cache": {
+            "directory": "/tmp/ccls"
+          },
+          "clang": {
+            "extraArgs": [
+              "-I",
+              "/mnt/c/Users/dariu/Documents/projects/test_vst/iPlug2/IGraphics/"        
+
+            ]
+
+          }
+
+        }
+
+      }
+
+    }
 }
