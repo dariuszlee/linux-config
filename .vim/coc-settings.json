@@ -1,6 +1,12 @@
 {
+    "python.formatting.provider": "autopep8",
+    "python.linting.pylintEnabled": true,
     "python.jediEnabled": false,
     "java.jdt.ls.vmargs": "-javaagent:/usr/local/share/lombok.jar -Xbootclasspath/a:/usr/local/share/lombok.jar",
     "java.home": "/usr/lib/jvm/default",
-    "javascript.format.enabled": false
+    "javascript.format.enabled": false,
+
+    "suggest.timeout": 1000,
+    "suggest.minTriggerInputLength": 3,
+    "suggest.autoTrigger": "always"
 }

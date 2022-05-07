@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -7,7 +14,7 @@ export ZSH=~/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="steeef"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -61,7 +68,11 @@ ZSH_THEME="steeef"
 plugins=(
   git
   vi-mode
+	docker
+	docker-compose
+	z
 )
+plugins=(autoswitch_virtualenv $plugins)
 fpath=(~/.zsh-completions/ $fpath)
 
 source $ZSH/oh-my-zsh.sh
@@ -110,10 +121,10 @@ function InstallVundle()
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 }
 
-if [[ ! -d ~/.vim/bundle/Vundle.vim ]]; then
-	echo "Installing vundle"
-	InstallVundle
-fi
+# if [[ ! -d ~/.vim/bundle/Vundle.vim ]]; then
+# 	echo "Installing vundle"
+# 	InstallVundle
+# fi
 
 function InstallTpm()
 {
@@ -129,6 +140,9 @@ fi
 # Add go path
 export PATH=$PATH:~/go/bin
 export GOPATH=~/go
+
+# Add Rust to path
+export PATH=$PATH:~/.cargo/bin
 
 # Report ssl keys
 # export SSLKEYLOGFILE=~/sslkeylog.log
@@ -297,7 +311,14 @@ export PATH=/usr/local/matlab/bin:$PATH
 export PATH=/opt/matlab/R2019b/bin:$PATH
 
 # Add GtkWave
-export PATH=/mnt/c/Users/dariu/Downloads/gtkwave-3.3.100-bin-win32/gtkwave/bin:$PATH
+export PATH=/mnt/c/Users/dariu/Downloads/gtkwave/bin:$PATH
+
+# Add Chrome
+export PATH=/mnt/c/Program\ Files/Google/Chrome/Application:$PATH
+
+# if uname -r | grep -i 'microsoft'; then
+#   export DISPLAY="`grep nameserver /etc/resolv.conf | sed 's/nameserver //'`:0.0"
+# fi
 
 # if [[ -d ~/anaconda3 ]]; then
 #     export PATH=~/anaconda3/bin:$PATH:
@@ -306,6 +327,28 @@ export PATH=/mnt/c/Users/dariu/Downloads/gtkwave-3.3.100-bin-win32/gtkwave/bin:$
 # Add direnv support
 eval "$(direnv hook zsh)"
 
+# Add MsBuild
+export PATH="/mnt/c/Program Files/Microsoft Visual Studio/2022/Community/Msbuild/Current/Bin/":$PATH
+
+export PATH="$HOME/.vim/":$PATH
+PROMPT='%{$fg[yellow]%}[%D{%f/%m/%y} %D{%L:%M:%S}] '$PROMPT
+
+alias ls=exa
+alias exal="exa --header --long --git"
+
 # Add Games directory to path
 export PATH=$PATH:~/Games-Wine/
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+function initnvm() {
+	source /usr/share/nvm/init-nvm.sh
+}
+
+# export AUTOSWITCH_MESSAGE_FORMAT="$(tput setaf 1)Switching to %venv_name 🐍 %py_version $(tput sgr0)"
+export AUTOSWITCH_MESSAGE_FORMAT=""
+export AUTOSWITCH_SILENT="notnull"
+
+alias jukit_kitty="kitty --listen-on=unix:@"$(date +%s%N)" -o allow_remote_control=yes"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

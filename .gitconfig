@@ -1,6 +1,11 @@
 [core]
 	excludesfile = /home/dzly/.gitignore_global
-    editor = nvim
+	editor = nvim
 [user]
 	email = dariuszlee@outlook.com
 	name = Darius Lee
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
