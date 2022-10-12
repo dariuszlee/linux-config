@@ -503,7 +503,7 @@ nnoremap <leader>; :Buffers<CR>
 nnoremap <leader>l :Tags<CR>
 nnoremap <Leader><leader>l :Tags <c-r>=expand("<cword>")<CR><CR>
 " nnoremap <leader>bl :BTags<CR>
-" nnoremap <leader>/ :BLines<CR>
+nnoremap <leader>/ :BLines<CR>
 " nnoremap <leader>c :Commit<CR>
 " nnoremap <leader>bc :BCommit<CR>
 " nnoremap <leader>w :Windows<CR>

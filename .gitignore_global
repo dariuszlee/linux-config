@@ -10,3 +10,4 @@ tags
 .vim/
 metastore_db/
 *.class
+.jukit/
