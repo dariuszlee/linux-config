@@ -77,6 +77,22 @@ fpath=(~/.zsh-completions/ $fpath)
 
 source $ZSH/oh-my-zsh.sh
 
+source ~/.zplug/init.zsh
+# zplug "bckim92/zsh-autoswitch-conda"
+# . /opt/anaconda/etc/profile.d/conda.sh
+
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# zplug load --verbose
+
+# export PATH=$PATH:/opt/anaconda/bin
+
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -138,17 +154,17 @@ fi
 
 
 # Add go path
-export PATH=$PATH:~/go/bin
-export GOPATH=~/go
+# export PATH=$PATH:~/go/bin
+# export GOPATH=~/go
 
 # Add Rust to path
-export PATH=$PATH:~/.cargo/bin
+# export PATH=$PATH:~/.cargo/bin
 
 # Report ssl keys
 # export SSLKEYLOGFILE=~/sslkeylog.log
 
 # Editor setting (obvs)
-export EDITOR=vim
+export EDITOR=nvim
 
 # Tmux settings
 alias tmux="TERM=screen-256color-bce tmux"
@@ -172,6 +188,7 @@ export FZF_DEFAULT_COMMAND='find . -path "*/\.*" -prune -o -type f -print -o -ty
 if [[ -d ~/.vim/bundle/fzf/bin ]]; then
 	export PATH=~/.vim/bundle/fzf/bin:$PATH:
 fi
+
 
 if [[ $(whoami) == 'dzlyy' ]]; then
 	export GDK_SCALE=2
@@ -336,8 +353,7 @@ PROMPT='%{$fg[yellow]%}[%D{%f/%m/%y} %D{%L:%M:%S}] '$PROMPT
 alias ls=exa
 alias exal="exa --header --long --git"
 
-# Add Games directory to path
-export PATH=$PATH:~/Games-Wine/
+# fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 function initnvm() {
@@ -356,3 +372,4 @@ alias jukit_kitty="kitty --listen-on=unix:@"$(date +%s%N)" -o allow_remote_contr
 # [ -f ~/.resh/shellrc ] && source ~/.resh/shellrc # this line was added by RESH (Rich Enchanced Shell History)
 
 # reshctl enable ctrl_r_binding
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)

@@ -1,6 +1,6 @@
 {
     "python.formatting.provider": "black",
-    "python.pythonPath": "/usr/bin/python3.8",
+    // "python.pythonPath": "/usr/bin/python3.8",
     "python.venvPath": "/home/dzly/.virtualenv/",
     "java.import.gradle.wrapper.enabled": false,
     "java.jdt.ls.vmargs": "-javaagent:/home/dzly/.vim/lombok.jar -Xbootclasspath/a:/home/dzly/.vim/lombok.jar",

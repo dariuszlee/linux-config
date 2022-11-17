@@ -131,6 +131,9 @@ Plug 'scrooloose/nerdtree'
 " Hex????
 Plug 'fidian/hexmode'
 
+" Window Outline
+Plug 'nvim-zh/colorful-winsep.nvim'
+
 " Personal Plugs
 " Plug 'dariuszlee/vim-dzl-replace'
 Plug 'dariuszlee/vim-dzl-gitdiff'
@@ -463,8 +466,9 @@ nnoremap <leader>js :call JsonBeautify()<CR>
 
 " Config
 let mapleader = ","
-nnoremap <leader><leader>r :source ~/.vimrc<CR>
-nnoremap <leader><leader>t :e ~/.vimrc<CR>
+" nnoremap <leader><leader>r :source ~/.vimrc<CR>
+nnoremap <leader><leader>r :source ~/.config/nvim/init.vim<CR>
+nnoremap <leader><leader>t :e ~/.config/nvim/init.vim<CR>
 nnoremap <leader><leader>y :e ~/.config/nvim/init.vim<CR>
 
 " Snippets
