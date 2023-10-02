@@ -4,10 +4,10 @@
 [user]
 	email = dariuszlee@outlook.com
 	name = Darius Lee
+[push]
+	autoSetupRemote = true
 [filter "lfs"]
-	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[push]
-	autoSetupRemote = true
+	clean = git-lfs clean -- %f

@@ -1,10 +1,6 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -14,6 +10,7 @@ export ZSH=~/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to load
@@ -71,15 +68,14 @@ plugins=(
 	docker
 	docker-compose
 	z
+  aws-mfa
+  autoswitch_virtualenv 
 )
-plugins=(autoswitch_virtualenv $plugins)
 fpath=(~/.zsh-completions/ $fpath)
 
 source $ZSH/oh-my-zsh.sh
 
 source ~/.zplug/init.zsh
-# zplug "bckim92/zsh-autoswitch-conda"
-# . /opt/anaconda/etc/profile.d/conda.sh
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -88,10 +84,8 @@ if ! zplug check --verbose; then
     fi
 fi
 
+
 # zplug load --verbose
-
-# export PATH=$PATH:/opt/anaconda/bin
-
 
 # User configuration
 
@@ -199,6 +193,8 @@ elif [[ $(whoami) == 'dlee' ]]; then
     source ~/.zsh/.zshrc-motionlogic
 elif [[ $(whoami) == 'admin' ]]; then
 	export TERM=xterm-256color
+else  
+  export TERM=xterm-kitty
 fi
 
 function Add-Ssh-Keys() { 
@@ -316,7 +312,7 @@ function install_yay() {
     rm yay -rf
   fi
 }
-install_yay
+# install_yay
 
 function create_install() {
   zip install.zip ~/.*
@@ -337,9 +333,6 @@ export PATH=/mnt/c/Program\ Files/Google/Chrome/Application:$PATH
 #   export DISPLAY="`grep nameserver /etc/resolv.conf | sed 's/nameserver //'`:0.0"
 # fi
 
-# if [[ -d ~/anaconda3 ]]; then
-#     export PATH=~/anaconda3/bin:$PATH:
-# fi
 #
 # Add direnv support
 eval "$(direnv hook zsh)"
@@ -359,6 +352,12 @@ alias exal="exa --header --long --git"
 function initnvm() {
 	source /usr/share/nvm/init-nvm.sh
 }
+initnvm
+
+# Chat GTP Free
+export OPENAI_API_KEY=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
+
+export PGCLIENTENCODING=utf-8
 
 # export AUTOSWITCH_MESSAGE_FORMAT="$(tput setaf 1)Switching to %venv_name 🐍 %py_version $(tput sgr0)"
 export AUTOSWITCH_MESSAGE_FORMAT=""
@@ -370,6 +369,29 @@ alias jukit_kitty="kitty --listen-on=unix:@"$(date +%s%N)" -o allow_remote_contr
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # [ -f ~/.resh/shellrc ] && source ~/.resh/shellrc # this line was added by RESH (Rich Enchanced Shell History)
+export PATH=$HOME/.virtualenv/dzly-cuxo/bin:$PATH
 
 # reshctl enable ctrl_r_binding
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
+export PATH=/home/dzly/.groundcover/bin:${PATH}
+
+# Created by `pipx` on 2023-07-27 08:37:26
+export PATH="$PATH:/home/dzly/.local/bin"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/anaconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/anaconda/etc/profile.d/conda.sh" ]; then
+        . "/opt/anaconda/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/anaconda/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+zplug load "bckim92/zsh-autoswitch-conda"
+
