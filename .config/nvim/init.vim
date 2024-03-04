@@ -1,4 +1,5 @@
 """""" Finally load the lua config
+let g:_jukit_is_windows = 0
 lua require('plugins')
 
 tnoremap <C-n> <C-\><C-n>
@@ -10,137 +11,17 @@ tnoremap <C-w>j <C-\><C-n><C-w>j
 set scrollback=100000
 
 " Silence error messages
-let g:_jukit_is_windows = 0
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set rtp+=~/.vim/bundle/Vundle.vim
 
-" call vundle#begin()
 call plug#begin('~/.vim/bundle/')
 
-" Async
-Plug 'skywind3000/asyncrun.vim'
-
-" Language Specific
-"" GO
-" Plug 'fatih/vim-go'
-
-" Telescope/Project.nvim
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'ahmedkhalf/project.nvim'
-Plug 'neovim/nvim-lspconfig'
-
-
-" Debug
-Plug 'mfussenegger/nvim-jdtls'
-Plug 'mfussenegger/nvim-dap'
-Plug 'puremourning/vimspector'
-
-" Jupyter Notebook
-Plug 'luk400/vim-jukit' 
-
-" Latex
-Plug 'vim-latex/vim-latex'
-
-" Javascript / Typescript / Jsx / tsx
-Plug 'maxmellon/vim-jsx-pretty'
- 
-"" Python
-" Plug 'tmhedberg/SimpylFold'
-
-" Scala
-" Plug 'derekwyatt/vim-scala'
-
-" RMarkdown
-" Plug 'vim-pandoc/vim-pandoc-syntax'
-" Plug 'vim-pandoc/vim-pandoc'
-" Plug 'vim-pandoc/vim-rmarkdown'
-
-" Window finder
-Plug 't9md/vim-choosewin'
-
-" Snippets
-Plug 'SirVer/ultisnips'
-
-" Snippets are separated from the engine. Add this if you want them:
-Plug 'honza/vim-snippets'
-
-" Git
-Plug 'lewis6991/gitsigns.nvim', {'branch': 'release'}
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-
-" Editing
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-Plug 'easymotion/vim-easymotion'
-" Plug 'justinmk/vim-sneak'
-" Plug 'jiangmiao/auto-pairs'
-
-" Fuzzy
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf'
-
-" File formatting
-Plug 'maksimr/vim-jsbeautify'
-
-Plug 'google/vim-maktaba'
-Plug 'google/vim-codefmt'
-
-" Also add Glaive, which is used to configure codefmt's maktaba flags. See
-" `:help :Glaive` for usage.
-Plug 'google/vim-glaive'
-
-" Lightline
-Plug 'itchyny/lightline.vim'
-
-" Syntax Highlighting
-Plug 'sheerun/vim-polyglot'
-
-" Color schemes
-Plug 'morhetz/gruvbox'
-" Plug 'w0ng/vim-hybrid'
-Plug 'dracula/vim', {'as':'dracula'}
-
-" REPL
-
-" Plug 'sillybun/vim-repl'
-" Plug 'HiPhish/repl.nvim'
-
-" Open url
-" Plug 'dhruvasagar/vim-open-url'
-
-" Project Vimrc
-" Plug 'LucHermitte/lh-vim-lib'
-" Plug 'LucHermitte/local_vimrc'
-
-" File system
-Plug 'scrooloose/nerdtree'
-
-" Folding
-" Plug 'pseewald/vim-anyfold'
-
-" Hex????
-Plug 'fidian/hexmode'
-
-" Window Outline
-Plug 'nvim-zh/colorful-winsep.nvim'
-
-" Personal Plugs
-" Plug 'dariuszlee/vim-dzl-replace'
-Plug 'dariuszlee/vim-dzl-gitdiff'
-
-" AI Tools
-" Plug 'jackMort/ChatGPT.nvim'
-Plug 'Exafunction/codeium.vim'
-" eyJhbGciOiJSUzI1NiIsImtpZCI6ImQwNTU5YzU5MDgzZDc3YWI2NDUxOThiNTIxZmM4ZmVmZmVlZmJkNjIiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiRGFyaXVzIExlZSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BRWRGVHA1cVA3bXNVWk1iYnBzYXBqbV8yLVBsUXIzaWZFc2ItNUlhQW9mWEFRPXM5Ni1jIiwiaXNzIjoiaHR0cHM6Ly9zZWN1cmV0b2tlbi5nb29nbGUuY29tL2V4YTItZmIxNzAiLCJhdWQiOiJleGEyLWZiMTcwIiwiYXV0aF90aW1lIjoxNjc0MDg0OTQ2LCJ1c2VyX2lkIjoiN0tGY3dTNGs4dldzc0tCendQd0huamxFcHZtMSIsInN1YiI6IjdLRmN3UzRrOHZXc3NLQnp3UHdIbmpsRXB2bTEiLCJpYXQiOjE2NzQwODQ5NDYsImV4cCI6MTY3NDA4ODU0NiwiZW1haWwiOiJkYXJpdXN6bGVlOTNAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZ29vZ2xlLmNvbSI6WyIxMDc0MTYwMDk0MjQyNDA0MjI2ODIiXSwiZW1haWwiOlsiZGFyaXVzemxlZTkzQGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6Imdvb2dsZS5jb20ifX0.jAqFfzr9ec-boUmmsdKbLZ_-hIhniKihzRCrL1WJH0q84HMFRe8u--YYEuVvzt4DX5-rttosG-21daCL8WJMriryyen6yq593s-GdWMrqh6L6R1u_pqT4c3KMWGBxR6WVk0FMog4Up4esya9tky2z6j0oGYbYidOuvTqi5jqoXSlcxkw2-hs28ySWuIvWRpWoZ6aFwkc_cKhu3WuXKH-_59qeBaH8Pc-j7PL9ZfcWSaJ8KazqM3FLoce6JUF4Kq1L7Re2QZs8Ova25RwIG2K4HUTRvWp3xO2m1muRkCoUHfbrXiznSnmqFtS5okXULQGj0ufsUYihqM4MhPR8jtDfA
-
-" Neovim
-" Plug 'floobits/floobits-neovim'
-
+Plug 'luk400/vim-jukit' ,
 call plug#end()
+
 
 " Config MUST BE FIRST
 let mapleader = ","
@@ -219,15 +100,6 @@ set noeol
 " endif
 
 let g:coq_settings = {'auto_start': v:true }
-
-" Formatting settings
-" Glaive codefmt google_java_executable=
-" Glaive codefmt google_java_executable="java -jar /path/to/google-java-format-VERSION-all-deps.jar"
-
-call glaive#Install()
-" let g:java_format_exe = "Glaive codefmt google_java_executable=\"java -jar ".$HOME."/.vim/google-java-format-1.8-all-deps.jar\""
-let g:java_format_exe = "Glaive codefmt google_java_executable=\"java -jar ".$HOME."/.vim/google-java-format-1.3-all-deps.jar\""
-execute g:java_format_exe
 
 imap jj <Esc>
 
@@ -442,7 +314,7 @@ nnoremap <leader>js :call JsonBeautify()<CR>
 
 " Snippets
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<C-d>"
+" let g:UltiSnipsExpandTrigger="<C-d>"
 
 " Handling swap files
 augroup SwapFileGroup
