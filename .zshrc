@@ -1,3 +1,12 @@
+alias python=python3
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -10,7 +19,7 @@ export ZSH=~/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to load
@@ -70,20 +79,16 @@ plugins=(
 	z
   aws-mfa
   autoswitch_virtualenv 
+  zsh-fzf-history-search
 )
 fpath=(~/.zsh-completions/ $fpath)
 
 source $ZSH/oh-my-zsh.sh
 
-source ~/.zplug/init.zsh
-
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
+# Add fzf path
+export PATH=$PATH:$HOME/.local/share/nvim/lazy/fzf/bin/
+source <(fzf --zsh)
+export FZF_DEFAULT_COMMAND='find . -path "*/\.*" -prune -o -type f -print -o -type l -print | sed s/^..//'
 
 # zplug load --verbose
 
@@ -177,12 +182,6 @@ export PATH=$PATH:$JAVA_HOME/bin
 export ANDROID_STUDIO_HOME="/usr/local/android-studio/"
 export PATH=$PATH:$ANDROID_STUDIO_HOME/bin
 
-# FZF Settings
-export FZF_DEFAULT_COMMAND='find . -path "*/\.*" -prune -o -type f -print -o -type l -print | sed s/^..//'
-if [[ -d ~/.vim/bundle/fzf/bin ]]; then
-	export PATH=~/.vim/bundle/fzf/bin:$PATH:
-fi
-
 
 if [[ $(whoami) == 'dzlyy' ]]; then
 	export GDK_SCALE=2
@@ -194,7 +193,7 @@ elif [[ $(whoami) == 'dlee' ]]; then
 elif [[ $(whoami) == 'admin' ]]; then
 	export TERM=xterm-256color
 else  
-  export TERM=xterm-kitty
+  # export TERM=xterm-kitty
 fi
 
 function Add-Ssh-Keys() { 
@@ -346,13 +345,11 @@ PROMPT='%{$fg[yellow]%}[%D{%f/%m/%y} %D{%L:%M:%S}] '$PROMPT
 alias ls=exa
 alias exal="exa --header --long --git"
 
-# fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-function initnvm() {
-	source /usr/share/nvm/init-nvm.sh
-}
-initnvm
+# function initnvm() {
+# 	source /usr/share/nvm/init-nvm.sh
+# }
+# initnvm
 
 # Chat GTP Free
 export OPENAI_API_KEY=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
@@ -379,19 +376,46 @@ export PATH=/home/dzly/.groundcover/bin:${PATH}
 # Created by `pipx` on 2023-07-27 08:37:26
 export PATH="$PATH:/home/dzly/.local/bin"
 
+
+export DOWNLOADS=/mnt/c/Users/dariu/Downloads
+export MUSIC=/mnt/m/song_data/
+export GOPATH=${HOME}/go
+
+open_windows_file() {
+    local linux_file_path="$1"
+    local windows_file_path="$(wslpath -w "$linux_file_path")"
+    explorer.exe "$windows_file_path"
+}
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# export PATH=$PATH:$HOME/miniconda3/bin/
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/anaconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/darius/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/opt/anaconda/etc/profile.d/conda.sh" ]; then
-        . "/opt/anaconda/etc/profile.d/conda.sh"
+    if [ -f "/home/darius/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/darius/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/opt/anaconda/bin:$PATH"
+        export PATH="/home/darius/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-zplug load "bckim92/zsh-autoswitch-conda"
 
+# Praat
+
+export PATH=$PATH:/mnt/c/Users/dariu/Downloads/praat6413_win-intel64/
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+source ~/.zsh/conda-auto-env

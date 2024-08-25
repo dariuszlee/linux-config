@@ -13,8 +13,8 @@ return {
    'tpope/vim-surround',
    'tpope/vim-commentary',
    'easymotion/vim-easymotion',
+   "junegunn/fzf",
    'junegunn/fzf.vim',
-   'junegunn/fzf',
    'maksimr/vim-jsbeautify',
    'itchyny/lightline.vim',
    'sheerun/vim-polyglot',
@@ -247,6 +247,9 @@ return {
       })
     end
   },
+  {'SirVer/ultisnips'},
+  {'honza/vim-snippets'},
+  {'quangnguyen30192/cmp-nvim-ultisnips'},
   {'hrsh7th/cmp-nvim-lsp'},
   {'hrsh7th/cmp-buffer'},
   {'hrsh7th/cmp-path'},
@@ -256,10 +259,10 @@ return {
       local cmp = require("cmp")
       cmp.setup({
         snippet = {
-        -- REQUIRED - you must specify a snippet engine
-        expand = function(args)
-          vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` rs.
-        end,
+          -- REQUIRED - you must specify a snippet engine
+          expand = function(args)
+            vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` rs.
+          end,
         },
         window = {
           -- completion = cmp.config.window.bordered(),
@@ -309,9 +312,6 @@ return {
     end
   },
 
-  {'SirVer/ultisnips'},
-  {'honza/vim-snippets'},
-  {'quangnguyen30192/cmp-nvim-ultisnips'},
   {
     "Exafunction/codeium.nvim",
     dependencies = {
@@ -323,7 +323,11 @@ return {
         })
     end
   },
-
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    opts = {},
+  },
   {'neovim/nvim-lspconfig',
     config = function()
       local lspconfig = require('lspconfig')
@@ -343,6 +347,16 @@ return {
       lspconfig.lua_ls.setup{
         capabilities = capabilities
       }
+
+      lspconfig.terraformls.setup{
+        filetypes = { "tf" }
+      }
+      vim.api.nvim_create_autocmd({"BufWritePre"}, {
+        pattern = {"*.tf", "*.tfvars"},
+        callback = function()
+          vim.lsp.buf.format()
+        end,
+      })
 
       -- lspconfig.qml_lsp.setup{
       --   filetypes = { "qml", "qmljs" }
@@ -417,7 +431,6 @@ return {
       require("ufo").setup()
     end
   },
-
   {
     'rmagatti/auto-session',
     config = function()
@@ -426,7 +439,6 @@ return {
     }
     end
   },
-  
   {
     'rmagatti/session-lens',
     dependencies = {'rmagatti/auto-session', 'nvim-telescope/telescope.nvim'},
@@ -434,4 +446,27 @@ return {
       require('session-lens').setup({--[[your custom config--]]})
     end
   },
+  {
+    'akinsho/toggleterm.nvim', 
+    version = "*", 
+    opts = {--[[ things you want to change go here]]},
+    config = function ()
+      require("toggleterm").setup{
+        open_mapping = [[<C-M-Space>]],
+        direction = 'float'
+      }
+
+      vim.api.nvim_create_autocmd({ "TermEnter" }, {
+        pattern = "term://*toggleterm#*",
+        callback = function()
+          vim.keymap.set({'t', 'n'}, '<C-M-Space>', '<Cmd>exe v:count1 . "ToggleTerm"<CR>', { silent = true})
+        end,
+      })
+      vim.keymap.set('n', '<C-M-Space>', '<Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>', { silent = true})
+      vim.keymap.set('i', '<C-M-Space>', '<Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>', { silent = true})
+    end,
+  },
+  { 'jmbuhr/otter.nvim' }, 
+  { "ariel-frischer/bmessages.nvim", events = "CmdlineEnter", opts = {} },
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 }
