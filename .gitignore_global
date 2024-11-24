@@ -11,3 +11,8 @@ tags
 metastore_db/
 *.class
 .jukit/
+
+.venv
+.envrc
+.execute.py
+*.pem

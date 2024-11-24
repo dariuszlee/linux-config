@@ -77,9 +77,9 @@ plugins=(
 	docker
 	docker-compose
 	z
-  aws-mfa
+  # aws-mfa
   autoswitch_virtualenv 
-  zsh-fzf-history-search
+  # zsh-fzf-history-search
 )
 fpath=(~/.zsh-completions/ $fpath)
 
@@ -342,8 +342,8 @@ export PATH="/mnt/c/Program Files/Microsoft Visual Studio/2022/Community/Msbuild
 export PATH="$HOME/.vim/":$PATH
 PROMPT='%{$fg[yellow]%}[%D{%f/%m/%y} %D{%L:%M:%S}] '$PROMPT
 
-alias ls=exa
-alias exal="exa --header --long --git"
+#alias ls=exa
+#alias exal="exa --header --long --git"
 
 
 # function initnvm() {
@@ -359,6 +359,7 @@ export PGCLIENTENCODING=utf-8
 # export AUTOSWITCH_MESSAGE_FORMAT="$(tput setaf 1)Switching to %venv_name 🐍 %py_version $(tput sgr0)"
 export AUTOSWITCH_MESSAGE_FORMAT=""
 export AUTOSWITCH_SILENT="notnull"
+export AUTOSWITCH_DEFAULT_REQUIREMENTS="$HOME/.requirements.txt"
 
 alias jukit_kitty="kitty --listen-on=unix:@"$(date +%s%N)" -o allow_remote_control=yes"
 
@@ -377,7 +378,7 @@ export PATH=/home/dzly/.groundcover/bin:${PATH}
 export PATH="$PATH:/home/dzly/.local/bin"
 
 
-export DOWNLOADS=/mnt/c/Users/dariu/Downloads
+export DOWNLOADS=/mnt/c/Users/dalee/Downloads
 export MUSIC=/mnt/m/song_data/
 export GOPATH=${HOME}/go
 
@@ -389,7 +390,7 @@ open_windows_file() {
 
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# eval "$(pyenv init -)"
 
 # export PATH=$PATH:$HOME/miniconda3/bin/
 
@@ -419,3 +420,21 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 source ~/.zsh/conda-auto-env
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba init' !!
+export MAMBA_EXE='/home/dzly/.local/bin/micromamba';
+export MAMBA_ROOT_PREFIX='/home/dzly/micromamba';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias micromamba="$MAMBA_EXE"  # Fallback on help from mamba activate
+fi
+unset __mamba_setup
+alias mamba=micromamba
+alias conda=micromamba
+# <<< mamba initialize <<<
+
+export PATH="$HOME/.tfenv/bin:$PATH"
+source ~/.git-subrepo/.rc

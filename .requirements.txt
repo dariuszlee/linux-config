@@ -1,0 +1,8 @@
+black
+pyright
+pynvim
+ipython
+ipdb
+isort
+autoflake
+matplotlib
