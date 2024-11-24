@@ -22,6 +22,9 @@ call plug#begin('~/.vim/bundle/')
 Plug 'luk400/vim-jukit' ,
 call plug#end()
 
+autocmd BufWritePost *.py !black % 
+autocmd BufWritePost *.py !isort % 
+autocmd BufWritePost *.py !autoflake -i --remove-all-unused-imports % 
 
 " Config MUST BE FIRST
 let mapleader = ","
