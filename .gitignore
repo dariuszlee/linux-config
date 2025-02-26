@@ -38,3 +38,4 @@
 # Xresource SUPER IMPORTANT FOR HIDPI
 !.Xresources
 !.Xresourcesdzlyy
+.envrc

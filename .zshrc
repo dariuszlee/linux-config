@@ -12,6 +12,7 @@ fi
 # confirmations, etc.) must go above this block; everything else may go below.
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
@@ -86,7 +87,7 @@ fpath=(~/.zsh-completions/ $fpath)
 source $ZSH/oh-my-zsh.sh
 
 # Add fzf path
-export PATH=$PATH:$HOME/.local/share/nvim/lazy/fzf/bin/
+# export PATH=$PATH:$HOME/.local/share/nvim/lazy/fzf/bin/
 source <(fzf --zsh)
 export FZF_DEFAULT_COMMAND='find . -path "*/\.*" -prune -o -type f -print -o -type l -print | sed s/^..//'
 
@@ -409,8 +410,7 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# Praat
-
+# Praat - Audio analysis tool
 export PATH=$PATH:/mnt/c/Users/dariu/Downloads/praat6413_win-intel64/
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -419,7 +419,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-source ~/.zsh/conda-auto-env
 
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba init' !!
@@ -438,3 +437,5 @@ alias conda=micromamba
 
 export PATH="$HOME/.tfenv/bin:$PATH"
 source ~/.git-subrepo/.rc
+
+. "$HOME/.local/bin/env"

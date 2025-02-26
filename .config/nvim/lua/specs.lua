@@ -1,31 +1,57 @@
 return {
-   'skywind3000/asyncrun.vim',
-   'kyazdani42/nvim-web-devicons',
-   'ahmedkhalf/project.nvim',
-   'mfussenegger/nvim-jdtls',
-   'mfussenegger/nvim-dap',
-   'puremourning/vimspector',
-   'vim-latex/vim-latex',
-   'maxmellon/vim-jsx-pretty',
-   't9md/vim-choosewin',
-   'tpope/vim-fugitive',
-   'airblade/vim-gitgutter',
-   'tpope/vim-surround',
-   'tpope/vim-commentary',
-   'easymotion/vim-easymotion',
-   "junegunn/fzf",
-   'junegunn/fzf.vim',
-   'maksimr/vim-jsbeautify',
-   'itchyny/lightline.vim',
-   'sheerun/vim-polyglot',
-   'morhetz/gruvbox',
-   'dracula/vim',
-   'scrooloose/nerdtree',
-   'fidian/hexmode',
-   'nvim-zh/colorful-winsep.nvim',
-   'dariuszlee/vim-dzl-gitdiff',
+  'skywind3000/asyncrun.vim',
+  'kyazdani42/nvim-web-devicons',
+  'ahmedkhalf/project.nvim',
+  'mfussenegger/nvim-jdtls',
+  {
+    'mfussenegger/nvim-dap',
+    config = function()
+        -- Set keymaps to control the debugger
+      vim.keymap.set('n', '<F5>', require 'dap'.continue)
+      vim.keymap.set('n', '<F10>', require 'dap'.step_over)
+      vim.keymap.set('n', '<F11>', require 'dap'.step_into)
+      vim.keymap.set('n', '<F12>', require 'dap'.step_out)
+      vim.keymap.set('n', '<F2>', require 'dap'.toggle_breakpoint)
+    end 
+  },
+  {
+    "microsoft/vscode-js-debug",
+    lazy = true,
+    build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out" 
+  },
+  {
+    'mxsdev/nvim-dap-vscode-js',
+    dependencies = {
+      'mfussenegger/nvim-dap'
+    },
+    config = function()
+      require("dap-vscode-js").setup({
+        adapters = { 'chrome', 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost', 'node', 'chrome' }, -- which adapters to register in nvim-dap
+      })
+    end,
+  },
+  'puremourning/vimspector',
+  'vim-latex/vim-latex',
+  'maxmellon/vim-jsx-pretty',
+  't9md/vim-choosewin',
+  'tpope/vim-fugitive',
+  'airblade/vim-gitgutter',
+  'tpope/vim-surround',
+  'tpope/vim-commentary',
+  'easymotion/vim-easymotion',
+  "junegunn/fzf",
+  'junegunn/fzf.vim',
+  'maksimr/vim-jsbeautify',
+  'itchyny/lightline.vim',
+  'sheerun/vim-polyglot',
+  'morhetz/gruvbox',
+  'dracula/vim',
+  'scrooloose/nerdtree',
+  'fidian/hexmode',
+  'nvim-zh/colorful-winsep.nvim',
+  'dariuszlee/vim-dzl-gitdiff',
 
-   {
+  {
     "sindrets/diffview.nvim",
     config = function()
       local actions = require("diffview.actions")
@@ -347,6 +373,7 @@ return {
       lspconfig.lua_ls.setup{
         capabilities = capabilities
       }
+      lspconfig.jdtls.setup{}
 
       lspconfig.terraformls.setup{
         filetypes = { "tf" }

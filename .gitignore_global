@@ -16,3 +16,4 @@ metastore_db/
 .envrc
 .execute.py
 *.pem
+__pycache__/
