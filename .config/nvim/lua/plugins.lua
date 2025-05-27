@@ -13,6 +13,26 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+vim.o.autoread = true
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+	callback = function()
+		if vim.bo.ft == "python" then
+			vim.lsp.buf.code_action {
+				context = { only = { "source.organizeImports.ruff" } },
+				apply = true,
+			}
+			vim.lsp.buf.code_action {
+				context = { only = { "source.fixAll.ruff" } },
+				apply = true,
+			}
+			os.execute("ruff format " .. vim.fn.expand('%'))
+			vim.cmd("e")
+		end
+	end,
+})
+
+vim.keymap.set('n', '<leader><leader>z', vim.lsp.buf.code_action, {buffer =true})
 
 -- Keymaps for ChatGPT
 return require('lazy').setup("specs")

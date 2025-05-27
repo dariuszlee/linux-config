@@ -50,7 +50,6 @@ return {
   'fidian/hexmode',
   'nvim-zh/colorful-winsep.nvim',
   'dariuszlee/vim-dzl-gitdiff',
-
   {
     "sindrets/diffview.nvim",
     config = function()
@@ -354,19 +353,29 @@ return {
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     opts = {},
   },
+  { "nanotee/sqls.nvim" },
   {'neovim/nvim-lspconfig',
     config = function()
       local lspconfig = require('lspconfig')
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
       lspconfig.pyright.setup{
         capabilities = capabilities,
-        exclude = { "processed_stock_lmv3", "data" },
         settings = {
           python = {
-            exclude = { "processed_stock_lmv3", "data" }
+            analysis = {
+              ignore = { '*' },
+            },
           },
           pyright = {
-            exclude = { "processed_stock_lmv3", "data" }
+            disableOrganizeImports = true,
+          }
+        }
+      }
+      lspconfig.ruff.setup {
+        init_options = {
+          settings = {
+            -- Any extra CLI arguments for `ruff` go here.
+            args = {},
           }
         }
       }
@@ -374,7 +383,11 @@ return {
         capabilities = capabilities
       }
       lspconfig.jdtls.setup{}
-
+      lspconfig.sqls.setup{
+        on_attach = function(client, bufnr)
+            require('sqls').on_attach(client, bufnr)
+        end
+      }
       lspconfig.terraformls.setup{
         filetypes = { "tf" }
       }
@@ -433,46 +446,6 @@ return {
       })
     end
   },
-
-  {'kevinhwang91/nvim-ufo', dependencies = 'kevinhwang91/promise-async',
-    config = function ()
-      vim.o.foldcolumn = '1'
-      vim.o.foldlevel = 99
-      vim.o.foldlevelstart = 99
-      vim.o.foldenable = true
-
-      -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
-      vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
-      vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities.textDocument.foldingRange = {
-          dynamicRegistration = false,
-          lineFoldingOnly = true
-      }
-      local language_servers = require("lspconfig").util.available_servers()
-      for _, ls in ipairs(language_servers) do
-          require('lspconfig')[ls].setup({
-              capabilities = capabilities
-          })
-      end
-      require("ufo").setup()
-    end
-  },
-  {
-    'rmagatti/auto-session',
-    config = function()
-    require("auto-session").setup {
-      log_level = "error",
-    }
-    end
-  },
-  {
-    'rmagatti/session-lens',
-    dependencies = {'rmagatti/auto-session', 'nvim-telescope/telescope.nvim'},
-    config = function()
-      require('session-lens').setup({--[[your custom config--]]})
-    end
-  },
   {
     'akinsho/toggleterm.nvim', 
     version = "*", 
@@ -496,4 +469,107 @@ return {
   { 'jmbuhr/otter.nvim' }, 
   { "ariel-frischer/bmessages.nvim", events = "CmdlineEnter", opts = {} },
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+  {
+    "yetone/avante.nvim",
+    event = "VeryLazy",
+    version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
+    opts = {
+      provider = "claude",
+      claude = {
+        endpoint = "https://api.anthropic.com",
+        model = "claude-3-5-sonnet-20241022",
+        temperature = 0,
+        max_tokens = 4096,
+      },
+      openai = {
+        endpoint = "https://api.openai.com/v1",
+        model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
+        timeout = 30000, -- timeout in milliseconds
+        temperature = 0, -- adjust if needed
+        max_tokens = 4096,
+        -- reasoning_effort = "high" -- only supported for reasoning models (o1, etc.)
+      },
+      behavior = {
+        enable_token_counting = false
+      }
+    },
+    -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+    build = "make",
+    -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "stevearc/dressing.nvim",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      --- The below dependencies are optional,
+      "echasnovski/mini.pick", -- for file_selector provider mini.pick
+      "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+      "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+      "ibhagwan/fzf-lua", -- for file_selector provider fzf
+      "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+      "zbirenbaum/copilot.lua", -- for providers='copilot'
+      {
+        -- support for image pasting
+        "HakonHarnes/img-clip.nvim",
+        event = "VeryLazy",
+        opts = {
+          -- recommended settings
+          default = {
+            embed_image_as_base64 = false,
+            prompt_for_file_name = false,
+            drag_and_drop = {
+              insert_mode = true,
+            },
+            -- required for Windows users
+            use_absolute_path = true,
+          },
+        },
+      },
+      {
+        -- Make sure to set this up properly if you have lazy=true
+        'MeanderingProgrammer/render-markdown.nvim',
+        opts = {
+          file_types = { "markdown", "Avante" },
+        },
+        ft = { "markdown", "Avante" },
+      },
+    },
+  },
+  {
+    'nvim-neo-tree/neo-tree.nvim',
+    config = function()
+      require('neo-tree').setup({
+        filesystem = {
+          commands = {
+            avante_add_files = function(state)
+              local node = state.tree:get_node()
+              local filepath = node:get_id()
+              local relative_path = require('avante.utils').relative_path(filepath)
+
+              local sidebar = require('avante').get()
+
+              local open = sidebar:is_open()
+              -- ensure avante sidebar is open
+              if not open then
+                require('avante.api').ask()
+                sidebar = require('avante').get()
+              end
+
+              sidebar.file_selector:add_selected_file(relative_path)
+
+              -- remove neo tree buffer
+              if not open then
+                sidebar.file_selector:remove_selected_file('neo-tree filesystem [1]')
+              end
+            end,
+          },
+          window = {
+            mappings = {
+              ['oa'] = 'avante_add_files',
+            },
+          },
+        },
+      })
+    end,
+  },
 }

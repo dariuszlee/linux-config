@@ -22,9 +22,9 @@ call plug#begin('~/.vim/bundle/')
 Plug 'luk400/vim-jukit' ,
 call plug#end()
 
-autocmd BufWritePost *.py !black % 
-autocmd BufWritePost *.py !isort % 
-autocmd BufWritePost *.py !autoflake -i --remove-all-unused-imports % 
+" autocmd BufWritePost *.py !black % 
+" autocmd BufWritePost *.py !isort % 
+" autocmd BufWritePost *.py !autoflake -i --remove-all-unused-imports % 
 
 " Config MUST BE FIRST
 let mapleader = ","
@@ -365,10 +365,11 @@ nnoremap <leader>/ :BLines<CR>
 
 " Rg
 nnoremap <leader>aa :Rg <c-r>=expand("<cword>")<CR><CR>
-nnoremap <leader>as :Rgsource <c-r>=expand("<cword>")<CR><CR>
+nnoremap <leader><leader>as :Rgsource <c-r>=expand("<cword>")<CR><CR>
 nnoremap <leader>at :Rgtest <c-r>=expand("<cword>")<CR><CR>
 nnoremap <leader>ac :Rgc <c-r>=expand("<cword>")<CR><CR>
 nnoremap <leader>ap :Rgpy <c-r>=expand("<cword>")<CR><CR>
+nnoremap <leader>aj :Rgjs <c-r>=expand("<cword>")<CR><CR>
 " set rtp+=~/.fzf
 " set rtp+=/usr/local/opt/fzf
 " let g:rg_derive_root='true'
@@ -380,6 +381,8 @@ command! -nargs=1 Rgc
  		 \ call fzf#vim#grep('rg --vimgrep --column --line-number --color=always --smart-case --follow -th -tcpp '. string(<q-args>), 1)
 command! -nargs=1 Rgpy
  		 \ call fzf#vim#grep('rg --vimgrep --column --line-number --color=always --smart-case --follow -tpy '. string(<q-args>), 1)
+command! -nargs=1 Rgjs
+ 		 \ call fzf#vim#grep('rg --vimgrep --column --line-number --color=always --smart-case --follow -ttsx '. string(<q-args>), 1)
 command! -nargs=1 Rgsource
  		 \ call fzf#vim#grep('rg --vimgrep --column --line-number --color=always --smart-case --follow -g "!*test*" '. string(<q-args>), 1)
 command! -nargs=1 Rgtest

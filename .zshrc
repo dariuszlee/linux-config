@@ -357,8 +357,8 @@ export OPENAI_API_KEY=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
 
 export PGCLIENTENCODING=utf-8
 
-# export AUTOSWITCH_MESSAGE_FORMAT="$(tput setaf 1)Switching to %venv_name 🐍 %py_version $(tput sgr0)"
-export AUTOSWITCH_MESSAGE_FORMAT=""
+export AUTOSWITCH_MESSAGE_FORMAT="$(tput setaf 1)Switching to %venv_name 🐍 %py_version $(tput sgr0)"
+# export AUTOSWITCH_MESSAGE_FORMAT=""
 export AUTOSWITCH_SILENT="notnull"
 export AUTOSWITCH_DEFAULT_REQUIREMENTS="$HOME/.requirements.txt"
 
@@ -371,7 +371,8 @@ alias jukit_kitty="kitty --listen-on=unix:@"$(date +%s%N)" -o allow_remote_contr
 export PATH=$HOME/.virtualenv/dzly-cuxo/bin:$PATH
 
 # reshctl enable ctrl_r_binding
-[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+# [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+source <(kubectl completion zsh)
 
 export PATH=/home/dzly/.groundcover/bin:${PATH}
 
@@ -389,9 +390,6 @@ open_windows_file() {
     explorer.exe "$windows_file_path"
 }
 
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
 
 # export PATH=$PATH:$HOME/miniconda3/bin/
 
@@ -439,3 +437,8 @@ export PATH="$HOME/.tfenv/bin:$PATH"
 source ~/.git-subrepo/.rc
 
 . "$HOME/.local/bin/env"
+export PATH=$PATH:/usr/local/go/bin
+
+# export PYENV_ROOT="$HOME/.pyenv"
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"

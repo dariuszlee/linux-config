@@ -17,7 +17,7 @@
 #    - :meth:`init_gui_pylab`
 #    - :meth:`init_extensions`
 #    - :meth:`init_code`
-
+c = get_config()
 ## Execute the given command string.
 #c.InteractiveShellApp.code_to_run = ''
 
@@ -151,7 +151,7 @@
 #c.InteractiveShell.ast_transformers = []
 
 ## Automatically run await statement in the top level repl.
-#c.InteractiveShell.autoawait = True
+c.InteractiveShell.autoawait = True
 
 ## Make IPython automatically call any callable object even if you didn't type
 #  explicit parentheses. For example, 'str 43' becomes 'str(43)' automatically.
