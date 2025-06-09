@@ -26,6 +26,12 @@ call plug#end()
 " autocmd BufWritePost *.py !isort % 
 " autocmd BufWritePost *.py !autoflake -i --remove-all-unused-imports % 
 
+let g:neoformat_try_node_exe = 1
+nnoremap gp :silent %!npx prettier --stdin-filepath %<CR>
+autocmd BufWritePre *.js Neoformat
+autocmd BufWritePre *.tsx Neoformat
+autocmd BufWritePre *.ts Neoformat
+
 " Config MUST BE FIRST
 let mapleader = ","
 nnoremap <leader><leader>r :source ~/.config/nvim/init.vim<CR>
@@ -364,12 +370,12 @@ nnoremap <leader>/ :BLines<CR>
 " nnoremap <leader>w :Windows<CR>
 
 " Rg
-nnoremap <leader>aa :Rg <c-r>=expand("<cword>")<CR><CR>
+nnoremap <leader><leader>aa :Rg <c-r>=expand("<cword>")<CR><CR>
 nnoremap <leader><leader>as :Rgsource <c-r>=expand("<cword>")<CR><CR>
-nnoremap <leader>at :Rgtest <c-r>=expand("<cword>")<CR><CR>
-nnoremap <leader>ac :Rgc <c-r>=expand("<cword>")<CR><CR>
-nnoremap <leader>ap :Rgpy <c-r>=expand("<cword>")<CR><CR>
-nnoremap <leader>aj :Rgjs <c-r>=expand("<cword>")<CR><CR>
+nnoremap <leader><leader>at :Rgtest <c-r>=expand("<cword>")<CR><CR>
+nnoremap <leader><leader>ac :Rgc <c-r>=expand("<cword>")<CR><CR>
+nnoremap <leader><leader>ap :Rgpy <c-r>=expand("<cword>")<CR><CR>
+nnoremap <leader><leader>aj :Rgjs <c-r>=expand("<cword>")<CR><CR>
 " set rtp+=~/.fzf
 " set rtp+=/usr/local/opt/fzf
 " let g:rg_derive_root='true'

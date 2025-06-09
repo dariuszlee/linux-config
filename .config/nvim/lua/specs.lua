@@ -1,4 +1,5 @@
 return {
+  'sbdchd/neoformat',
   'skywind3000/asyncrun.vim',
   'kyazdani42/nvim-web-devicons',
   'ahmedkhalf/project.nvim',
@@ -472,26 +473,15 @@ return {
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
-    version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
+    version = false, -- Never set this value to "*"! Never!
     opts = {
       provider = "claude",
       claude = {
         endpoint = "https://api.anthropic.com",
         model = "claude-3-5-sonnet-20241022",
         temperature = 0,
-        max_tokens = 4096,
+        max_tokens = 8092,
       },
-      openai = {
-        endpoint = "https://api.openai.com/v1",
-        model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
-        timeout = 30000, -- timeout in milliseconds
-        temperature = 0, -- adjust if needed
-        max_tokens = 4096,
-        -- reasoning_effort = "high" -- only supported for reasoning models (o1, etc.)
-      },
-      behavior = {
-        enable_token_counting = false
-      }
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = "make",
