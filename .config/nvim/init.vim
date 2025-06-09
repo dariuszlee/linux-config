@@ -22,10 +22,6 @@ call plug#begin('~/.vim/bundle/')
 Plug 'luk400/vim-jukit' ,
 call plug#end()
 
-" autocmd BufWritePost *.py !black % 
-" autocmd BufWritePost *.py !isort % 
-" autocmd BufWritePost *.py !autoflake -i --remove-all-unused-imports % 
-
 let g:neoformat_try_node_exe = 1
 nnoremap gp :silent %!npx prettier --stdin-filepath %<CR>
 autocmd BufWritePre *.js Neoformat
@@ -206,6 +202,11 @@ elseif executable('clip.exe')
   nnoremap "+p :let @"=substitute(system("clip.exe"), '<C-v><C-m>', '', 'g')<cr>p
   nnoremap "*p :let @"=substitute(system("clip.exe"), '<C-v><C-m>', '', 'g')<cr>p
   nnoremap fyy y:call system("clip.exe", expand("%:p"))<CR>
+elseif executable('pbcopy')
+  xnoremap "+y y:call system("pbcopy", @")<cr>
+  nnoremap "+p :let @"=substitute(system("pbpaste"), '<C-v><C-m>', '', 'g')<cr>p
+  nnoremap "*p :let @"=substitute(system("pbpaste"), '<C-v><C-m>', '', 'g')<cr>p
+  nnoremap fyy y:call system("pbcopy", expand("%:p"))<CR>
 else 
   " echom "X11 Sesssion"
   xnoremap "+y y:call system("xclip -sel clip", @")<cr>
@@ -357,8 +358,8 @@ nnoremap <leader><leader>gdc :DiffviewClose<CR>
 " let $FZF_DEFAULT_COMMAND='git ls-tree -r --name-only HEAD'
 nnoremap ;; :Files<CR>
 nnoremap ;g :GFiles<CR>
-nnoremap ;s :GFiles -- . ':!:*test*'<CR>
-nnoremap ;t :GFiles '*test*'<CR>
+nnoremap ;s :GFiles -- . ':!:*tests*'<CR>
+nnoremap ;t :GFiles '*tests*'<CR>
 nnoremap ;c :GFiles -- '*.cpp' '*.h' '*.c' <CR>
 nnoremap <leader>; :Buffers<CR>
 nnoremap <leader>l :Tags<CR>
@@ -390,9 +391,9 @@ command! -nargs=1 Rgpy
 command! -nargs=1 Rgjs
  		 \ call fzf#vim#grep('rg --vimgrep --column --line-number --color=always --smart-case --follow -ttsx '. string(<q-args>), 1)
 command! -nargs=1 Rgsource
- 		 \ call fzf#vim#grep('rg --vimgrep --column --line-number --color=always --smart-case --follow -g "!*test*" '. string(<q-args>), 1)
+ 		 \ call fzf#vim#grep('rg --vimgrep --column --line-number --color=always --smart-case --follow -g "!*tests*" '. string(<q-args>), 1)
 command! -nargs=1 Rgtest
- 		 \ call fzf#vim#grep('rg --vimgrep --column --line-number --color=always --smart-case --follow -g "*test*" '. string(<q-args>), 1)
+ 		 \ call fzf#vim#grep('rg --vimgrep --column --line-number --color=always --smart-case --follow -g "*tests*" '. string(<q-args>), 1)
 " command! -nargs=1 Rg 
 "     \ call fzf#vim#grep('rg --column --line-number '. string(<q-args>), 1)
 

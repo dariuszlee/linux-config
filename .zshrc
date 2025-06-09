@@ -1,5 +1,7 @@
 alias python=python3
 
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -20,8 +22,7 @@ export ZSH=~/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
   git
@@ -36,6 +37,8 @@ plugins=(
 fpath=(~/.zsh-completions/ $fpath)
 
 source $ZSH/oh-my-zsh.sh
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Add fzf path
 # export PATH=$PATH:$HOME/.local/share/nvim/lazy/fzf/bin/
@@ -59,8 +62,14 @@ export EDITOR=nvim
 alias tmux="TERM=screen-256color-bce tmux"
 #
 # Java settings
-export JAVA_HOME="/usr"
-export PATH=$PATH:$JAVA_HOME/bin
+
+if [[ "$(whoami)" == "dariuszlee" ]]; then
+  export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
+  export JAVA_HOME="/opt/homebrew/opt/openjdk@21"
+else
+  export JAVA_HOME="/usr"
+  export PATH=$PATH:$JAVA_HOME/bin
+fi
 
 function Add-Ssh-Keys() { 
     echo "Adding ssh keys...."
@@ -209,7 +218,13 @@ export PATH=/home/dzly/.groundcover/bin:${PATH}
 # Created by `pipx` on 2023-07-27 08:37:26
 export PATH="$PATH:/home/dzly/.local/bin"
 
-export DOWNLOADS=/mnt/c/Users/dariu/Downloads
+if [[ "$(whoami)" == "dariuszlee" ]]; then
+  export DOWNLOADS=$HOME/Downloads/
+else
+  export DOWNLOADS=/mnt/c/Users/dariu/Downloads
+  echo "You are $(whoami)"
+fi
+
 export MUSIC=/mnt/m/song_data/
 export GOPATH=${HOME}/go
 
@@ -225,10 +240,23 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PATH="$HOME/.tfenv/bin:$PATH"
-
 . "$HOME/.local/bin/env"
+
 export PATH=$PATH:/usr/local/go/bin
 
 # export PYENV_ROOT="$HOME/.pyenv"
 # [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 # eval "$(pyenv init -)"
+#
+export PATH=$PATH:$HOME/skhd/bin
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/dariuszlee/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+
+source "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"
+PS1='$(kube_ps1)'$PS1
+
+# Start Secrets Here
+source .envrc
